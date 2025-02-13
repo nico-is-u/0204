@@ -39,7 +39,32 @@
 			<!-- 新闻部分 -->
 			<view class="section-white section-padding" style="margin-top: 40rpx">
 				<view class="section-title">强国要闻</view>
-				
+				<view class="news-list">
+					<view class="news-item flex">
+						<image class="left-side" mode="widthFix" src="/static/news-fake-1.jpg"></image>
+						<view class="right-side flex flex-column flex-between">
+							<view class="title">企业汇率风险</view>
+							<view class="desc">国家外汇管理局发布企业汇率风险管理指汇营造...</view>
+							<view class="date">2025-01-01</view>
+						</view>
+					</view>
+					<view class="news-item flex">
+						<image class="left-side" mode="widthFix" src="/static/news-fake-1.jpg"></image>
+						<view class="right-side flex flex-column flex-between">
+							<view class="title">企业汇率风险</view>
+							<view class="desc">国家外汇管理局发布企业汇率风险管理指汇营造...</view>
+							<view class="date">2025-01-01</view>
+						</view>
+					</view>
+					<view class="news-item flex">
+						<image class="left-side" mode="widthFix" src="/static/news-fake-1.jpg"></image>
+						<view class="right-side flex flex-column flex-between">
+							<view class="title">企业汇率风险</view>
+							<view class="desc">国家外汇管理局发布企业汇率风险管理指汇营造...</view>
+							<view class="date">2025-01-01</view>
+						</view>
+					</view>
+				</view>
 			</view>
 			
 		</view>
@@ -72,7 +97,7 @@ page{
 }
 
 .page-index{
-	padding: 0 24rpx;
+	padding: 0 24rpx 120rpx;
 }
 
 .section{
@@ -84,6 +109,42 @@ page{
 			border-radius: 16rpx;
 		}
 	}
-	
+}
+
+.news-list{
+	.news-item{
+		
+		margin-top: 36rpx;
+		
+		.left-side{
+			width: 48%;
+			flex-shrink: 0;
+			
+			padding: 6rpx 0;
+		}
+		
+		.right-side{
+			
+			width: 52%;
+			padding-left: 24rpx;
+			
+			.title{
+				font-size: 42rpx;
+			}
+			
+			.desc{
+				height: 96rpx;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: #767676;
+			}
+			
+			.date{
+				
+				color: #767676;
+			}
+		}
+		
+	}
 }
 </style>

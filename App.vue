@@ -91,6 +91,25 @@
 		&.section-padding{
 			padding: 32rpx;
 		}
+		
+		.section-title{
+			font-size: 38rpx;
+			padding-left: 28rpx;
+			position: relative;
+			&::before{
+				width: 3px;
+				height: 80%;
+				
+				content: '';
+				
+				position: absolute;
+				left: 0;
+				top: 10%;
+				
+				background-color: #a62424;
+				border-radius: .5px;
+			}
+		}
 	}
 	
 	// 红背景 小菜单
