@@ -18,10 +18,45 @@
 	@import "uview-ui/index.scss";
 	
 	
+	/* 公共标签属性 */
+	view{
+		box-sizing: border-box;
+	}
+	
+	
 	/*每个页面公共css */
 	.flex{
 	    display: flex;
 	}
+	
+	
+	.flex-center{
+	    justify-content: center;
+	    align-items: center;
+	}
+	.flex-column{
+	    flex-direction: column;
+	}
+	.flex-x-center{
+	    justify-content: center;
+	}
+	.flex-x-end{
+	    justify-content: flex-end;
+	}
+	.flex-y-center{
+	    align-items: center !important;
+	}
+	.flex-y-end{
+	    align-items: flex-end;
+	}
+	.flex-column{
+	    flex-direction: column;
+	}
+	.flex-between{
+	    justify-content: space-between;
+	}
+	
+	
 	
 	// Flex垂直从上到下排列
 	.flex_direction_column{
