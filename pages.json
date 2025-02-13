@@ -45,6 +45,13 @@
 				"navigationStyle":"custom",
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+			"path" : "pages/daily_sign",
+			"style" : 
+			{
+				"navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {

@@ -9,7 +9,7 @@
 			
 			<!-- 小菜单 -->
 			<view class="menu-box flex flex-between flex-y-center">
-				<view class="item flex flex-column flex-y-center">
+				<view class="item flex flex-column flex-y-center" @click='too("daily_sign")'>
 					<image src="/static/6.png" mode="widthFix"></image>
 					<text>每日签到</text>
 				</view>
