@@ -2,10 +2,10 @@
 	<view class="mine_app flex flex_direction_column align_items_center">
 		
 
-		<!-- 顶栏 -->
-		<image src="/static/qgwy-head.jpg" class="navbar-img" mode="widthFix"></image>
-
+		
 		<view class="section">
+			<!-- 顶栏 -->
+			<image src="/static/qgwy-head.jpg" class="navbar-img" mode="widthFix"></image>
 			<!-- 中上个人信息框 -->
 			<view class="mine_information flex flex_direction_column align_items_center">
 				<!-- 上半红色背景框 -->
@@ -34,7 +34,7 @@
 						</view>
 					</view>
 					<!-- 右侧实名认证图标 -->
-					<view class="right">
+					<view class="right flex flex-center">
 						已实名
 					</view>
 				</view>
@@ -125,9 +125,7 @@
 	.mine_app{
 		width: 100%;
 
-		.navbar-img{
-			padding: 160rpx 0;
-		}
+		padding: 160rpx 0;
 
 		.section{
 			width: 100%;
@@ -140,6 +138,8 @@
 				border-radius: 16px;
 				// 上半红色背景框
 				.top_red{
+					width: 100%;
+					position: relative;
 					border-top-left-radius: 16px;
 					border-top-right-radius: 16px;
 					background-color: rgb(173, 28, 11);
@@ -156,10 +156,25 @@
 						width: 50%;
 						padding: 0 20%;
 					}
+					// 右侧已实名图标
+					.right{
+						width: 100rpx;
+						height: 40rpx;
+						font-size: 26rpx;
+						background-color: #e8cf8f;
+						border-top-left-radius: 8rpx;
+						border-bottom-left-radius: 8rpx;
+						color: #ad1c0b;
+						position: absolute;
+						right: 0;
+					}
 				}
 				// 下半白色背景框
 				.bottom_white{
+					width: 100%;
 					background-color: rgb(255, 255, 255);
+					// border-bottom-left-radius: 16rpx;
+					// border-bottom-right-radius: 16rpx;
 					.line{
 						.item{
 							padding: 0 2%;
