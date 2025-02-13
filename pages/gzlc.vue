@@ -1,5 +1,25 @@
 <template>
-	<view>
+	<view class="page-gzlc">
+		<!-- 顶栏 -->
+		<image src="/static/13.jpg" class="navbar-img" mode="widthFix"></image>
+
+		<!-- 文章列表 -->
+		<view class="article-list flex flex-column">
+			<view class="article-item">
+				<image src="/static/14.jpg" ></image>
+				<view class="article-content"></view>
+			</view>
+
+			<view class="article-item">
+				<image src="/static/15.jpg" ></image>
+				<view class="article-content"></view>
+			</view>
+
+			<view class="article-item">
+				<image src="/static/16.jpg" ></image>
+				<view class="article-content"></view>
+			</view>
+		</view>
 		
 	</view>
 </template>
@@ -21,9 +41,15 @@
 page{
 	height: 100%;
 	
-	background-image: url('/static/gzlc-fake.jpg');
-	background-size: 100% auto;
-	background-repeat: no-repeat;
-	
+	background-color: #f2f2f2;
+}
+
+.page-gzlc{
+	padding-top: 180rpx;
+}
+
+.article-list{
+	margin-top: 24rpx;
+	padding: 0 32rpx 120rpx;
 }
 </style>

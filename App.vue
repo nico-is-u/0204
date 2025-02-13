@@ -120,6 +120,7 @@
 		padding: 12rpx;
 
 		.section-red-content{
+			height: 100%;
 			border: 1px solid $font-gold;
 			border-radius: 8px;
 			padding: 14rpx 28rpx;
@@ -155,12 +156,48 @@
 			}
 		}
 	}
+
+
+	// 文章列表
+	.article-list{
+
+		gap: 32rpx;
+
+		.article-item{
+			border-radius: 12px;
+			box-shadow: 0 0 6rpx rgba(0,0,0,.2);
+			overflow: hidden;
+
+			image{
+				width: 100%;
+				height: 380rpx;
+			}
+
+			.article-content{
+				height: 240rpx;
+				background-color: white;
+				
+			}
+
+		}
+	}
 	
 	
 	/* 工具类 */
 	.like-a-tag{
 	    text-decoration: none;
 	    color: rgb(255, 37, 74);
+	}
+
+	.navbar-img{
+		width: 100%;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9;
+
+		border-top: 40rpx solid $navbar-red;
 	}
 	
 </style>

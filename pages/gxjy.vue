@@ -1,7 +1,7 @@
 <template>
 	<view class="page-gxjy">
 		<!-- 顶栏 -->
-		<image src="/static/12.jpg" style="width: 100%;" mode="widthFix"></image>
+		<image src="/static/12.jpg" class="navbar-img" mode="widthFix"></image>
 
 		<!-- 顶部 -->
 		<view class="section-red section-red-1">
@@ -23,7 +23,7 @@
 
 		<!-- 中间 -->
 		<view class="section-red section-red-2">
-			<view class="section-red-content" style="height: 100%;"></view>
+			<view class="section-red-content"></view>
 		</view>
 
 	</view>
