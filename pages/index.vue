@@ -36,6 +36,12 @@
 				
 			</view>
 			
+			<!-- 新闻部分 -->
+			<view class="section-white section-padding" style="margin-top: 40rpx">
+				<view class="section-title">强国要闻</view>
+				
+			</view>
+			
 		</view>
 	</view>
 </template>

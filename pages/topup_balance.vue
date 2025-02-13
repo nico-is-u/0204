@@ -165,7 +165,7 @@
 				::after {
 					display: none;
 				}
-	}
+			}
 		}
 
 		.text2 {

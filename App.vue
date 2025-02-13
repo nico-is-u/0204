@@ -88,6 +88,9 @@
 	.section-white{
 		border-radius: 10px;
 		background-color: #fff;
+		&.section-padding{
+			padding: 32rpx;
+		}
 	}
 	
 	// 红背景 小菜单
