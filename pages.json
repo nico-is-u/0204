@@ -1,0 +1,95 @@
+{
+	"pages": [{
+			"path": "pages/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/gxjy",
+			"style": {
+				"navigationBarTitleText": "功勋家园"
+			}
+		},
+		{
+			"path": "pages/gzlj",
+			"style": {
+				"navigationBarTitleText": "国之两重"
+			}
+		},
+		{
+			"path": "pages/gzhl",
+			"style": {
+				"navigationBarTitleText": "国债红利"
+			}
+		},
+		{
+			"path": "pages/mine",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path" : "pages/register",
+			"style" : 
+			{
+				"navigationStyle":"custom",
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path" : "pages/login",
+			"style" : 
+			{
+				"navigationStyle":"custom",
+				"navigationBarTitleText": ""
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"backgroundColor": "#ad1c0b",
+		"color": "#ffffff",
+		"selectedColor": "#e8cf8f",
+		"list": [{
+				"pagePath": "pages/index",
+				"text": "首页",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home-active.png"
+			},
+			{
+				"pagePath": "pages/gxjy",
+				"text": "功勋家园",
+				"iconPath": "static/tabbar/gxjy.png",
+				"selectedIconPath": "static/tabbar/gxjy-active.png"
+			},
+			{
+				"pagePath": "pages/gzlj",
+				"text": "国之两重",
+				"iconPath": "static/tabbar/gzlj.png",
+				"selectedIconPath": "static/tabbar/gzlj-active.png"
+			},
+			{
+				"pagePath": "pages/gzhl",
+				"text": "国债红利",
+				"iconPath": "static/tabbar/gzhl.png",
+				"selectedIconPath": "static/tabbar/gzhl-active.png"
+			},
+			{
+				"pagePath": "pages/mine",
+				"text": "个人中心",
+				"iconPath": "static/tabbar/mine.png",
+				"selectedIconPath": "static/tabbar/mine-active.png"
+			}
+		]
+	},
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"uniIdRouter": {}
+}
