@@ -14,22 +14,22 @@
 					<text>每日签到</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center">
+				<view class="item flex flex-column flex-y-center" @click="toa('分享好友')">
 					<image src="/static/7.png" mode="widthFix"></image>
 					<text>分享好友</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center">
+				<view class="item flex flex-column flex-y-center" @click="toa('抽奖福利')">
 					<image src="/static/8.png" mode="widthFix"></image>
 					<text>抽奖福利</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center">
+				<view class="item flex flex-column flex-y-center" @click="too('topup_balance')">
 					<image src="/static/9.png" mode="widthFix"></image>
 					<text>在线充值</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center">
+				<view class="item flex flex-column flex-y-center" @click="zxkf">
 					<image src="/static/10.png" mode="widthFix"></image>
 					<text>在线客服</text>
 				</view>
@@ -48,7 +48,9 @@
 			}
 		},
 		methods: {
-			
+			zxkf(){
+				this.toa('在线客服')
+			}
 		}
 	}
 </script>

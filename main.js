@@ -27,6 +27,17 @@ Vue.prototype.too = function(url, type = 'sub') {
 	})
 }
 
+Vue.prototype.loa = function(str) {
+	uni.showLoading({
+		title: str
+	})
+}
+Vue.prototype.toa = function(str, i) {
+	uni.showToast({
+		title: str,
+		icon: i == 's' ? 'success' : i == 'e' ? 'error' : 'none'
+	})
+}
 
 /* 开始实例化 */
 Vue.config.productionTip = false

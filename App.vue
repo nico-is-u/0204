@@ -24,11 +24,10 @@
 	}
 	
 	
-	/*每个页面公共css */
+	/* flex部分 */
 	.flex{
 	    display: flex;
 	}
-	
 	
 	.flex-center{
 	    justify-content: center;
@@ -80,6 +79,15 @@
 	// Flex分散对齐
 	.justify_content_space_between{
 	    justify-content: space-between;
+	}
+	
+	
+	/* 公共容器 */
+	
+	// 白背景，正文
+	.section-white{
+		border-radius: 10px;
+		background-color: #fff;
 	}
 	
 	

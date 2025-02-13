@@ -52,6 +52,13 @@
 			{
 				"navigationStyle":"custom"
 			}
+		},
+		{
+			"path" : "pages/topup_balance",
+			"style" : 
+			{
+				"navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {
