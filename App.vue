@@ -111,6 +111,29 @@
 			}
 		}
 	}
+
+	// 红背景 正文
+	.section-red{
+		background-color: $bg-red;
+		border-radius: 10px;
+
+		padding: 12rpx;
+
+		.section-red-content{
+			border: 1px solid $font-gold;
+			border-radius: 8px;
+			padding: 14rpx 28rpx;
+
+			&.list{
+				font-size: 38rpx;
+				color: $font-gold;
+				gap: 16rpx;
+				.left-side{
+					letter-spacing: 2px;
+				}
+			}
+		}
+	}
 	
 	// 红背景 小菜单
 	.menu-box{
