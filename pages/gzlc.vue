@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<image class="fake" src='/static/gxjy-fake.jpg' mode="widthFix"></image>
+		
 	</view>
 </template>
 
@@ -21,14 +21,9 @@
 page{
 	height: 100%;
 	
-	background-image: url('/static/gxjy-bg.png');
-	background-size: 100% 100%;
+	background-image: url('/static/gzlc-fake.jpg');
+	background-size: 100% auto;
 	background-repeat: no-repeat;
-	
-}
-
-.fake{
-	width: 100%;
 	
 }
 </style>

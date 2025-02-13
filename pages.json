@@ -9,19 +9,19 @@
 		{
 			"path": "pages/gxjy",
 			"style": {
-				"navigationBarTitleText": "功勋家园"
+				"navigationStyle":"custom"
 			}
 		},
 		{
-			"path": "pages/gzlj",
+			"path": "pages/gzlc",
 			"style": {
-				"navigationBarTitleText": "国之两重"
+				"navigationStyle":"custom"
 			}
 		},
 		{
 			"path": "pages/gzhl",
 			"style": {
-				"navigationBarTitleText": "国债红利"
+				"navigationStyle":"custom"
 			}
 		},
 		{
@@ -59,6 +59,13 @@
 			{
 				"navigationStyle":"custom"
 			}
+		},
+		{
+			"path" : "pages/withdraw",
+			"style" : 
+			{
+				"navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {
@@ -84,10 +91,10 @@
 				"selectedIconPath": "static/tabbar/gxjy-active.png"
 			},
 			{
-				"pagePath": "pages/gzlj",
+				"pagePath": "pages/gzlc",
 				"text": "国之两重",
-				"iconPath": "static/tabbar/gzlj.png",
-				"selectedIconPath": "static/tabbar/gzlj-active.png"
+				"iconPath": "static/tabbar/gzlc.png",
+				"selectedIconPath": "static/tabbar/gzlc-active.png"
 			},
 			{
 				"pagePath": "pages/gzhl",

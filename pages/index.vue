@@ -79,24 +79,5 @@ page{
 		}
 	}
 	
-	.menu-box{
-		margin-top: 24rpx;
-		
-		padding: 48rpx 32rpx;
-		
-		width: 100%;
-		background-image: url('/static/5.png');
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		
-		.item{
-			color: $font-gold;
-			gap: 16rpx;
-			font-size: 28rpx;
-			image{
-				width: 100rpx;
-			}
-		}
-	}
 }
 </style>

@@ -1,41 +1,34 @@
 <template>
 	<view class="page-topup-balance">
-		<nNavbar title="在线充值" :back="true"></nNavbar>
+		<nNavbar title="提现" :back="true"></nNavbar>
 
 		<view class="section">
-			<view class="section-white menu-list">
-				<view class="row flex flex-y-center flex-between">
-					<view class="item flex flex-column flex-center">
-						<text>功勋值</text>
-						<text class="text2">4399</text>
-					</view>
-					<view class="item flex flex-column flex-center">
-						<text>持有国债份额</text>
-						<text class="text2">4399</text>
-					</view>
-					<view class="item flex flex-column flex-center">
-						<text>激活国债份额</text>
-						<text class="text2">4399</text>
-					</view>
+			
+			<!-- 小菜单 -->
+			<view class="menu-box flex flex-between flex-y-center">
+				<view class="item flex flex-column flex-y-center" @click='too("daily_sign")'>
+					<image src="/static/6.png" mode="widthFix"></image>
+					<text>每日签到</text>
 				</view>
-
-				<view class="row flex flex-y-center flex-between">
-					<view class="item flex flex-column flex-center">
-						<text>两重建设基金</text>
-						<text class="text2">4399</text>
-					</view>
-					<view class="item flex flex-column flex-center">
-						<text>可用余额</text>
-						<text class="text2">4399</text>
-					</view>
-					<view class="item flex flex-column flex-center">
-						<text>可提余额</text>
-						<text class="text2">4399</text>
-					</view>
+				
+				<view class="item flex flex-column flex-y-center" @click="toa('分享好友')">
+					<image src="/static/7.png" mode="widthFix"></image>
+					<text>分享好友</text>
 				</view>
-
+				
+				<view class="item flex flex-column flex-y-center" @click="toa('抽奖福利')">
+					<image src="/static/8.png" mode="widthFix"></image>
+					<text>抽奖福利</text>
+				</view>
+								
+				<view class="item flex flex-column flex-y-center" @click="zxkf">
+					<image src="/static/10.png" mode="widthFix"></image>
+					<text>在线客服</text>
+				</view>
+				
 			</view>
-
+			
+			
 			<!-- 白色框 -->
 			<view class="section-white white_box flex flex_direction_column">
 
@@ -89,7 +82,7 @@
 					
 					<u-button
 						size="large" 
-						text="立即充值"
+						text="立即提现"
 						class="red_button"
 					>
 					</u-button>
@@ -258,5 +251,9 @@
 			border-radius: 24rpx;
 		}
 
+	}
+	
+	.menu-box{
+		background-image: url('/static/11.png');
 	}
 </style>
