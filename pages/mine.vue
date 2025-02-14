@@ -188,7 +188,7 @@
 							转账
 						</view>
 					</view>
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('bind_bank')">
 						<view class="icon">
 							<image src="/static/mine-icon-5.jpg" mode="widthFix"></image>
 						</view>
@@ -198,7 +198,7 @@
 					</view>
 				</view>
 				<view class="column flex flex-column flex-y-center">
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('topup_balance')">
 						<view class="icon">
 							<image src="/static/mine-icon-2.jpg" mode="widthFix"></image>
 						</view>
@@ -216,7 +216,7 @@
 					</view>
 				</view>
 				<view class="column flex flex-column flex-y-center">
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('withdraw')">
 						<view class="icon">
 							<image src="/static/mine-icon-3.jpg" mode="widthFix"></image>
 						</view>
@@ -254,7 +254,7 @@
 			</view>
 
 
-			<view class="mine_button">
+			<view class="mine_button" @click="logout">
 				安全退出
 			</view>
 
@@ -273,7 +273,9 @@
 			}
 		},
 		methods: {
-			
+			logout(){
+				this.too('login')
+			}
 		}
 	}
 </script>
@@ -367,6 +369,7 @@
 			// 下方菜单图标
 			.mine_manu{
 				width: 100%;
+				padding: 0 24rpx;
 				// 每列
 				.column{
 					padding-top: 40rpx;

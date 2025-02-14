@@ -28,6 +28,7 @@
 			size="large" 
 			text="立即登录"
 			class="red_button"
+			@click="too('index','tab')"
 		>
 		</u-button>
 

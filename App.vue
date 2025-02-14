@@ -1,203 +1,380 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
+export default {
+	onLaunch: function () {
+		console.log('App Launch')
+	},
+	onShow: function () {
+		console.log('App Show')
+	},
+	onHide: function () {
+		console.log('App Hide')
 	}
+}
 </script>
 
 <style lang="scss">
-	
-	/* uView */
-	@import "uview-ui/index.scss";
-	
-	
-	/* 公共标签属性 */
-	view{
-		box-sizing: border-box;
+/* uView */
+@import "uview-ui/index.scss";
+
+
+/* 公共标签属性 */
+view {
+	box-sizing: border-box;
+}
+
+
+/* flex部分 */
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-x-center {
+	justify-content: center;
+}
+
+.flex-x-end {
+	justify-content: flex-end;
+}
+
+.flex-y-center {
+	align-items: center !important;
+}
+
+.flex-y-end {
+	align-items: flex-end;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-between {
+	justify-content: space-between;
+}
+
+
+
+// Flex垂直从上到下排列
+.flex_direction_column {
+	flex-direction: column;
+}
+
+// Flex垂直居中对齐
+.align_items_center {
+	align-items: center;
+}
+
+// Flex垂直靠左对齐
+.align_items_flex_start {
+	align-items: flex-start;
+}
+
+// Flex水平居中对齐
+.justify_content_center {
+	justify-content: center;
+}
+
+// Flex分散对齐
+.justify_content_space_between {
+	justify-content: space-between;
+}
+
+
+/* 公共容器 */
+
+// 白背景，正文
+.section-white {
+	border-radius: 10px;
+	background-color: #fff;
+
+	&.section-padding {
+		padding: 32rpx;
 	}
-	
-	
-	/* flex部分 */
-	.flex{
-	    display: flex;
-	}
-	
-	.flex-center{
-	    justify-content: center;
-	    align-items: center;
-	}
-	.flex-column{
-	    flex-direction: column;
-	}
-	.flex-x-center{
-	    justify-content: center;
-	}
-	.flex-x-end{
-	    justify-content: flex-end;
-	}
-	.flex-y-center{
-	    align-items: center !important;
-	}
-	.flex-y-end{
-	    align-items: flex-end;
-	}
-	.flex-column{
-	    flex-direction: column;
-	}
-	.flex-between{
-	    justify-content: space-between;
-	}
-	
-	
-	
-	// Flex垂直从上到下排列
-	.flex_direction_column{
-	    flex-direction: column;
-	}
-	
-	// Flex垂直居中对齐
-	.align_items_center{
-	    align-items: center;
-	}
-	
-	// Flex垂直靠左对齐
-	.align_items_flex_start{
-	    align-items: flex-start;
-	}
-	
-	// Flex水平居中对齐
-	.justify_content_center{
-	    justify-content: center;
-	}
-	// Flex分散对齐
-	.justify_content_space_between{
-	    justify-content: space-between;
-	}
-	
-	
-	/* 公共容器 */
-	
-	// 白背景，正文
-	.section-white{
-		border-radius: 10px;
-		background-color: #fff;
-		&.section-padding{
-			padding: 32rpx;
+
+	.section-title {
+		font-size: 38rpx;
+		padding-left: 28rpx;
+		position: relative;
+
+		&::before {
+			width: 3px;
+			height: 80%;
+
+			content: '';
+
+			position: absolute;
+			left: 0;
+			top: 10%;
+
+			background-color: #a62424;
+			border-radius: .5px;
 		}
-		
-		.section-title{
+	}
+}
+
+// 红背景 正文
+.section-red {
+	background-color: $bg-red;
+	border-radius: 10px;
+
+	padding: 12rpx;
+
+	.section-red-content {
+		height: 100%;
+		border: 1px solid $font-gold;
+		border-radius: 8px;
+		padding: 14rpx 28rpx;
+
+		&.list {
 			font-size: 38rpx;
-			padding-left: 28rpx;
-			position: relative;
-			&::before{
-				width: 3px;
-				height: 80%;
-				
-				content: '';
-				
-				position: absolute;
-				left: 0;
-				top: 10%;
-				
-				background-color: #a62424;
-				border-radius: .5px;
-			}
-		}
-	}
-
-	// 红背景 正文
-	.section-red{
-		background-color: $bg-red;
-		border-radius: 10px;
-
-		padding: 12rpx;
-
-		.section-red-content{
-			height: 100%;
-			border: 1px solid $font-gold;
-			border-radius: 8px;
-			padding: 14rpx 28rpx;
-
-			&.list{
-				font-size: 38rpx;
-				color: $font-gold;
-				gap: 16rpx;
-				.left-side{
-					letter-spacing: 2px;
-				}
-			}
-		}
-	}
-	
-	// 红背景 小菜单
-	.menu-box{
-		margin-top: 24rpx;
-		
-		padding: 48rpx 32rpx;
-		
-		width: 100%;
-		background-image: url('/static/5.png');
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		
-		.item{
 			color: $font-gold;
 			gap: 16rpx;
-			font-size: 28rpx;
-			image{
-				width: 100rpx;
+
+			.left-side {
+				letter-spacing: 2px;
 			}
 		}
 	}
+}
 
+// 红背景 小菜单
+.menu-box {
+	margin-top: 24rpx;
 
-	// 文章列表
-	.article-list{
+	padding: 48rpx 32rpx;
 
-		gap: 32rpx;
+	width: 100%;
+	background-image: url('/static/5.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 
-		.article-item{
-			border-radius: 12px;
-			box-shadow: 0 0 6rpx rgba(0,0,0,.2);
-			overflow: hidden;
+	.item {
+		color: $font-gold;
+		gap: 16rpx;
+		font-size: 28rpx;
 
-			image{
-				width: 100%;
-				height: 380rpx;
-			}
-
-			.article-content{
-				height: 240rpx;
-				background-color: white;
-				
-			}
-
+		image {
+			width: 100rpx;
 		}
 	}
-	
-	
-	/* 工具类 */
-	.like-a-tag{
-	    text-decoration: none;
-	    color: rgb(255, 37, 74);
-	}
+}
 
-	.navbar-img{
+
+// 文章列表
+.article-list {
+
+	gap: 32rpx;
+
+	.article-item {
+		border-radius: 12px;
+		box-shadow: 0 0 6rpx rgba(0, 0, 0, .2);
+		overflow: hidden;
+
+		image {
+			width: 100%;
+			height: 380rpx;
+		}
+
+		.article-content {
+			height: 240rpx;
+			background-color: white;
+
+		}
+
+	}
+}
+
+
+// 绑定收款方式
+.page_bind_method {
+	font-size: 28rpx;
+
+	/* 进度条图片 */
+	.progress_img {
 		width: 100%;
+		padding: 32rpx 64rpx 0;
 
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 9;
-
-		border-top: 40rpx solid $navbar-red;
+		image {
+			width: 100%;
+		}
 	}
-	
+
+	// 顶部进度（实名认证、绑定支付宝、绑定银行卡页）
+	.top_progress {
+		width: 100%;
+		background-color: rgb(255, 255, 255);
+		border-radius: 14rpx;
+		box-shadow: 0 6rpx 6rpx 0 rgb(246, 246, 246);
+
+		// 下方文字
+		.bottom {
+			width: 100%;
+			padding-top: 10rpx;
+			padding-bottom: 24rpx;
+
+			// 文字容器
+			view {
+				width: 33.333%;
+				padding: 0 18px;
+				color: rgb(153, 153, 153);
+			}
+
+			// 左侧文字
+			.left {
+				text-align: left;
+				color: black;
+			}
+
+			// 中间文字
+			.center {
+				text-align: center;
+			}
+
+			// 右侧文字
+			.right {
+				text-align: right;
+			}
+		}
+	}
+
+	// 中上方文字提示（实名认证、绑定支付宝、绑定银行卡页）
+	.center_tips {
+		align-self: self-start;
+		padding-top: 60rpx;
+		padding-left: 40rpx;
+
+		// 上方文字
+		.top {
+			padding-bottom: 10px;
+			font-size: 36rpx;
+
+			// 文字左侧图标（绑定支付宝、绑定银行卡页）
+			img {
+				width: 32rpx;
+				height: 32rpx;
+				padding-right: 8rpx;
+			}
+		}
+
+		// 下方文字
+		.bottom {
+			font-size: 24rpx;
+			color: rgb(173, 27, 12);
+			margin-bottom: 40rpx;
+			padding-left: 42rpx;
+		}
+
+		// 下方文字Padding（实名认证页）
+		.identity_bottom {
+			padding-left: 0;
+		}
+	}
+
+
+	// 中间位置灰色圆角框（实名认证、绑定支付宝、绑定银行卡页）
+    .gray_box{
+        background-color: rgb(245, 246, 250);
+        border-radius: 10rpx;
+        margin-top: 40rpx;
+        // 每行容器（绑定支付宝、绑定银行卡页）
+        .line{
+            width: 92%;
+            padding: 28rpx 0;
+            font-size: 24rpx;
+            // 每行宽度（绑定支付宝页）
+            .left{
+                width: 25%;
+            }
+            .right{
+                width: 75%;
+                padding-left: 30rpx;
+            }
+            .left_card{
+                width: 16%;
+            }
+            .right_card{
+                width: 84%;
+                padding-left: 30rpx;
+            }
+        }
+        // 虚线（绑定支付宝、绑定银行卡页）
+        .center{
+            border-top: 2rpx dashed rgb(191, 191, 193);
+            border-bottom: 2rpx dashed rgb(191, 191, 193);
+        }
+        // 虚线（绑定银行卡页）
+        .bottom{
+            border-top: 2rpx dashed rgb(191, 191, 193);
+        }
+        // 上传身份证左侧文字（实名认证页）
+        .upload_idcard_tips{
+            width: 40%;
+            align-self: self-start;
+            padding-top: 12%;
+            padding-left: 20rpx;
+            // 上方文字
+            .top{
+                padding-bottom: 10rpx;
+                font-size: 36rpx;
+            }
+            // 下方文字
+            .identity_bottom{
+                font-size: 24rpx;
+                color: rgb(173, 27, 12);
+                margin-bottom: 40rpx;
+            }
+        }
+        // 上传身份证右侧图片（实名认证页）
+        img{
+            width: 60%;
+            padding: 50rpx;
+        }
+
+    }
+
+
+}
+
+
+/* 工具类 */
+.like-a-tag {
+	text-decoration: none;
+	color: rgb(255, 37, 74);
+}
+
+.padding-box-1{
+	padding: 0 32rpx;
+}
+
+.navbar-img {
+	width: 100%;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+
+	border-top: 40rpx solid $navbar-red;
+}
+
+// 红色按钮
+.red_button_common{
+	background-color: $navbar-red !important;
+	color: rgb(231, 255, 255) !important;
+	border-radius: 24rpx;
+	padding: 48rpx 0 !important;
+	.u-button__text{
+		font-size: 32rpx !important;
+	}
+}
+
 </style>

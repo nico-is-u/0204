@@ -67,12 +67,19 @@
 			{
 				"navigationStyle":"custom"
 			}
+		},
+		{
+			"path" : "pages/bind_bank",
+			"style" : 
+			{
+				"navigationBarTitleText" : "绑定银行卡"
+			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#ad1c0b",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {

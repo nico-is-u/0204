@@ -29,7 +29,7 @@
 					<text>在线充值</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center" @click="zxkf">
+				<view class="item flex flex-column flex-y-center" @click="toa('在线客服')">
 					<image src="/static/10.png" mode="widthFix"></image>
 					<text>在线客服</text>
 				</view>

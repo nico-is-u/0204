@@ -31,6 +31,7 @@
 			size="large" 
 			text="立即注册"
 			class="red_button"
+			@click="too('index','tab')"
 		>
 		</u-button>
 
