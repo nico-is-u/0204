@@ -74,6 +74,13 @@
 			{
 				"navigationBarTitleText" : "绑定银行卡"
 			}
+		},
+		{
+			"path" : "pages/account_safety",
+			"style" : 
+			{
+				"navigationBarTitleText" : "实名认证"
+			}
 		}
 	],
 	"globalStyle": {

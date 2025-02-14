@@ -1,5 +1,5 @@
 <template>
-	<view class="page_bind_method">
+	<view class="page_type_1">
 		<!-- 上方进度条 -->
 		<view class="top_progress">
 
@@ -88,5 +88,5 @@ export default {
 </script>
 
 <style lang="scss">
-.page_bind_method {}
+.page_type_1 {}
 </style>

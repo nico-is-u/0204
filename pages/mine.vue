@@ -206,7 +206,7 @@
 							充值
 						</view>
 					</view>
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('account_safety')">
 						<view class="icon">
 							<image src="/static/mine-icon-6.jpg" mode="widthFix"></image>
 						</view>

@@ -195,62 +195,12 @@ view {
 
 
 // 绑定收款方式
-.page_bind_method {
+.page_type_1 {
 	font-size: 28rpx;
-
-	/* 进度条图片 */
-	.progress_img {
-		width: 100%;
-		padding: 32rpx 64rpx 0;
-
-		image {
-			width: 100%;
-		}
-	}
-
-	// 顶部进度（实名认证、绑定支付宝、绑定银行卡页）
-	.top_progress {
-		width: 100%;
-		background-color: rgb(255, 255, 255);
-		border-radius: 14rpx;
-		box-shadow: 0 6rpx 6rpx 0 rgb(246, 246, 246);
-
-		// 下方文字
-		.bottom {
-			width: 100%;
-			padding-top: 10rpx;
-			padding-bottom: 24rpx;
-
-			// 文字容器
-			view {
-				width: 33.333%;
-				padding: 0 18px;
-				color: rgb(153, 153, 153);
-			}
-
-			// 左侧文字
-			.left {
-				text-align: left;
-				color: black;
-			}
-
-			// 中间文字
-			.center {
-				text-align: center;
-			}
-
-			// 右侧文字
-			.right {
-				text-align: right;
-			}
-		}
-	}
-
 	// 中上方文字提示（实名认证、绑定支付宝、绑定银行卡页）
 	.center_tips {
 		align-self: self-start;
 		padding-top: 60rpx;
-		padding-left: 40rpx;
 
 		// 上方文字
 		.top {
@@ -279,12 +229,15 @@ view {
 		}
 	}
 
-
 	// 中间位置灰色圆角框（实名认证、绑定支付宝、绑定银行卡页）
     .gray_box{
         background-color: rgb(245, 246, 250);
         border-radius: 10rpx;
         margin-top: 40rpx;
+
+		padding: 20rpx;
+
+
         // 每行容器（绑定支付宝、绑定银行卡页）
         .line{
             width: 92%;
@@ -320,7 +273,10 @@ view {
             width: 40%;
             align-self: self-start;
             padding-top: 12%;
-            padding-left: 20rpx;
+            
+
+			flex-shrink: 0;
+
             // 上方文字
             .top{
                 padding-bottom: 10rpx;
@@ -334,14 +290,62 @@ view {
             }
         }
         // 上传身份证右侧图片（实名认证页）
-        img{
+        image{
             width: 60%;
-            padding: 50rpx;
+			padding: 20rpx;
         }
 
     }
 
 
+}
+
+// 公共伪进度条
+.top_progress {
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+	border-radius: 14rpx;
+	box-shadow: 0 6rpx 6rpx 0 rgb(246, 246, 246);
+
+	/* 进度条图片 */
+	.progress_img {
+		width: 100%;
+		padding: 32rpx 64rpx 0;
+
+		image {
+			width: 100%;
+		}
+	}
+
+	// 下方文字
+	.bottom {
+		width: 100%;
+
+		padding: 10rpx 36rpx 24rpx;
+
+		// 文字容器
+		view {
+			width: 33.333%;
+			
+			color: rgb(153, 153, 153);
+		}
+
+		// 左侧文字
+		.left {
+			text-align: left;
+			color: black;
+		}
+
+		// 中间文字
+		.center {
+			text-align: center;
+		}
+
+		// 右侧文字
+		.right {
+			text-align: right;
+		}
+	}
 }
 
 
