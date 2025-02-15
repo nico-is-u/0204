@@ -188,7 +188,7 @@
 							转账
 						</view>
 					</view>
-					<view class="item flex flex-column flex-y-center" @click="too('bind_bank')">
+					<view class="item flex flex-column flex-y-center" @click="too('list_card')">
 						<view class="icon">
 							<image src="/static/mine-icon-5.jpg" mode="widthFix"></image>
 						</view>

@@ -81,6 +81,13 @@
 			{
 				"navigationBarTitleText" : "实名认证"
 			}
+		},
+		{
+			"path" : "pages/list_card",
+			"style" : 
+			{
+				"navigationBarTitleText" : "银行卡"
+			}
 		}
 	],
 	"globalStyle": {
