@@ -93,6 +93,8 @@ const xxxxxxxxxxxxxx = {
 	addBankCard: 'IwvSMB1JgPMlnyePjaL6watX1sdCBiWpn6j+OXUlLQ0=',
 	updateUserInfo: 'A24dbCQZiUGaiO4n0nxR3bg6a3VOlHU8UHW2+Emf1bc=',
 	user_paypwd: '3w7hwTg8w4LQ8kVoudXr1QEzoMYSfsOcLmQgvUAzg2g=',
-	user_delivery: '18HeaLSCVyD9Ws1IVulmn7Q17OtGu429aH59B9T7K4U='
+	user_delivery: '18HeaLSCVyD9Ws1IVulmn7Q17OtGu429aH59B9T7K4U=',
+	// 邀请
+	invite:'01lNxoSp1FQ0XIBp2GDmiA=='
 }
 export default xxxxxxxxxxxxxx

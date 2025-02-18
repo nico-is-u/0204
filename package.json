@@ -12,6 +12,7 @@
   "dependencies": {
     "core-js": "^3.40.0",
     "crypto-js": "^4.2.0",
+    "qrcode": "^1.5.4",
     "uview-ui": "^2.0.38"
   },
   "devDependencies": {
