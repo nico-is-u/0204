@@ -76,6 +76,13 @@
 			}
 		},
 		{
+			"path" : "pages/bank_add",
+			"style" : 
+			{
+				"navigationBarTitleText" : "添加银行卡"
+			}
+		},
+		{
 			"path" : "pages/account_safety",
 			"style" : 
 			{
@@ -87,6 +94,34 @@
 			"style" : 
 			{
 				"navigationBarTitleText" : "银行卡"
+			}
+		},
+		{
+			"path" : "pages/address",
+			"style" : 
+			{
+				"navigationBarTitleText" : "收货地址"
+			}
+		},
+		{
+			"path" : "pages/login_pwd",
+			"style" : 
+			{
+				"navigationBarTitleText" : "登录密码"
+			}
+		},
+		{
+			"path" : "pages/pay_pwd",
+			"style" : 
+			{
+				"navigationBarTitleText" : "支付密码"
+			}
+		},
+		{
+			"path" : "pages/secure",
+			"style" : 
+			{
+				"navigationBarTitleText" : "账户安全"
 			}
 		}
 	],

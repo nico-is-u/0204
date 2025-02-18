@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App'
+import AUX_Audio from 'LOCKED.js'
+import domain from 'domain.js'
 
 import './uni.promisify.adaptor'
 
@@ -7,7 +9,8 @@ import './uni.promisify.adaptor'
 import uView from 'uview-ui'
 Vue.use(uView)
 uni.$u.config.unit = 'rpx'
-
+Vue.prototype.to = domain;
+Vue.prototype.api = AUX_Audio;
 /* 待整理 */
 Vue.prototype.too = function(url, type = 'sub') {
 	"sub" == type && uni.navigateTo({

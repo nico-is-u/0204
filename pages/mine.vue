@@ -25,7 +25,7 @@
 								姓名：
 							</view>
 							<view class="line_right">
-								冯宝宝
+								{{user_info.realname || '未实名'}}
 							</view>
 						</view>
 						<view class="line flex flex-y-center">
@@ -33,12 +33,12 @@
 								电话号码：
 							</view>
 							<view class="line_right">
-								12345678901
+								{{user_info.phone}}
 							</view>
 						</view>
 					</view>
 					<!-- 右侧实名认证图标 -->
-					<view class="right flex flex-center">
+					<view class="right flex flex-center" v-if="user_info.realname != ''">
 						已实名
 					</view>
 				</view>
@@ -206,12 +206,20 @@
 							充值
 						</view>
 					</view>
-					<view class="item flex flex-column flex-y-center" @click="too('account_safety')">
+					<view v-if="user_info.realname == ''" class="item flex flex-column flex-y-center" @click="too('account_safety')">
 						<view class="icon">
 							<image src="/static/mine-icon-6.jpg" mode="widthFix"></image>
 						</view>
 						<view class="text">
-							账号安全
+							实名认证
+						</view>
+					</view>
+					<view v-if="user_info.realname != ''" class="item flex flex-column flex-y-center" @click="too('secure')">
+						<view class="icon">
+							<image src="/static/mine-icon-6.jpg" mode="widthFix"></image>
+						</view>
+						<view class="text">
+							账户安全
 						</view>
 					</view>
 				</view>
@@ -242,7 +250,7 @@
 							投资明细
 						</view>
 					</view>
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('address')">
 						<view class="icon">
 							<image src="/static/mine-icon-8.jpg" mode="widthFix"></image>
 						</view>
@@ -269,14 +277,34 @@
 	export default {
 		data() {
 			return {
-				
+				user_info: {}
 			}
 		},
 		methods: {
+			getUserInfo() {
+				this.to.www(this.api.user_info)
+					.then(res => {
+						this.user_info = res.data;
+					})
+			},
 			logout(){
-				this.too('login')
+				let _ = this;
+				uni.showModal({
+					title: "提示",
+					content: "安全退出此账号 ? ",
+					confirmColor: '#c03328',
+					success: (res) => {
+						if (res.confirm) {
+							uni.clearStorage();
+							_.too('/pages/login', 'lau')
+						}
+					}
+				})
 			}
-		}
+		},
+		onShow() {
+			this.getUserInfo()
+		},
 	}
 </script>
 

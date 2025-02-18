@@ -12,14 +12,16 @@
 		
 		<view class="login_input flex flex_direction_column">
 			<view class="white_box">
-				<input type="text" placeholder="请输入手机号" />
+				<input type="text" v-model="param.phone" placeholder="请输入手机号" />
 			</view>
 			<view class="white_box">
-				<input type="password" placeholder="请输入密码" />
+				<input type="password" v-model="param.password" placeholder="请输入密码" />
 			</view>
 			<view class="white_box verify_box">
-				<input type="text" placeholder="请输入验证码" />
-				<view class="code_right">获取验证码</view>
+				<input type="text" v-model="param.captcha" placeholder="请输入验证码" />
+				<view class="code_right">
+					<image :src="c_code" @click="re_code" mode="heightFix" style="width: 120px;"></image>
+				</view>
 			</view>
 			
 		</view>
@@ -28,7 +30,8 @@
 			size="large" 
 			text="立即登录"
 			class="red_button"
-			@click="too('index','tab')"
+			:loading="isDone" @click="doLogin"
+			:loadingText="regStatus"
 		>
 		</u-button>
 
@@ -44,11 +47,58 @@
 	export default {
 		data() {
 			return {
-
+				param: {
+					phone: '',
+					password: '',
+					captcha: '',
+					uniqid: ''
+				},
+				c_code: '',
+				isDone: false,
+				regStatus: '正在登录...'
 			}
 		},
+		onLoad() {
+			this.re_code()
+		},
 		methods: {
-
+			doLogin() {
+				let f = this;
+				if (uni.$u.test.isEmpty(f.param.password)) return f.toa('请输入账号密码');
+				if (uni.$u.test.isEmpty(f.param.captcha)) return f.toa('请输入验证码');
+				f.isDone = true;
+				f.to.www(f.api.user_login, f.param, 'p')
+					.then(res => {
+						uni.setStorage({
+							data: res.data.token,
+							key: "TK",
+							success() {
+								setTimeout(() => {
+									f.regStatus = '登录成功';
+									setTimeout(() => {
+										f.isDone = false;
+										f.too('/', 'lau')
+									}, 300)
+								}, 1000)
+							}
+						})
+					})
+					.catch((err) => {
+						f.isDone = false;
+						f.re_code()
+						if(![10001, 10003].includes(err)){
+							f.$refs.uNotify.error('太火爆了 请稍后再试');
+						}
+					})
+			},
+			re_code() {
+				this.c_code = '';
+				this.to.www(this.api.reg_check_code)
+					.then(res => {
+						this.param.uniqid = res.data.uniqid;
+						this.c_code = res.data.image;
+					})
+			},
 		}
 	}
 </script>

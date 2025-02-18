@@ -29,7 +29,7 @@
 					<text>在线充值</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center" @click="toa('在线客服')">
+				<view class="item flex flex-column flex-y-center" @click="zxkf">
 					<image src="/static/10.png" mode="widthFix"></image>
 					<text>在线客服</text>
 				</view>
@@ -40,28 +40,12 @@
 			<view class="section-white section-padding" style="margin-top: 40rpx">
 				<view class="section-title">强国要闻</view>
 				<view class="news-list">
-					<view class="news-item flex">
-						<image class="left-side" mode="widthFix" src="/static/news-fake-1.jpg"></image>
+					<view class="news-item flex" v-for="(item,index) in newsList" :key="index">
+						<image class="left-side" mode="widthFix" :src="item.cover_img"></image>
 						<view class="right-side flex flex-column flex-between">
-							<view class="title">企业汇率风险</view>
-							<view class="desc">国家外汇管理局发布企业汇率风险管理指汇营造...</view>
-							<view class="date">2025-01-01</view>
-						</view>
-					</view>
-					<view class="news-item flex">
-						<image class="left-side" mode="widthFix" src="/static/news-fake-1.jpg"></image>
-						<view class="right-side flex flex-column flex-between">
-							<view class="title">企业汇率风险</view>
-							<view class="desc">国家外汇管理局发布企业汇率风险管理指汇营造...</view>
-							<view class="date">2025-01-01</view>
-						</view>
-					</view>
-					<view class="news-item flex">
-						<image class="left-side" mode="widthFix" src="/static/news-fake-1.jpg"></image>
-						<view class="right-side flex flex-column flex-between">
-							<view class="title">企业汇率风险</view>
-							<view class="desc">国家外汇管理局发布企业汇率风险管理指汇营造...</view>
-							<view class="date">2025-01-01</view>
+							<view class="title">{{item.title}}</view>
+							<view class="desc" v-html="item.content"></view>
+							<view class="date">{{item.created_at}}</view>
 						</view>
 					</view>
 				</view>
@@ -75,14 +59,56 @@
 	export default {
 		data() {
 			return {
-				
+				setting_config: {},
+				user_info: {},
+				newsList: {}
 			}
 		},
 		methods: {
+			getSystem_config() {
+				this.to.www(this.api.system_info)
+					.then(res => {
+						this.setting_config = res.data.setting_conf;
+					})
+			},
+			getNewsList() {
+				this.to.www(this.api.system_news, {
+						type: '11'
+					}, 'p')
+					.then(res => {
+						this.newsList = res.data.data.splice(0, 3);
+					})
+			},
+			getUerInfo(){
+				this.to.www(this.api.user_info)
+					.then(res => {
+						this.user_info = res.data;
+					})
+			},
 			zxkf(){
-				this.toa('在线客服')
+				window.open(this.setting_config.kefu_url);
 			}
-		}
+		},
+		onLoad() {
+			var usr_isLogin = uni.getStorageSync("TK");
+			if (!usr_isLogin) {
+				uni.showToast({
+					title: "请先登录",
+					icon: "none",
+					success() {
+						setTimeout(() => {
+							uni.reLaunch({
+								url: '/pages/login'
+							})
+						}, 1500)
+					}
+				})
+			} else {
+				this.getSystem_config();
+				this.getNewsList();
+				this.getUerInfo();
+			}
+		},
 	}
 </script>
 
