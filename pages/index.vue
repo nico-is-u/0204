@@ -40,8 +40,8 @@
 			<view class="section-white section-padding" style="margin-top: 40rpx">
 				<view class="section-title">强国要闻</view>
 				<view class="news-list">
-					<view class="news-item flex" v-for="(item,index) in newsList" :key="index">
-						<image class="left-side" mode="widthFix" :src="item.cover_img"></image>
+					<view class="news-item flex" v-for="(item,index) in newsList" :key="index" @click="toNewsDatail(item)">
+						<image class="left-side"  :src="item.cover_img"></image>
 						<view class="right-side flex flex-column flex-between">
 							<view class="title">{{item.title}}</view>
 							<view class="desc" v-html="item.content"></view>
@@ -78,6 +78,16 @@
 					.then(res => {
 						this.newsList = res.data.data.splice(0, 3);
 					})
+			},
+			toNewsDatail(obj){
+				let _ = this;
+				uni.setStorage({
+					data: obj,
+					key: 'NEWS_CACHE',
+					success() {
+						_.too('/pages/news_detail')
+					}
+				})
 			},
 			getUerInfo(){
 				this.to.www(this.api.user_info)
@@ -137,40 +147,5 @@ page{
 	}
 }
 
-.news-list{
-	.news-item{
-		
-		margin-top: 36rpx;
-		
-		.left-side{
-			width: 48%;
-			flex-shrink: 0;
-			
-			padding: 6rpx 0;
-		}
-		
-		.right-side{
-			
-			width: 52%;
-			padding-left: 24rpx;
-			
-			.title{
-				font-size: 42rpx;
-			}
-			
-			.desc{
-				height: 96rpx;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				color: #767676;
-			}
-			
-			.date{
-				
-				color: #767676;
-			}
-		}
-		
-	}
-}
+
 </style>

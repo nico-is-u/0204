@@ -168,7 +168,6 @@ view {
 	}
 }
 
-
 // 文章列表
 .article-list {
 
@@ -190,6 +189,46 @@ view {
 
 		}
 
+	}
+}
+
+// 新闻列表
+.news-list{
+	.news-item{
+		
+		margin-top: 36rpx;
+		
+		.left-side{
+			width: 46%;
+			height: 200rpx;
+			flex-shrink: 0;
+			
+			padding: 6rpx 0;
+		}
+		
+		.right-side{
+			
+			width: 52%;
+			padding-left: 36rpx;
+			
+			
+			.title{
+				font-size: 42rpx;
+			}
+			
+			.desc{
+				height: 96rpx;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: #767676;
+			}
+			
+			.date{
+				
+				color: #767676;
+			}
+		}
+		
 	}
 }
 

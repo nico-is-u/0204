@@ -4,7 +4,7 @@
         'app-padding-nav-bar':padding,
         'app-nav-bar-fixed':isFixed,
         'app-nav-bar-black':color == 'black'
-    }">
+    }" :style="{background:backgroundColor}">
         <!-- 左侧 -->
         <view class="left-side flex" @click="clickLeft">
             <!-- 显示返回箭头 -->
