@@ -115,6 +115,10 @@ export default {
         position: fixed;
         width: 100%;
         background: #1292FF;
+
+        top: 0;
+        left: 0;
+        
     }
 
     &.app-nav-bar-black{
