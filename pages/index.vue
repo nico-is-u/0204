@@ -14,7 +14,7 @@
 					<text>每日签到</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center" @click="toa('分享好友')">
+				<view class="item flex flex-column flex-y-center" @click="too('invite_friend')">
 					<image src="/static/7.png" mode="widthFix"></image>
 					<text>分享好友</text>
 				</view>
