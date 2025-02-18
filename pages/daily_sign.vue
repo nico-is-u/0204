@@ -7,7 +7,7 @@
 					<view class="row">签到中心</view>
 					<view class="row row2 flex flex-y-center">
 						<text class="text-bold">已签到</text>
-						<text class="text-2">0 天</text>
+						<text class="text-2">{{sgDay}} 天</text>
 					</view>
 				</view>
 
@@ -18,7 +18,7 @@
 			</view>
 
 			<view class="section-body">
-				<!-- <youlanSignIn :sgList="sgList" :sgDay="sgDay" type="sign" @change="signDate" ref="sign"/> -->
+				<youlanSignIn :sgList="sgList" :sgDay="sgDay" type="sign" @change="signDate" ref="sign"/>
 			</view>
 
 		</view>
@@ -26,10 +26,10 @@
 </template>
 
 <script>
-	// import youlanSignIn from '@/components/youlan-SignIn/youlan-SignIn.vue'
+	import youlanSignIn from '@/components/youlan-SignIn/youlan-SignIn.vue'
 	export default {
 		components: {
-			// youlanSignIn
+			youlanSignIn
 		},
 		data() {
 			return {
@@ -71,7 +71,7 @@ page{
 
 .section{
 	width: 100%;
-	height: 1000rpx;
+	height: 1200rpx;
 	background-image: url('/static/t-3.png');
 	background-size: 100% 100%;
 
@@ -95,7 +95,7 @@ page{
 
 .section-body{
 	flex-grow: 1;
-	padding: 28rpx 0 ;
+	padding: 0;
 }
 
 .row{

@@ -1,21 +1,17 @@
 <template>
 	<view class="shell">
-		<view class="other-info">
+		<!-- <view class="other-info">
 			<view class="left-side">
 				<view class="text-side">
 					<view class="row1">{{sgDay}}天</view>
 					<view class="row2">连续签到</view>
 				</view>
-				<!-- <view class="text-side">
-					<view class="row1">1天</view>
-					<view class="row2">累积签到</view>
-				</view> -->
 			</view>
 
 			<view class="right-side" style="padding-top: 24rpx">
 				<button @click="daySign(dayArr[aheadDay + day - 1])" class="n-button-6">立即签到</button>
 			</view>
-		</view>
+		</view> -->
 
 		<view class="content">
 			<view class="calendar-box">
@@ -34,18 +30,36 @@
 						<view :style="'color:'+(weeks==weeked?bgweek:'')+';'" v-for="weeks in weekArr" :key="weeks">{{weeks}}</view>
 					</view>
 					<view class="day">
-						<view :class="[{'checkday':days.nowMonth==0},{'choose':days.date==localDate }]"
-							:style="'background:'+(days.flag1?'#d1d1d1':days.date==localDate ? bgday:'')+';'" v-for="(days,index) in dayArr" :key="index"
+						<view 
+							class="day_border" 
+							:class="[
+								{'checkday':days.nowMonth==0},
+								{'choose':days.date==localDate },
+								{'checked':days.flag1 ? true : (days.date==localDate?true:false)}
+							]"
+							v-for="(days,index) in dayArr" :key="index"
 							@click="signToday(days,index)">
-							{{days.day}}
-							<view :class="[{'circle':days.flag},{'sign':days.day==day}]"></view>
+								<view class="day_header">
+									<text>+1</text>
+									<view class="u-icon-border">
+										<u-icon name="checkbox-mark" color="white"></u-icon>
+									</view>
+								</view>
+
+								<view class="day_footer">
+									<text>{{days.day}}</text>
+								</view>
+								<!-- <view>
+									
+									<view :class="[{'circle':days.flag},{'sign':days.day==day}]"></view>
+								</view> -->
 							<!-- {'repair':days.day<day}, -->
 						</view>
 					</view>
 				</view>
-				<!-- <view class="but">
-					<button :disabled='thisMonth == month ? false : true'  :style="'background:'+(thisMonth == month ? bgday : '#666')+';'" @click="daySign(dayArr[aheadDay + day - 1])">立即签到</button>
-				</view> -->
+				<view class="but">
+					<button :disabled='thisMonth == month ? false : true' @click="daySign(dayArr[aheadDay + day - 1])"></button>
+				</view>
 			</view>
 		</view>
 		
@@ -73,7 +87,7 @@
 			},
 			bgday: {
 				type: String,
-				default: '#F16940'
+				default: '#faf5db'
 			},
 			supplementary: {
 				type: Boolean,
@@ -274,6 +288,10 @@
 </script>
 
 <style scoped lang="scss">
+.shell{
+	background: transparent;
+}
+
 .other-info{
 	display: flex;
 	align-items: center;
@@ -302,9 +320,9 @@
 .content{
 	width: 100%;
 
-	margin-top: 36rpx;
-
+	// margin-top: 36rpx;
 	//box-shadow: 2rpx 2rpx 10rpx 2rpx rgba(33, 46, 104, 0.3);
+
 	padding-bottom: 40rpx;
 	border-radius: 20rpx;
 }
@@ -317,9 +335,9 @@
 	}
 	.miss_box {
 		width: 100%;
-		padding: 0 40rpx 20rpx 40rpx;
+		padding: 0 10rpx 20rpx 10rpx;
 		box-sizing: border-box;
-		background-color: #FFFFFF;
+		// background-color: #FFFFFF;
 		// border-radius: 25rpx;
 	}
 	
@@ -339,7 +357,7 @@
 	}
 	
 	.month {
-		margin: 30rpx 0;
+		// margin: 30rpx 0;
 		position: relative;
 		.prv{
 			color: $th;
@@ -359,17 +377,73 @@
 		flex-wrap: wrap;
 	}
 	.week,
+
 	.day{
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
 		text-align: center;
-		>view{
+
+		// gap: 7rpx;
+
+		margin-top: 20rpx;
+
+		>.day_border{
+
 			aspect-ratio: 1/1;
+			
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			flex-shrink: 0;
+
+
 			position: relative;
+
+			.day_header{
+				
+				width: 80%;
+				height: 100%;
+
+				font-size: 24rpx;
+
+				margin-left: 10%;
+				background-color: white;
+				border-radius: 10rpx;
+				border: 1px solid white;
+				// box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, 0.2);
+
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+
+				.u-icon-border{
+					background-color: #c7c7c7;
+					padding: 4rpx;
+
+					width: 36rpx;
+					height: 36rpx;
+					border-radius: 50%;
+
+					margin-top: 8rpx;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+				}
+
+
+			}
+
+			.day_footer{
+				margin: 10rpx 0;
+				font-size: 26rpx;
+				color: $navbar-red;
+			}
 		}
+
 	}
 	// .week>view,
 	// .day>view {
@@ -382,15 +456,33 @@
 	// }
 	
 	.checkday {
-		color: #999;
+		// color: #999;
+		.day_footer{
+			color: #999 !important;
+		}
 	}
 	
-	.choose {
-		color: #FFFFFF;
-		border-radius: 25%;
-		width: 70%;
-		height: 100%;
-		margin-left: 15%;
+	.day_border.choose {
+		// color: #FFFFFF;
+		// border-radius: 25%;
+		// width: 70%;
+		// height: 100%;
+		// margin-left: 15%;
+		.day_header{
+			border-color: #e0b369;
+			background-color: #faf5db;
+			.u-icon-border{
+				background-color: #e0b369;
+			}
+		}
+
+
+	}
+
+	.checked{
+		.day_footer{
+			// color: #999 !important;
+		}
 	}
 	
 	.circle {
@@ -421,14 +513,21 @@
 		justify-content: center;
 	}
 	.but button {
-		width: 450rpx;
-		height: 80rpx;
+		width: 400rpx;
+		height: 120rpx;
 		line-height: 80rpx;
 		border-radius: 20rpx;
 		border: 1px solid transparent;
 		outline: none;
 		color: #FFFFFF;
 		font-size: 28rpx;
+
+		background-image: url('/static/t-1.png');
+		background-size: cover;
+
+		&:disabled {
+			filter:grayscale(100%);
+		}
 	}
 	uni-button:after {
 		border: none;
@@ -475,5 +574,9 @@
 	}
 	.month .prv {
 		min-width: 35px;
+		
+		display: flex;
+		justify-content: center;
+
 	}
 </style>
