@@ -2,7 +2,6 @@
 	<view class="page_account_safety">
 		<!-- 上方进度条 -->
 		<view class="top_progress">
-
 			<!-- 进度图片 -->
 			<view class="progress_img">
 				<image src="/static/18.jpg" mode="widthFix" />
@@ -45,8 +44,18 @@
 				<image :src="card_back == '' ?  '/static/app2/b.png' : card_back" mode="widthFix"/>
 			</view>
 
+			<view class="gray_box flex" @click="upload('card_hand')">
+				<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
+					<view class="top">手持身份证拍照</view>
+					<view class="identity_bottom">上传您身手持身份证照片</view>
+				</view>
+				<image :src="card_hand == '' ?  '/static/app2/c.png' : card_hand" mode="widthFix"/>
+			</view>
+
 			<u-button 
 				text="提交申请"
+				:loading="isDone"
+				:loadingText="regStatus"
 				class="red_button_common"
 				style="margin-top: 66rpx"
 				@click="doRealName"
@@ -66,7 +75,11 @@ export default {
 		return {
 			card_front: "",
 			card_back: "",
-			realname: ''
+			realname: '',
+			card_hand: '',
+
+			isDone: false,
+			regStatus: '提交中'
 		}
 	},
 	onLoad() {
@@ -96,14 +109,18 @@ export default {
 			});
 		},
 		doRealName() {
+
 			if (!this.realname) return this.toa('请输入姓名');
 			if (!this.card_front) return this.toa('请上传身份证正面');
 			if (!this.card_back) return this.toa('请上传身份证反面');
+			if (!this.card_hand) return this.toa('请上传手持身份证照片');
+			
 			this.isDone = true;
 			this.to.www(this.api.authentication, {
 					realname: this.realname,
 					card_back: this.card_back,
 					card_front: this.card_front,
+					card_hand: this.card_hand
 				}, "p")
 				.then(res => {
 					this.regStatus = '完成';
@@ -123,5 +140,7 @@ export default {
 </script>
 
 <style lang="scss">
-.page_account_safety {}
+.page_account_safety {
+	padding-bottom: 10vh;
+}
 </style>
