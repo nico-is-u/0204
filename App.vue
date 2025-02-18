@@ -184,7 +184,7 @@ view {
 		}
 
 		.article-content {
-			height: 240rpx;
+			// height: 240rpx;
 			background-color: white;
 
 		}

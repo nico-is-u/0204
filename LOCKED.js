@@ -97,6 +97,8 @@ const xxxxxxxxxxxxxx = {
 	// 邀请
 	invite:'01lNxoSp1FQ0XIBp2GDmiA==',
 	// 签到信息
-	usr_sg_log:'LJ9m5r3fi/lkT5knmrY8quVk3v052+dDqkdIsoVJPx8='
+	usr_sg_log:'LJ9m5r3fi/lkT5knmrY8quVk3v052+dDqkdIsoVJPx8=',
+	// 项目列表
+	project_group_list:'ZxbEJDpaYollAH6zBvHiFDSp02HqwshsXopor66D2k4=',
 }
 export default xxxxxxxxxxxxxx

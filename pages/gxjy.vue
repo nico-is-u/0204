@@ -8,7 +8,7 @@
 			<view class="section-red-content list flex flex-column">
 				<view class="row flex">
 					<view class="left-side" style="letter-spacing: 4px;">姓名：</view>
-					<view class="right-side">冯宝宝</view>
+					<view class="right-side">{{user_info.realname || '未实名'}}</view>
 				</view>
 				<view class="row flex">
 					<view class="left-side">功勋值：</view>
@@ -33,11 +33,27 @@
 	export default {
 		data() {
 			return {
-				
+				dataList:[]
 			}
 		},
+		onLoad() {
+			// this.getDataList()	
+			this.getUserInfo()
+		},
 		methods: {
-			
+			getUserInfo() {
+				this.to.www(this.api.user_info)
+					.then(res => {
+						this.user_info = res.data;
+					})
+			},
+			getDataList() {
+				this.to.www(this.api.project_group_list,{
+					project_group_id:7
+				}).then(response => {
+					this.dataList = response.data.data || []
+				})
+			}
 		}
 	}
 </script>

@@ -4,29 +4,17 @@
 		<image src="/static/17.jpg" class="navbar-img" mode="widthFix"></image>
 
 		<view class="section-list flex flex-column">
-			<view class="section-red">
-				<view class="section-red-content"></view>
+
+			<view class="section-red" v-for="(item,index) in dataList" :key="index">
+				<view class="section-red-content">
+					<image :src="item.cover_img"></image>
+					<view class="section-red-cover flex flex-between flex-y-center">
+						<view class="section-red-title">{{ item.name }}</view>
+						<!-- <view class="section-red-price" v-if="item.price">￥{{ item.price }}</view> -->
+					</view>
+				</view>
 			</view>
 
-			<view class="section-red">
-				<view class="section-red-content"></view>
-			</view>
-
-			<view class="section-red">
-				<view class="section-red-content"></view>
-			</view>
-
-			<view class="section-red">
-				<view class="section-red-content"></view>
-			</view>
-
-			<view class="section-red">
-				<view class="section-red-content"></view>
-			</view>
-
-			<view class="section-red">
-				<view class="section-red-content"></view>
-			</view>
 		</view>
 
 	</view>
@@ -36,11 +24,20 @@
 	export default {
 		data() {
 			return {
-				
+				dataList:[]
 			}
 		},
+		onLoad() {
+			this.getDataList()	
+		},
 		methods: {
-			
+			getDataList() {
+				this.to.www(this.api.project_group_list,{
+					project_group_id:8
+				}).then(response => {
+					this.dataList = response.data.data || []
+				})
+			}
 		}
 	}
 </script>
@@ -65,6 +62,33 @@ page{
 }
 
 .section-red{
-	height: 200rpx;
+	height: 300rpx;
+}
+
+.section-red-content{
+	position: relative;
+	image{
+		height: 100%;
+	}
+	
+	.section-red-cover{
+		position: absolute;
+		
+		width: 100%;
+		height: 120rpx;
+		padding: 0 28rpx;
+
+		left: 0;
+		bottom: 0;
+
+		color: white;
+		
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+		
+		.section-red-title{
+			font-size: 38rpx;
+			color: rgba(255, 255, 255, .85);
+		}
+	}
 }
 </style>

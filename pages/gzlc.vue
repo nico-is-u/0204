@@ -5,19 +5,12 @@
 
 		<!-- 文章列表 -->
 		<view class="article-list flex flex-column">
-			<view class="article-item">
-				<image src="/static/14.jpg" ></image>
-				<view class="article-content"></view>
-			</view>
-
-			<view class="article-item">
-				<image src="/static/15.jpg" ></image>
-				<view class="article-content"></view>
-			</view>
-
-			<view class="article-item">
-				<image src="/static/16.jpg" ></image>
-				<view class="article-content"></view>
+			<view class="article-item" v-for="(item,index) in dataList" :key="index">
+				<image :src="item.cover_img"></image>
+				<view class="article-content">
+					<view class="article-title">{{ item.name }}</view>
+					<view class="article-price" v-if="item.price">￥{{ item.price }}</view>
+				</view>
 			</view>
 		</view>
 		
@@ -28,11 +21,20 @@
 	export default {
 		data() {
 			return {
-				
+				dataList:[]
 			}
 		},
+		onLoad() {
+			this.getDataList()	
+		},
 		methods: {
-			
+			getDataList() {
+				this.to.www(this.api.project_group_list,{
+					project_group_id:7
+				}).then(response => {
+					this.dataList = response.data.data || []
+				})
+			}
 		}
 	}
 </script>
@@ -51,5 +53,18 @@ page{
 .article-list{
 	margin-top: 24rpx;
 	padding: 0 32rpx 120rpx;
+}
+
+.article-content{
+	padding: 32rpx 20rpx;
+	.article-title{
+		font-size: 42rpx;
+		color: #333;
+	}
+
+	.article-price{
+		font-size: 52rpx;
+		color: $navbar-red;
+	}
 }
 </style>
