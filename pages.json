@@ -130,6 +130,13 @@
 			{
 				"navigationStyle":"custom"
 			}
+		},
+		{
+			"path" : "pages/invite_friend",
+			"style" : 
+			{
+				"navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {
