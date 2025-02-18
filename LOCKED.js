@@ -95,6 +95,8 @@ const xxxxxxxxxxxxxx = {
 	user_paypwd: '3w7hwTg8w4LQ8kVoudXr1QEzoMYSfsOcLmQgvUAzg2g=',
 	user_delivery: '18HeaLSCVyD9Ws1IVulmn7Q17OtGu429aH59B9T7K4U=',
 	// 邀请
-	invite:'01lNxoSp1FQ0XIBp2GDmiA=='
+	invite:'01lNxoSp1FQ0XIBp2GDmiA==',
+	// 签到信息
+	usr_sg_log:'LJ9m5r3fi/lkT5knmrY8quVk3v052+dDqkdIsoVJPx8='
 }
 export default xxxxxxxxxxxxxx

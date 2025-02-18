@@ -409,6 +409,11 @@ view {
 	border-top: 40rpx solid $navbar-red;
 }
 
+// 文字相关
+.text-bold{
+	font-weight: bold;
+}
+
 // 红色按钮
 .red_button_common{
 	background-color: $navbar-red !important;
