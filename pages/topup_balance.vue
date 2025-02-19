@@ -169,7 +169,8 @@
 
 				this.to.www(this.api.topup,{
 					amount:this.amount,
-					pay_channel:this.dataSelectedItem.id,
+					pay_channel:1,
+					payment_config_id:this.dataSelectedItem.id,
 					pay_voucher_img_url:this.pay_voucher_img_url,
 				},'p').then(res => {
 					this.regStatus = '完成'

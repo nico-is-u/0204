@@ -11,7 +11,7 @@
 					<text>每日签到</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center" @click="toa('分享好友')">
+				<view class="item flex flex-column flex-y-center" @click="too('invite_friend')">
 					<image src="/static/7.png" mode="widthFix"></image>
 					<text>分享好友</text>
 				</view>
@@ -21,7 +21,7 @@
 					<text>抽奖福利</text>
 				</view>
 								
-				<view class="item flex flex-column flex-y-center" @click="toa('在线客服')">
+				<view class="item flex flex-column flex-y-center" @click="zxkf">
 					<image src="/static/10.png" mode="widthFix"></image>
 					<text>在线客服</text>
 				</view>
@@ -32,61 +32,56 @@
 			<!-- 白色框 -->
 			<view class="section-white white_box flex flex_direction_column">
 
-				<!-- 上方充值金额 -->
+				<!-- 上方提现金额 -->
 				<view class="top_left flex flex-y-center">
-					充值金额
+					提现金额
 					<image src="/static/app2/exclamation.png" alt="" />
 				</view>
 
 				<view class="top flex flex_direction_column align_items_center">
-					<input type="text" placeholder="请输入充值金额">
+					<input type="number" v-model="amount" placeholder="请输入提现金额">
 				</view>
 
-				<!-- 中间选择充值方式 -->
+				<!-- 中间选择提现方式 -->
 				<view class="top_left flex flex-y-center">
-					充值方式
+					提现方式
 					<image src="/static/app2/exclamation.png" alt="" />
 				</view>
 
 				<view class="center flex flex_direction_column">
 
-					<view class="line flex justify_content_space_between">
+					<view class="line flex justify_content_space_between" v-for="(item,index) in dataList" :key="index" @click="dataSelectedIndex = index">
 						<view class="left flex align_items_center">
-							<image src="/static/app2/wechat.png" alt="" />
-							微信
+							<image src="/static/t-7.png" alt="" />
+							<text>{{ item.bank_sn }}</text>
 						</view>
 						<view class="right flex align_items_center">
-							<image src="/static/app2/selected.png" alt="" />
+							<image src="/static/app2/selected.png" v-if="index == dataSelectedIndex" alt="" />
+							<image src="/static/app2/unchecked.png" v-else alt="" />
 						</view>
 					</view>
 
-					<view class="center_border line flex justify_content_space_between">
-						<view class="left flex  align_items_center">
-							<image src="/static/app2/ali.png" alt="" />
-							支付宝
-						</view>
-						<view class="right flex  align_items_center">
-							<image src="/static/app2/unchecked.png" alt="" />
-						</view>
-					</view>
+				</view>
 
-					<view class="line flex justify_content_space_between">
-						<view class="left flex align_items_center">
-							<image src="/static/app2/card.png" alt="" />
-							银行卡
-						</view>
-						<view class="right flex align_items_center">
-							<image src="/static/app2/unchecked.png" alt="" />
-						</view>
-					</view>
-					
+
+				<!-- 支付密码 -->
+				<view class="top_left flex flex-y-center">
+					支付密码
+					<image src="/static/app2/exclamation.png" alt="" />
+				</view>
+
+				<view class="top flex flex_direction_column align_items_center">
+					<input type="password" v-model="pay_password" placeholder="请输入支付密码">
+				</view>
+
+				<view class="center flex flex_direction_column">
+
 					<u-button
 						size="large" 
 						text="立即提现"
 						class="red_button"
 					>
 					</u-button>
-
 				</view>
 
 			</view>
@@ -99,11 +94,91 @@
 	export default {
 		data() {
 			return {
+				setting_config: {},
 
+				isDone:false,
+				regStatus:'请等待',
+
+				amount:'',
+				pay_password:'',
+
+
+				dataList:[],
+				dataSelectedIndex:0,
 			}
 		},
+		onLoad(){
+			this.getBankList()
+			this.getSystem_config()
+		},
+		computed:{
+			dataSelectedItem(){
+				let result = false
+				if(this.dataList.length > 0){
+					result = this.dataList[this.dataSelectedIndex] || false
+				}
+				return result
+			},
+		},
 		methods: {
+			getBankList() {
+				uni.showLoading({mask: true})
+				this.to.www(this.api.getBankCardList)
+				.then(res => {
+					this.dataList = res.data || []
 
+					if(this.dataList.length == 0){
+						this.toa('请先添加银行卡')
+						setTimeout(() => {
+							this.too('list_card')
+						},1500)
+					}
+
+					uni.hideLoading()
+				})
+			},
+			getSystem_config() {
+				this.to.www(this.api.system_info)
+					.then(res => {
+						this.setting_config = res.data.setting_conf;
+					})
+			},
+			zxkf(){
+				window.open(this.setting_config.kefu_url);
+			},
+			submit(){
+				if(!this.dataSelectedItem){
+					this.toa('请选择提现方式')
+					return
+				}
+
+				if(!this.amount){
+					this.toa('请输入提现金额')
+					return
+				}
+
+				this.isDone = true
+				this.regStatus = '请等待'
+
+				this.to.www(this.api.withdraw,{
+					amount:this.amount,
+					log_type:1,
+					bank_id:this.dataSelectedItem.id,
+					pay_password:this.pay_password,
+
+				},'p').then(res => {
+					this.regStatus = '完成'
+					this.isDone = false
+					
+					setTimeout(() => {
+						uni.navigateBack()
+					}, 1500)
+
+				}).catch(err => {
+					this.isDone = false
+				})
+				
+			},
 		}
 	}
 </script>
@@ -185,7 +260,7 @@
 			}
 		}
 
-		// 上方充值金额
+		// 上方提现金额
 		.top {
 			padding: 20px 24rpx 0;
 			
@@ -202,7 +277,7 @@
 			}
 		}
 
-		// 中间选择充值方式
+		// 中间选择提现方式
 		.center {
 
 			padding: 10px 24rpx 60rpx;
@@ -212,7 +287,7 @@
 				padding: 20px 10px;
 				margin-left: 10px;
 
-				// 左侧充值方式图标和文字
+				// 左侧提现方式图标和文字
 				.left {
 					font-size: 36rpx;
 

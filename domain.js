@@ -59,7 +59,7 @@ function decrypt(content, keyStr) {
 }
 
 
-console.log('encrypt',encryptCBC('Capital/topup'))
+console.log('encrypt',encryptCBC('user/withdrawal'))
 
 var
 	api_index = 0,

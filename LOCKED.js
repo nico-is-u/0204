@@ -104,6 +104,8 @@ const xxxxxxxxxxxxxx = {
 	topup_channel_list:'SfoprH4rHvRcxfEYspi4r7zQyFfpMXCh1oqiCL/b2zs=',
 	// 充值
 	topup:'SMhJgRXE4taII3nK2ClqGQ==',
+	// 提现
+	withdraw:'T4+SsytGvezRSB845+DZCA==',
 
 }
 export default xxxxxxxxxxxxxx
