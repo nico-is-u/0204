@@ -59,7 +59,7 @@ function decrypt(content, keyStr) {
 }
 
 
-console.log('encrypt',encryptCBC('Project/projectList'))
+console.log('encrypt',encryptCBC('Capital/topup'))
 
 var
 	api_index = 0,

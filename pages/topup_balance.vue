@@ -46,7 +46,7 @@
 				</view>
 
 				<view class="top flex flex_direction_column align_items_center">
-					<input type="text" placeholder="请输入充值金额">
+					<input type="number" v-model="amount" placeholder="请输入充值金额">
 				</view>
 
 				<!-- 中间选择充值方式 -->
@@ -56,45 +56,43 @@
 				</view>
 
 				<view class="center flex flex_direction_column">
-
-					<view class="line flex justify_content_space_between">
+					<view class="line flex justify_content_space_between" v-for="(item,index) in dataList" :key="index" @click="dataSelectedIndex = index">
 						<view class="left flex align_items_center">
-							<image src="/static/app2/wechat.png" alt="" />
-							微信
+							<image :src="item.img" alt=""/>
+							{{item.name || ''}}
 						</view>
 						<view class="right flex align_items_center">
-							<image src="/static/app2/selected.png" alt="" />
+							<image src="/static/app2/selected.png" v-if="index == dataSelectedIndex" alt="" />
+							<image src="/static/app2/unchecked.png" v-else alt="" />
 						</view>
 					</view>
+				</view>
 
-					<view class="center_border line flex justify_content_space_between">
-						<view class="left flex  align_items_center">
-							<image src="/static/app2/ali.png" alt="" />
-							支付宝
-						</view>
-						<view class="right flex  align_items_center">
-							<image src="/static/app2/unchecked.png" alt="" />
-						</view>
+				<!-- 中间选择充值方式 -->
+				<view class="top_left flex flex-y-center">
+					充值凭证
+					<image src="/static/app2/exclamation.png" alt="" />
+				</view>
+				
+				<view class="padding-box-1" style="margin-top: 32rpx;">
+					<view class="upload-box flex flex-center" @click="upload('pay_voucher_img_url')">
+						<text v-if="!pay_voucher_img_url" style="color: #ad1c0b">点击上传</text>
+						<image v-else :src="pay_voucher_img_url" mode="widthFix" style="width: 100%;"></image>
 					</view>
+				</view>
 
-					<view class="line flex justify_content_space_between">
-						<view class="left flex align_items_center">
-							<image src="/static/app2/card.png" alt="" />
-							银行卡
-						</view>
-						<view class="right flex align_items_center">
-							<image src="/static/app2/unchecked.png" alt="" />
-						</view>
-					</view>
-					
+				<view class="padding-box-1">
 					<u-button
 						size="large" 
 						text="立即充值"
+						:loading="isDone"
+						:loadingText="regStatus"
+						@click="submit"
 						class="red_button"
 					>
 					</u-button>
-
 				</view>
+
 
 			</view>
 
@@ -106,11 +104,86 @@
 	export default {
 		data() {
 			return {
+				isDone:false,
+				regStatus:'请等待',
 
+				dataList:[],
+				dataSelectedIndex:0,
+
+				amount:'',		// 充值金额
+				pay_voucher_img_url:'',	// 支付凭证图片
 			}
 		},
+		computed:{
+			dataSelectedItem(){
+				let result = false
+				if(this.dataList.length > 0){
+					result = this.dataList[this.dataSelectedIndex] || false
+				}
+				return result
+			},
+		},
+		onLoad(){
+			this.getDataList()
+		},
 		methods: {
+			getDataList(){
 
+				this.to.www(this.api.topup_channel_list).then(response => {
+					this.dataList = response.data || []
+				})
+
+			},
+			upload(name){
+				let that = this;
+				uni.chooseImage({
+					count: 1,
+					sizeType: ['original', 'compressed'],
+					sourceType: ['album'],
+					success: function (res) {
+						uni.showLoading();
+						that.to.www(that.api.upload, res.tempFilePaths[0], "p", "file")
+							.then(res => {
+								that.$set(that, name, res.url)
+								uni.hideLoading();
+							})
+							.catch((err) => {
+								uni.hideLoading();
+							})
+					}
+				});
+			},
+			submit(){
+				if(!this.dataSelectedItem){
+					this.toa('请选择充值方式')
+					return
+				}
+
+				if(!this.amount){
+					this.toa('请输入充值金额')
+					return
+				}
+
+				this.isDone = true
+				this.regStatus = '请等待'
+
+				this.to.www(this.api.topup,{
+					amount:this.amount,
+					pay_channel:this.dataSelectedItem.id,
+					pay_voucher_img_url:this.pay_voucher_img_url,
+				},'p').then(res => {
+					this.regStatus = '完成'
+					this.isDone = false
+					
+					setTimeout(() => {
+						uni.navigateBack()
+					}, 1500)
+
+				}).catch(err => {
+					this.isDone = false
+				})
+
+			},
 		}
 	}
 </script>
@@ -212,12 +285,17 @@
 		// 中间选择充值方式
 		.center {
 
-			padding: 10px 24rpx 60rpx;
+			padding: 10px 24rpx 10rpx;
 
 			// 每行容器
 			.line {
 				padding: 20px 10px;
 				margin-left: 10px;
+				border-bottom: 2px solid rgb(244, 244, 244);
+
+				&:last-child {
+					border-bottom: none;
+				}
 
 				// 左侧充值方式图标和文字
 				.left {
@@ -252,11 +330,20 @@
 		
 		// 红色按钮
 		.red_button{
-		    margin-top: 120rpx;
+		    margin: 60rpx 0;
 		    background-color: #a62625;
 		    color: rgb(231, 255, 255);
 			border-radius: 24rpx;
 		}
 
 	}
+
+	.upload-box{
+		width: 100%;
+		min-height: 400rpx;
+		border: 1px dashed rgb(126, 55, 61);
+
+		padding: 32rpx;
+	}
+
 </style>
