@@ -38,8 +38,9 @@
 						</view>
 					</view>
 					<!-- 右侧实名认证图标 -->
-					<view class="right flex flex-center" v-if="user_info.realname != ''">
-						已实名
+					<view class="right flex flex-center">
+						<text v-if="!user_info || !user_info.realname">未实名</text>
+						<text v-else>已实名</text>
 					</view>
 				</view>
 	
@@ -196,6 +197,14 @@
 							银行卡
 						</view>
 					</view>
+					<view class="item flex flex-column flex-y-center" @click="too('account_safety')">
+						<view class="icon">
+							<image src="/static/mine-icon-6.jpg" mode="widthFix"></image>
+						</view>
+						<view class="text">
+							账户安全
+						</view>
+					</view>
 				</view>
 				<view class="column flex flex-column flex-y-center">
 					<view class="item flex flex-column flex-y-center" @click="too('topup_balance')">
@@ -206,20 +215,12 @@
 							充值
 						</view>
 					</view>
-					<view v-if="user_info.realname == ''" class="item flex flex-column flex-y-center" @click="too('account_safety')">
+					<view class="item flex flex-column flex-y-center" @click="too('realname_authen')">
 						<view class="icon">
 							<image src="/static/mine-icon-6.jpg" mode="widthFix"></image>
 						</view>
 						<view class="text">
 							实名认证
-						</view>
-					</view>
-					<view v-if="user_info.realname != ''" class="item flex flex-column flex-y-center" @click="too('secure')">
-						<view class="icon">
-							<image src="/static/mine-icon-6.jpg" mode="widthFix"></image>
-						</view>
-						<view class="text">
-							账户安全
 						</view>
 					</view>
 				</view>

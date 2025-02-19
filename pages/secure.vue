@@ -1,6 +1,7 @@
 <template>
 	<view>
 		<view class="header">
+			<image src="/static//t-6.jpg"></image>
 		</view>
 		<view class="info">
 			<view>

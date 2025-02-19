@@ -409,6 +409,56 @@ view {
 	border-top: 40rpx solid $navbar-red;
 }
 
+.ser_list{
+	background-color: white;
+	border-radius: 20rpx;
+	padding: 24rpx 38rpx;
+
+	.item{
+		font-size: 38rpx;
+		
+		display: flex;
+		align-items: center;
+
+		color: #222;
+		border-bottom: 1px solid #f4f4f4;
+
+		position: relative;
+
+		&:last-child{
+			border-bottom:none;
+		}
+
+		&.right-arrow{
+			&::after{
+				content: '>';
+
+				height: 100%;
+
+				position: absolute;
+				top: 0;
+				right: 0;
+				
+				color: #999;
+				transform: translateY(-5rpx);
+
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		image{
+			width: 40rpx;
+		}
+
+		.item_center{
+			flex: 1;
+			padding: 32rpx 32rpx;
+		}
+		
+	}
+}
+
 // 文字相关
 .text-bold{
 	font-weight: bold;
