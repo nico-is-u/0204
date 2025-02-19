@@ -19,7 +19,7 @@
 					<text>分享好友</text>
 				</view>
 				
-				<view class="item flex flex-column flex-y-center" @click="toa('抽奖福利')">
+				<view class="item flex flex-column flex-y-center" @click="too('turntable')">
 					<image src="/static/8.png" mode="widthFix"></image>
 					<text>抽奖福利</text>
 				</view>

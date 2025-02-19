@@ -137,6 +137,13 @@
 			{
 				"navigationStyle":"custom"
 			}
+		},
+		{
+			"path" : "pages/turntable",
+			"style" : 
+			{
+				"navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {
