@@ -61,17 +61,22 @@ page{
             margin-top: 50rpx;
         }
     }
+
+    // 转盘
     .zp_box{
         height: 100%;
         height: 500px;
         background-image: url('/static/zp.png');
         background-size: 100% auto;
         background-repeat: no-repeat;
-
         position: relative;
 
+        // 指针
         .zp_zz{
+            position: absolute;
             width: 20vw;
+            top: 35vw;
+	        left: 40vw;
         }
     }
 
