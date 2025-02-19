@@ -24,15 +24,19 @@
 				dataList:[]
 			}
 		},
-		onLoad() {
+		onShow() {
 			this.getDataList()	
 		},
 		methods: {
 			getDataList() {
+				uni.showLoading()
 				this.to.www(this.api.project_group_list,{
 					project_group_id:7
 				},'p').then(response => {
+					uni.hideLoading()
 					this.dataList = response.data.data || []
+				}).catch(e => {
+					uni.hideLoading()
 				})
 			}
 		}
