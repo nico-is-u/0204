@@ -107,7 +107,7 @@
 	
 page{
 	height: 100%;
-	background-image: url('/static/login-bg.jpg');
+	background-image: url('/static/t-7.jpg');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
@@ -197,7 +197,7 @@ page{
 	
     // 底部
     .bottom{
-        margin-top: 30px;
+        margin-top: 15rpx;
     }
 }
 
