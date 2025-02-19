@@ -83,7 +83,7 @@
 			}
 		},
 		{
-			"path" : "pages/account_safety",
+			"path" : "pages/realname_authen",
 			"style" : 
 			{
 				"navigationBarTitleText" : "实名认证"
@@ -118,7 +118,7 @@
 			}
 		},
 		{
-			"path" : "pages/secure",
+			"path" : "pages/account_safety",
 			"style" : 
 			{
 				"navigationBarTitleText" : "账户安全"

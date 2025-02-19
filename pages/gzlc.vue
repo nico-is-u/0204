@@ -31,7 +31,7 @@
 			getDataList() {
 				this.to.www(this.api.project_group_list,{
 					project_group_id:7
-				}).then(response => {
+				},'p').then(response => {
 					this.dataList = response.data.data || []
 				})
 			}
