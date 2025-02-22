@@ -9,7 +9,15 @@
 				<image :src="item.cover_img"></image>
 				<view class="article-content">
 					<view class="article-title">{{ item.name }}</view>
-					<view class="article-price" v-if="item.price">￥{{ item.price }}</view>
+					<view class="article-info">
+						<view class="article-price-info flex flex-y-end">
+							<view class="left-side flex flex-y-center">
+								<view class="gray-text-info" style="color: #9c9c9c">合计</view>
+								<view class="article-price" v-if="item.price">￥{{ item.price }}</view>
+							</view>
+							<view class="button-1">立即购买</view>
+						</view>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -70,5 +78,24 @@ page{
 		font-size: 52rpx;
 		color: $navbar-red;
 	}
+
+	.article-price-info{
+		margin-top: 32rpx;
+		justify-content: flex-end;
+
+		.left-side{
+			padding-bottom: 8rpx;
+		}
+
+		.gray-text-info{
+			padding-top: 12rpx;
+		}
+
+		.article-price{
+			padding-right: 32rpx;
+		}
+
+	}
+
 }
 </style>

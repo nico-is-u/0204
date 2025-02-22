@@ -58,7 +58,7 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-console.log('encrypt',encryptCBC('User/authenticationStatus'))
+console.log('encrypt',encryptCBC('User/teamRankList'))
 
 var
 	api_index = 0,

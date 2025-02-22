@@ -144,6 +144,13 @@
 			{
 				"navigationStyle":"custom"
 			}
+		},
+		{
+			"path": "pages/team",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"globalStyle": {

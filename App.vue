@@ -147,6 +147,47 @@ view {
 	}
 }
 
+.section{
+	.section-title{
+		display: flex;
+		align-items: flex-end;
+
+		color: #e8cf8f;
+		font-size: 36rpx;
+
+		padding: 48rpx 0 24rpx;
+
+		image{
+			margin-right: 20rpx;
+		}
+	}
+}
+
+.table{
+	background-color: #e8cf8f;
+	border-radius: 16rpx;
+	font-size: 30rpx;
+
+	padding-top: 24rpx;
+	color: $navbar-red;
+
+	.thead{
+		padding: 0 24rpx 12rpx;
+		font-weight: bold;
+		border-bottom: 4rpx solid $navbar-red;
+	}
+
+	.tbody{
+		.row{
+			padding: 12rpx 24rpx;
+			border-bottom: 4rpx solid $navbar-red;
+			&:last-child{
+				border-bottom: none;
+			}
+		}
+	}
+}
+
 // 红背景 小菜单
 .menu-box {
 	margin-top: 24rpx;
@@ -471,6 +512,22 @@ view {
 		color: #ad1c0b;
 		padding-top: 32rpx;
 		font-size: 46rpx;
+	}
+}
+
+.button-1{
+	color: $navbar-red;
+	background-color: #e8cf8f;
+	font-size: 38rpx;
+	padding: 22rpx 28rpx;
+	border-radius: 20rpx;
+	box-shadow: 5% 5% 5% rgba(0, 0, 0, 0.5);
+
+	will-change: transform;
+	transition: transform .1s;
+
+	&:active{
+		transform: scale(.97);
 	}
 }
 

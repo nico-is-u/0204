@@ -233,7 +233,7 @@
 							提现
 						</view>
 					</view>
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('team')">
 						<view class="icon">
 							<image src="/static/mine-icon-7.jpg" mode="widthFix"></image>
 						</view>
