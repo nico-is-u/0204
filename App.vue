@@ -147,7 +147,7 @@ view {
 	}
 }
 
-.section{
+.section-3{
 	.section-title{
 		display: flex;
 		align-items: flex-end;
@@ -454,6 +454,17 @@ view {
 	z-index: 9;
 
 	border-top: 40rpx solid $navbar-red;
+}
+
+.navbar-img-back{
+	position: fixed;
+	top: 48rpx;
+	z-index: 10;
+	
+	width: 72rpx;
+	.uni-icons{
+		color: #e8cf8f !important;
+	}
 }
 
 .ser_list{
