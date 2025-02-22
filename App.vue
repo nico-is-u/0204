@@ -373,7 +373,6 @@ view {
 		// 左侧文字
 		.left {
 			text-align: left;
-			color: black;
 		}
 
 		// 中间文字
@@ -385,6 +384,12 @@ view {
 		.right {
 			text-align: right;
 		}
+
+		// 选中
+		.selected{
+			color: black;
+		}
+
 	}
 }
 
@@ -457,6 +462,15 @@ view {
 			padding: 32rpx 32rpx;
 		}
 		
+	}
+}
+
+.status-box{
+	padding: 20vh 0;
+	.text-row{
+		color: #ad1c0b;
+		padding-top: 32rpx;
+		font-size: 46rpx;
 	}
 }
 

@@ -106,6 +106,8 @@ const xxxxxxxxxxxxxx = {
 	topup:'SMhJgRXE4taII3nK2ClqGQ==',
 	// 提现
 	withdraw:'T4+SsytGvezRSB845+DZCA==',
+	// 检查认证状态
+	authentication:'yB2B83Vb9nj2DGS1xb7L6Qu37gI4s1tRgxKVB3pC3y0=',
 
 }
 export default xxxxxxxxxxxxxx

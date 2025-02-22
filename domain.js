@@ -58,8 +58,7 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-
-console.log('encrypt',encryptCBC('user/withdrawal'))
+console.log('encrypt',encryptCBC('User/authenticationStatus'))
 
 var
 	api_index = 0,
