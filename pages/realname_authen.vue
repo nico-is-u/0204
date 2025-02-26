@@ -165,6 +165,7 @@ export default {
 					this.isDone = false;
 					setTimeout(() => {
 						uni.navigateBack()
+						this.toa('提交成功','s')
 					}, 1500)
 				}).catch(err =>{
 					this.isDone = false;
