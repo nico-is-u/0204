@@ -151,6 +151,13 @@
 				"navigationStyle":"custom",
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+			"path": "pages/gzhl_detail",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"globalStyle": {

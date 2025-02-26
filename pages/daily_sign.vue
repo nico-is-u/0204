@@ -49,7 +49,20 @@
 						this.sgList = res.data.list
 						this.sgDay = res.data.total_continue_days
 					})
-			},	
+			},
+
+			signDate(e) {
+				// if(this.user_info.isZhaiwujj == 0){
+				// 	return this.toa('签到无效，请完成资金领取信息对接！');
+				// }
+				// this.to.www(this.api.user_sign, {}, 'p')
+				// 	.then(res => {
+				// 		this.toa('已签到，请及时完成资金激活');
+				// 		this.getList();
+				// 	})
+					
+				this.getList()
+			}
 		}
 	}
 </script>

@@ -5,7 +5,7 @@
 
 		<view class="section-list flex flex-column">
 
-			<view class="section-red" v-for="(item,index) in dataList" :key="index">
+			<view class="section-red" v-for="(item,index) in dataList" :key="index" @click="too('/pages/gzhl_detail?id='+item.id)">
 				<view class="section-red-content">
 					<image :src="item.cover_img"></image>
 					<view class="section-red-cover flex flex-between flex-y-center">
