@@ -55,7 +55,7 @@
 
         <!-- 添加银行卡按钮 -->
         <view class="button" @click="too('bank_add')">
-            ＋添加银行卡
+            ＋添加银行卡 / 支付宝
         </view>
 
 
@@ -144,8 +144,10 @@
 
         // 添加银行卡按钮
         .button{
+            width: 100%;
+            text-align: center;
             margin-top: 120rpx;
-            padding: 20rpx 200rpx;
+            padding: 20rpx 20rpx;
             border-radius: 60rpx;
             border: 1px solid #a62328;
             font-size: 36rpx;

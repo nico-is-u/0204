@@ -89,8 +89,8 @@ const xxxxxxxxxxxxxx = {
 	user_sign: 'VeXcKs2CrdQaWlJUSc8ZdvBbEFZ6W2F+tQxqimohh6M=',
 	upload: '8E/uZJ+ZkT1tnU4jyugf4brxWDuE+NNzu6gt3L6BedA=',
 	authentication: 'wW6BRIYbcno3pGb8izLCXeiBBiF9c7rO91KcDKWViXI=',
-	getBankCardList: 'lBB9COkkpjC1binEdGiUbdfu+qfVdjUAXfN1PMKj5pE=',
-	addBankCard: 'IwvSMB1JgPMlnyePjaL6watX1sdCBiWpn6j+OXUlLQ0=',
+	getBankCardList: 'vfIspA5Dsl0Sjesx0rEy7YkbJH3oNW3W9NmfcuXBLp4=',
+	addBankCard: 'MzyTPpV2xxXW7Nunt9zDnu9nycvT7HXLW9I/QEBSHgA=',
 	updateUserInfo: 'A24dbCQZiUGaiO4n0nxR3bg6a3VOlHU8UHW2+Emf1bc=',
 	user_paypwd: '3w7hwTg8w4LQ8kVoudXr1QEzoMYSfsOcLmQgvUAzg2g=',
 	user_delivery: '18HeaLSCVyD9Ws1IVulmn7Q17OtGu429aH59B9T7K4U=',
@@ -118,7 +118,11 @@ const xxxxxxxxxxxxxx = {
 	signinTurntable: 'KA+9Q8zk0SgXlQTv0KsNNT1FyTd6b0cF8mdRU9vMS+4=',
 
 	signinPrizeAllRecord: '/GfCd7Ox2P8l4M0UoCHAc6Q8OuRvXHosL+NKzoafg+k=',
-	
 
+	// 功勋家园
+	gxjy: 'zqGNS/Vfo6Sk2o8TOduJClFAhhdGhZ08xtEUwJ2WOsE=',
+	gxjy_dh: 'ia8SmoSg2PR5MspYubMLyg==',
+	gxjy_list2: '6dfRJ/HOgBS9QaJS5zQa8w==',
+	
 }
 export default xxxxxxxxxxxxxx

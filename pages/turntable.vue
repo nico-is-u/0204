@@ -95,7 +95,7 @@ export default {
                     this.startTimer = setInterval(() => {
                         this.rotateNum = this.rotateNum + 10;
                     }, 1)
-                    let prize = this.prizeRange.find(item => item.id == res.data.prize_id)
+                    let prize = this.prizeRange.find(item => item.id == res.data.id)
                     setTimeout(() => {
                         this.isStart = false;
                         clearInterval(this.startTimer);

@@ -210,6 +210,38 @@ view {
 	}
 }
 
+// 红背景 行容器
+.row3{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	color: #e8cf8f;
+	gap: 24rpx;
+
+	margin-bottom: 24rpx;
+
+	.left-side{
+		.text1{
+			font-size: 46rpx;
+			font-weight: 600;
+		}
+	}
+
+	.right-side{
+		width: 30%;
+		flex-shrink: 0;
+
+		padding-top: 24rpx;
+	}
+
+	button{
+		color: #ad1c0b;
+		background-color: #ffe26a;
+		line-height: 1.5;
+	}
+}
+
 // 文章列表
 .article-list {
 
@@ -273,6 +305,8 @@ view {
 		
 	}
 }
+
+
 
 
 // 绑定收款方式
