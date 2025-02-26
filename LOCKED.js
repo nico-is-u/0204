@@ -112,8 +112,13 @@ const xxxxxxxxxxxxxx = {
 	team_list:'QprO2JuWHOhxkF53skars2Y4DAcFtuPixgb/DoILw2Y=',
 	// 幻灯片
 	banner_list:'8314DXechjD16MEA1zrBVA==',
-	// 转盘列表
-	zp_list:'Oxg+fMYXXfDtc8i3R9ILpgZ922ocJnEHQrQhh4wfF2c=',
+	
+	// 转盘
+	signinPrizeList: 'Oxg+fMYXXfDtc8i3R9ILpgZ922ocJnEHQrQhh4wfF2c=',
+	signinTurntable: 'KA+9Q8zk0SgXlQTv0KsNNT1FyTd6b0cF8mdRU9vMS+4=',
+
+	signinPrizeAllRecord: '/GfCd7Ox2P8l4M0UoCHAc6Q8OuRvXHosL+NKzoafg+k=',
+	
 
 }
 export default xxxxxxxxxxxxxx

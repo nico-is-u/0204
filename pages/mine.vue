@@ -52,7 +52,7 @@
 								可提余额
 							</view>
 							<view class="bottom">
-								0.00
+								{{user_info.shouyijin || '0.00'}}
 							</view>
 						</view>
 						<view class="item flex flex_direction_column flex-y-center">
@@ -60,7 +60,7 @@
 								可用余额
 							</view>
 							<view class="bottom">
-								0.00
+								{{user_info.topup_balance || '0.00'}}
 							</view>
 						</view>
 						<view class="item flex flex_direction_column flex-y-center">
@@ -76,7 +76,7 @@
 								激活国债份额
 							</view>
 							<view class="bottom font_red">
-								0.00
+								{{user_info.guozhaihongli || '0.00'}}
 							</view>
 						</view>
 					</view>
@@ -86,12 +86,21 @@
 								两重建设基金
 							</view>
 							<view class="bottom">
-								0.00
+								{{user_info.liangchongjianshe || '0.00'}}
 							</view>
 						</view>
 						<view class="item flex flex_direction_column flex-y-center">
 							<view class="top">
 								功勋值
+							</view>
+							<view class="bottom">
+								{{user_info.gongxun || '0'}}
+							</view>
+						</view>
+
+						<view class="item flex flex_direction_column flex-y-center">
+							<view class="top">
+								预计到期分红
 							</view>
 							<view class="bottom">
 								0.00
@@ -373,9 +382,16 @@
 					.line{
 						padding: 20rpx 0;
 						.item{
+							// width: 25%;
 							padding: 0 2%;
+
+							display: flex;
+							justify-content: center;
+							align-items: center;
+
 							.top{
 								font-size: 26rpx;
+								text-align: center;
 							}
 							.bottom{
 								padding-top: 16rpx;

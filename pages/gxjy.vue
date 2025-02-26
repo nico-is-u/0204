@@ -12,11 +12,11 @@
 				</view>
 				<view class="row flex">
 					<view class="left-side">功勋值：</view>
-					<view class="right-side"></view>
+					<view class="right-side">{{ user_info.gongxun }}</view>
 				</view>
-				<view class="row flex">
-					<view class="left-side">功勋称号：</view>
-					<view class="right-side"></view>
+				<view class="row flex" style="min-height: 60rpx;">
+					<!-- <view class="left-side">功勋称号：</view>
+					<view class="right-side"></view> -->
 				</view>
 			</view>
 		</view>
