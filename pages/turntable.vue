@@ -30,11 +30,16 @@
     export default{
         data(){
             return{
-
+                zp_list:[]
             }
         },
         methods :{
-
+            getDataList(){
+                this.to.www(this.api.zp_list)
+            }
+        },
+        onLoad(){
+            this.getDataList()
         }
     }
 </script>

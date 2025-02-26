@@ -112,6 +112,8 @@ const xxxxxxxxxxxxxx = {
 	team_list:'QprO2JuWHOhxkF53skars2Y4DAcFtuPixgb/DoILw2Y=',
 	// 幻灯片
 	banner_list:'8314DXechjD16MEA1zrBVA==',
+	// 转盘列表
+	zp_list:'Oxg+fMYXXfDtc8i3R9ILpgZ922ocJnEHQrQhh4wfF2c=',
 
 }
 export default xxxxxxxxxxxxxx
