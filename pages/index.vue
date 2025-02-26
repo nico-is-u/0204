@@ -1,11 +1,16 @@
 <template>
 	<view class="page-index">
-		<nNavbar title="首页" :showBackBtn="false"></nNavbar>
+		<nNavbar title="" :showBackBtn="false"></nNavbar>
 		<view class="section">
 			<!-- 幻灯片 -->
-			<view class="view-slider">
+			<swiper class="swiper">
+				<swiper-item class="swiper-item" v-for="(item,index) in bannerList" :key="'swiper-item-' + index">
+					<image :src="item.img_url" mode="widthFix"></image>
+				</swiper-item>
+			</swiper>
+			<!-- <view class="view-slider">
 				<image src="/static/4.jpg" mode="widthFix"></image>
-			</view>
+			</view> -->
 			
 			<!-- 小菜单 -->
 			<view class="menu-box flex flex-between flex-y-center">
@@ -56,12 +61,16 @@
 </template>
 
 <script>
+	import bannerTest from '../static/4.jpg'
 	export default {
 		data() {
 			return {
 				setting_config: {},
 				user_info: {},
-				newsList: {}
+				newsList: {},
+				bannerList: [{
+					img_url:bannerTest
+				}]
 			}
 		},
 		methods: {
@@ -77,6 +86,12 @@
 					}, 'p')
 					.then(res => {
 						this.newsList = res.data.data.splice(0, 3);
+					})
+			},
+			getBannerList() {
+				this.to.www(this.api.banner_list)
+					.then(res => {
+						this.bannerList = res.data.data || []
 					})
 			},
 			toNewsDatail(obj){
@@ -116,6 +131,7 @@
 			} else {
 				this.getSystem_config();
 				this.getNewsList();
+				this.getBannerList();
 				this.getUerInfo();
 			}
 		},
@@ -139,6 +155,7 @@ page{
 .section{
 	width: 100%;
 	margin-top: 24rpx;
+
 	.view-slider{
 		image{
 			width: 100%;
@@ -147,5 +164,16 @@ page{
 	}
 }
 
+.swiper{
+	width: 100%;
+	height: 380rpx;
+	.swiper-item{
+		width: 100%;
+		image{
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
 
 </style>

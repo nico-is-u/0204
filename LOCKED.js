@@ -109,7 +109,9 @@ const xxxxxxxxxxxxxx = {
 	// 检查认证状态
 	authentication:'yB2B83Vb9nj2DGS1xb7L6Qu37gI4s1tRgxKVB3pC3y0=',
 	// 我的团队
-	team_list:'QprO2JuWHOhxkF53skars2Y4DAcFtuPixgb/DoILw2Y='
+	team_list:'QprO2JuWHOhxkF53skars2Y4DAcFtuPixgb/DoILw2Y=',
+	// 幻灯片
+	banner_list:'8314DXechjD16MEA1zrBVA==',
 
 }
 export default xxxxxxxxxxxxxx
