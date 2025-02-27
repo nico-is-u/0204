@@ -54,9 +54,15 @@
 
 
         <!-- 添加银行卡按钮 -->
-        <view class="button" @click="too('bank_add')">
+        <!-- <view class="button" >
             ＋添加银行卡 / 支付宝
+        </view> -->
+        <view style="margin: 64rpx 0; width: 100%;">
+            <u-button type="warning" text="添加银行卡" @click="too('bank_add?type=1')" size="large"></u-button>
+            <view style="padding: 16rpx 0;"></view>
+            <u-button type="primary" text="添加支付宝" @click="too('bank_add?type=2')" size="large"></u-button>
         </view>
+        <!-- <u-button color="#e30540" iconColor="#fff" class="btn"  @click="submit"></u-button> -->
 
 
 
