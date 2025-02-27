@@ -20,7 +20,7 @@
 					</view>
 					<!-- 中间姓名电话 -->
 					<view class="center flex flex_direction_column">
-						<view class="line flex flex-y-center">
+						<view class="line flex flex-y-center" @click="too('user_account')">
 							<view class="line_left">
 								姓名：
 							</view>

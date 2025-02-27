@@ -165,6 +165,12 @@
 				"navigationStyle":"custom",
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+			"path": "pages/user_account",
+			"style": {
+				"navigationBarTitleText" : "个人详情"
+			}
 		}
 	],
 	"globalStyle": {
