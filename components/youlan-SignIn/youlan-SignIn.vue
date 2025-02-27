@@ -35,7 +35,7 @@
 							:class="[
 								{'checkday':days.nowMonth==0},
 								{'choose':days.date==localDate },
-								{'checked':days.flag1 ? true : (days.date==localDate?true:false)}
+								{'checked':days.flag ? true : (days.date==localDate?true:false)}
 							]"
 							v-for="(days,index) in dayArr" :key="index"
 							@click="signToday(days,index)">
@@ -479,9 +479,13 @@
 
 	}
 
-	.checked{
-		.day_footer{
-			// color: #999 !important;
+	.day_border.checked{
+		.day_header{
+			border-color: #e0b369;
+			background-color: #faf5db;
+			.u-icon-border{
+				background-color: #e0b369;
+			}
 		}
 	}
 	

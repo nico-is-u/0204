@@ -39,7 +39,7 @@
 			getDataList() {
 				uni.showLoading()
 				this.to.www(this.api.project_group_list,{
-					project_group_id:7
+					project_group_id:8
 				},'p').then(response => {
 					uni.hideLoading()
 					this.dataList = response.data.data || []
