@@ -105,7 +105,7 @@ export default {
 			isDone: false,
 			isDone2: false,
 
-			authenCode:3,			// 1:未实名  2 已提交请等待审核通过 3 已通过实名 4 实名未通过，请联系客服
+			authenCode:1,			// 1:未实名  2 已提交请等待审核通过 3 已通过实名 4 实名未通过，请联系客服
 
 			regStatus: '提交中'
 		}
@@ -164,9 +164,8 @@ export default {
 					this.regStatus = '完成';
 					this.isDone = false;
 					setTimeout(() => {
-						uni.navigateBack()
-						this.toa('提交成功','s')
-					}, 1500)
+						this.authenCode = 2
+					}, 500)
 				}).catch(err =>{
 					this.isDone = false;
 					// setTimeout(() => {
