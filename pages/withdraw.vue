@@ -53,7 +53,7 @@
 					<view class="line flex justify_content_space_between" v-for="(item,index) in dataList" :key="index" @click="dataSelectedIndex = index">
 						<view class="left flex align_items_center">
 							<image src="/static/t-7.png" alt="" />
-							<text>{{ item.bank_sn }}</text>
+							<text>{{ item.account }}</text>
 						</view>
 						<view class="right flex align_items_center">
 							<image src="/static/app2/selected.png" v-if="index == dataSelectedIndex" alt="" />

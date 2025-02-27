@@ -50,6 +50,7 @@
 
         </view>
 
+        <nTabbar></nTabbar>
     </view>
 </template>
 
