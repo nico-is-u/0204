@@ -5,7 +5,7 @@
 
 		<!-- 文章列表 -->
 		<view class="article-list flex flex-column">
-			<view class="article-item" v-for="(item,index) in dataList" :key="index">
+			<view class="article-item" v-for="(item,index) in dataList" :key="index" @click="goDetail(item)">
 				<image :src="item.cover_img"></image>
 				<view class="article-content">
 					<view class="article-title">{{ item.name }}</view>
@@ -46,7 +46,11 @@
 				}).catch(e => {
 					uni.hideLoading()
 				})
-			}
+			},
+			goDetail(item){
+				uni.setStorageSync('PROJECT_CACHE',item);
+				this.too('gzlc_detail')
+			},
 		}
 	}
 </script>
@@ -54,7 +58,6 @@
 <style lang="scss">
 page{
 	height: 100%;
-	
 	background-color: #f2f2f2;
 }
 

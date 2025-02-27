@@ -123,6 +123,9 @@ const xxxxxxxxxxxxxx = {
 	gxjy: 'zqGNS/Vfo6Sk2o8TOduJClFAhhdGhZ08xtEUwJ2WOsE=',
 	gxjy_dh: 'ia8SmoSg2PR5MspYubMLyg==',
 	gxjy_list2: '6dfRJ/HOgBS9QaJS5zQa8w==',
+
+	// 购买产品
+	placeOrder: 'is5+wsxioEWhzp7DMkGqgeo5Xhidr3mMMpYLHMtgUC0=',
 	
 }
 export default xxxxxxxxxxxxxx

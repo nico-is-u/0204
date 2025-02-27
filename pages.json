@@ -171,6 +171,13 @@
 			"style": {
 				"navigationBarTitleText" : "个人详情"
 			}
+		},
+		{
+			"path": "pages/gzlc_detail",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"globalStyle": {

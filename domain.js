@@ -58,7 +58,7 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-console.log('encrypt',encryptCBC('gongxun/prolist'))
+console.log('encrypt',encryptCBC('order/placeOrder'))
 
 var
 	api_index = 0,
