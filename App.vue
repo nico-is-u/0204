@@ -148,6 +148,15 @@ view {
 		&.textarea{
 			color: $font-gold;
 		}
+
+		&.gzhl{
+			padding-bottom: 24rpx;
+			color: $font-gold;
+
+			.title{
+				font-size: 48rpx;
+			}
+		}
 	}
 }
 
@@ -189,6 +198,38 @@ view {
 				border-bottom: none;
 			}
 		}
+	}
+}
+
+.table-2{
+	border-top: 1px solid #e8cf8f;
+	border-left: 1px solid #e8cf8f;
+
+	.thead{
+		display: flex;
+		justify-content: space-between;
+
+		border-bottom: 1px solid #e8cf8f;
+
+		.td{
+			font-size: 33rpx;
+			font-weight: 600;
+		}
+	}
+
+	.tbody{
+		display: flex;
+		justify-content: space-between;
+
+		.td{
+			border-bottom: 1px solid #e8cf8f;
+		}
+	}
+
+	.td{
+		text-align: center;
+		border-right: 1px solid #e8cf8f;
+		line-height: 1.7;
 	}
 }
 
@@ -587,6 +628,9 @@ view {
 .text-xl{
 	font-size: 38rpx;
 }
+.text-xxxl{
+	font-size: 66rpx;
+}
 
 // 红色按钮
 .red_button_common{
@@ -597,6 +641,14 @@ view {
 	.u-button__text{
 		font-size: 32rpx !important;
 	}
+}
+
+.btn-yellow{
+	background-color: #eecd86;
+	border-radius: 12rpx;
+	color: $bg-red;
+	letter-spacing: 64rpx;
+	text-indent: 64rpx;
 }
 
 </style>

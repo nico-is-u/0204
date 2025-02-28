@@ -64,7 +64,7 @@ export default {
         },
 
         submit(){
-            if(!this.password){
+            if(!this.pay_password){
                 this.toa('请输入支付密码')
             }else{
 

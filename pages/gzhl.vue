@@ -5,13 +5,82 @@
 
 		<view class="section-list flex flex-column">
 
-			<view class="section-red" v-for="(item,index) in dataList" :key="index" @click="too('/pages/gzhl_detail?id='+item.id)">
+			<!-- <view class="section-red" v-for="(item,index) in dataList" :key="index" @click="too('/pages/gzhl_detail?id='+item.id)">
 				<view class="section-red-content">
 					<image :src="item.cover_img"></image>
 					<view class="section-red-cover flex flex-between flex-y-center">
 						<view class="section-red-title">{{ item.name }}</view>
-						<!-- <view class="section-red-price" v-if="item.price">￥{{ item.price }}</view> -->
+						<view class="section-red-price" v-if="item.price">￥{{ item.price }}</view>
 					</view>
+				</view>
+			</view> -->
+
+			<view class="section-red" v-for="(item,index) in dataList" :key="index" @click="goDetail(item)">
+				<view class="section-red-content gzhl">
+					<view class="title flex flex-x-center flex-y-end">
+						<text class="text-bold text-xxxl" style="transform: translateY(2rpx);">{{ item.price ? item.price + '元' : '' }}</text>
+						<text>即可认购</text>
+					</view>
+
+					<view class="table-2" style="margin-top: 24rpx;">
+						<view class="thead">
+							<view class="td" style="width: 33.33%">激活金额</view>
+							<view class="td" style="width: 33.33%">国债金额</view>
+							<view class="td" style="width: 33.33%">年化收益</view>
+						</view>
+						<view class="tbody">
+							<view class="td" style="width: 33.33%">{{ item.price || '' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.government_bond_amount || '0' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.annual_yield || '0.00' }}</view>
+						</view>
+						
+						<view class="thead" style="width: 66.66%;">
+							<view class="td" style="width: 50%">持有时间</view>
+							<view class="td" style="width: 50%">可提取</view>
+						</view>
+
+						<view class="tbody" style="width: 66.66%;">
+							<view class="td" style="width: 50%">{{ item.days ? item.days + '天' : ''}}</view>
+							<view class="td" style="width: 50%">{{ item.shouyi || ''}}</view>
+						</view>
+					</view>
+
+					<view class="flex" style="margin-top: 16rpx">
+						<u-icon name="volume" size="34" color="#e8cf8f"></u-icon>
+						<text style="font-size: 28rpx;">认购资格两重见习推广员及或两重助理推广员</text>
+					</view>
+
+					<view class="title flex flex-x-center flex-y-end" style="margin-top: 60rpx">
+						<text>中央财政补助</text>
+					</view>
+
+					<view class="table-2" style="margin-top: 24rpx;">
+						<view class="thead">
+							<view class="td" style="width: 33.33%">持有{{ item.holding_days_1 || '0' }}天</view>
+							<view class="td" style="width: 33.33%">持有{{ item.holding_days_2 || '0' }}天</view>
+							<view class="td" style="width: 33.33%">持有{{ item.holding_days_3 || '0' }}天</view>
+						</view>
+						<view class="tbody">
+							<view class="td" style="width: 33.33%">{{ item.earned_amount_1 || '0' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.earned_amount_2 || '0' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.earned_amount_3 || '0' }}</view>
+						</view>
+						
+						<view class="thead" style="width: 66.66%;">
+							<view class="td" style="width: 50%">持有{{ item.holding_days_4 || '0' }}天</view>
+							<view class="td" style="width: 50%">持有{{ item.holding_days_5 || '0' }}天</view>
+						</view>
+
+						<view class="tbody" style="width: 66.66%;">
+							<view class="td" style="width: 50%">{{ item.earned_amount_4 || '0' }}</view>
+							<view class="td" style="width: 50%">{{ item.earned_amount_5 || '0' }}</view>
+						</view>
+					</view>
+
+					<view style="margin: 72rpx 0 64rpx;">
+						<button class="btn-yellow">认购</button>
+					</view>
+
 				</view>
 			</view>
 
@@ -34,14 +103,21 @@
 			getDataList() {
 				uni.showLoading()
 				this.to.www(this.api.project_group_list,{
-					project_group_id:7
+					project_group_id:8
 				},'p').then(response => {
 					uni.hideLoading()
 					this.dataList = response.data.data || []
 				}).catch(e => {
 					uni.hideLoading()
 				})
-			}
+			},
+
+			goDetail(item){
+				uni.setStorageSync('PROJECT2_CACHE',item)
+				this.too('gzhl_detail')
+			},
+
+
 		}
 	}
 </script>
@@ -66,7 +142,7 @@ page{
 }
 
 .section-red{
-	height: 300rpx;
+	min-height: 300rpx;
 }
 
 .section-red-content{
