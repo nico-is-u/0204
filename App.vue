@@ -144,6 +144,10 @@ view {
 				letter-spacing: 2px;
 			}
 		}
+
+		&.textarea{
+			color: $font-gold;
+		}
 	}
 }
 
@@ -579,6 +583,9 @@ view {
 // 文字相关
 .text-bold{
 	font-weight: bold;
+}
+.text-xl{
+	font-size: 38rpx;
 }
 
 // 红色按钮

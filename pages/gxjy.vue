@@ -5,6 +5,38 @@
 
 		<!-- 顶部 -->
 		<view class="section-red section-red-1">
+			<view class="section-red-content textarea" style="padding-bottom: 24rpx;">
+				<view style="padding-bottom: 8rpx;">
+					<text class="text-bold">功勋值说明：</text>
+				</view>
+				<view>
+					<text>功勋值通过投资和发展团队两种途径获取。可以进行缩短分红周期或者换取相应奖励</text>
+				</view>
+				<view>
+					<text>每邀约注册激活</text>
+					<text class="text-bold text-xl">1人</text>
+					<text>获得功勋值</text>
+					<text class="text-bold text-xl">10分</text>
+				</view>
+				<view>
+					<text>在国之两重板块投资</text>
+					<text class="text-bold text-xl">100元</text>
+					<text>可获取</text>
+					<text class="text-bold text-xl">10分</text>
+				</view>
+				<view>
+					<text>每日会议签到：奖励功勋值</text>
+					<text class="text-bold text-xl">1分</text>
+				</view>
+				<view>
+					<text>完成参加学习会议累计</text>
+					<text class="text-bold text-xl">一周</text>
+					<text>奖励功勋值</text>
+					<text class="text-bold text-xl">10分</text>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="section-red section-red-1">
 			<view class="section-red-content list flex flex-column">
 				<view class="row flex">
 					<view class="left-side" style="letter-spacing: 4px;">姓名：</view>
@@ -15,30 +47,14 @@
 					<view class="right-side">{{ user_info.gongxun }}</view>
 				</view>
 				<view class="row flex" style="min-height: 60rpx;">
-					<!-- <view class="left-side">功勋称号：</view>
-					<view class="right-side"></view> -->
+					<view class="left-side">功勋称号：</view>
+					<view class="right-side"></view>
 				</view>
 			</view>
-		</view>
-
-		<view class="section-red section-red-2">
-			<view class="section-red-content list flex flex-column">
-				<view class="row flex">
-					<view class="left-side" style="letter-spacing: 4px;">姓名：</view>
-					<view class="right-side">{{user_info.realname || '未实名'}}</view>
-				</view>
-				<view class="row flex">
-					<view class="left-side">功勋值：</view>
-					<view class="right-side">{{ user_info.gongxun }}</view>
-				</view>
-				<view class="row flex" style="min-height: 60rpx;">
-					<!-- <view class="left-side">功勋称号：</view>
-					<view class="right-side"></view> -->
-				</view>
-			</view>
-		</view>
+		</view> -->
 
 		<!-- 中间 -->
+		<image src="/static/t-12.png" class="fixed-title" mode="widthFix" style="margin: 60rpx 0 0;"></image>
 		<view class="section-red section-red-2">
 			<view class="section-red-content">
 				<view class="row3" v-for="(item,index) in dataList" :key="'gxjy-item-' + index">
@@ -162,30 +178,40 @@
 page{
 	height: 100%;
 	
-	background-image: url('/static/gxjy-bg.png');
+	background-image: url('/static/24.jpg');
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	
+
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.fixed-title{
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	width: 100%;
 }
 
 .page-gxjy{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding-top: 12vh;
+	padding-bottom: 6vh;
+
 	.section-red-1{
-		position: absolute;
-
 		width: calc(100% - 48rpx);
-
-		top: 136rpx;
-		left: 24rpx;
 	}
 
 	.section-red-2{
-		position: absolute;
-
 		width: calc(100% - 48rpx);
 		height: 50vh;
 
-		top: 36vh;
-		left: 24rpx;
+		overflow-x: hidden;
+		overflow-y: scroll;
 	}
 
 }
