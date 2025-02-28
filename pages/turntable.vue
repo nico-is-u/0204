@@ -19,6 +19,7 @@
                     <view class="box-item" v-for="(item, index) in prizeList" :key="index">
                         <text>{{ item.name}}</text>
                         <text>{{ item.amount}}</text>
+                        <image :src="item.cover_img" style="width: 70rpx;" mode="widthFix"></image>
                         <!-- <text>元</text>  -->
                     </view>
                 </view>
