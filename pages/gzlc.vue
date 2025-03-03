@@ -31,12 +31,18 @@
 	export default {
 		data() {
 			return {
+				setting_config:{},
 				dataList:[],
-				text1: '2222222222222222222333333333333333'
+				text1: ''
 			}
 		},
 		onShow() {
 			this.getDataList()	
+		},
+		onLoad(){
+			this.setting_config = uni.getStorageSync('setting_config')
+			const {home_notice = ''} = this.setting_config
+			if(home_notice)	this.text1 = home_notice
 		},
 		methods: {
 			getDataList() {
@@ -54,7 +60,7 @@
 				uni.setStorageSync('PROJECT_CACHE',item);
 				this.too('gzlc_detail')
 			},
-		}
+		},
 	}
 </script>
 
