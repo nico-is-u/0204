@@ -138,7 +138,7 @@
                     this.to.www(this.api.placeOrder,{
                         project_id:this.dataItem.id,
                         pay_password:this.pay_password
-                    }).then(response => {
+                    },'p').then(response => {
                         setTimeout(() => {
                             this.toa('购买成功')
                         },500)

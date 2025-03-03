@@ -106,6 +106,7 @@ const xxxxxxxxxxxxxx = {
 	topup:'SMhJgRXE4taII3nK2ClqGQ==',
 	// 提现
 	withdraw:'T4+SsytGvezRSB845+DZCA==',
+	withdraw_log:'7JLWx+wgrWW6JBsZzf8CWw/ZpluXz5h3y/w9XKSLzmc=',
 	// 检查认证状态
 	authentication:'yB2B83Vb9nj2DGS1xb7L6Qu37gI4s1tRgxKVB3pC3y0=',
 	// 我的团队
@@ -126,6 +127,8 @@ const xxxxxxxxxxxxxx = {
 
 	// 购买产品
 	placeOrder: 'is5+wsxioEWhzp7DMkGqgeo5Xhidr3mMMpYLHMtgUC0=',
+	// 排行榜
+	phb: 'YBHBg3SoZCAoh1eJZ/LKRA==',
 	
 }
 export default xxxxxxxxxxxxxx

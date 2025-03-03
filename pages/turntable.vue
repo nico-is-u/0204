@@ -105,10 +105,12 @@ export default {
                             rv = 360 + rv;
                         }
                         this.rotateNum = rv;
+
                         uni.showToast({
-                            title: res.data.name,
+                            title: '您抽中的奖品是' + res.data.name, 
                             icon: 'none'
                         });
+
                     }, 2000)
                 })
                 .catch((err) => {

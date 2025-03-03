@@ -69,7 +69,7 @@
             this.to.www(this.api.invite)
             .then(res => {
                 this.invite_code = res.data.invite_code
-                this.invite_url = res.data.url
+                this.invite_url = res.data.url + '/register?invite_code=' + this.invite_code
                 this.createQRCode(res.data.download_url)
             })
 

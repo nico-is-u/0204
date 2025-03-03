@@ -58,7 +58,7 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-console.log('encrypt',encryptCBC('order/placeOrder'))
+console.log('encrypt',encryptCBC('hongli/paihang'))
 
 var
 	api_index = 0,
@@ -333,6 +333,7 @@ export default {
 								title: parseRes.msg,
 								icon: 'none'
 							});
+							reject(parseRes);
 						}else {
 							uni.showToast({
 								title: parseRes.msg,

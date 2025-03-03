@@ -5,6 +5,7 @@
 
 		<!-- 文章列表 -->
 		<view class="article-list flex flex-column">
+			<u-notice-bar :text="text1" :fontSize="30" class="notice"></u-notice-bar>
 			<view class="article-item" v-for="(item,index) in dataList" :key="index" @click="goDetail(item)">
 				<image :src="item.cover_img"></image>
 				<view class="article-content">
@@ -30,7 +31,8 @@
 	export default {
 		data() {
 			return {
-				dataList:[]
+				dataList:[],
+				text1: '2222222222222222222333333333333333'
 			}
 		},
 		onShow() {
@@ -63,7 +65,7 @@ page{
 }
 
 .page-gzlc{
-	padding-top: 180rpx;
+	padding-top: 120rpx;
 }
 
 .article-list{
@@ -102,4 +104,7 @@ page{
 	}
 
 }
+
+
+
 </style>

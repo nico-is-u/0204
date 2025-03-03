@@ -1,6 +1,8 @@
 <template>
 	<view class="page-topup-balance">
-		<nNavbar title="提现" :back="true"></nNavbar>
+		<nNavbar title="提现" :back="true">
+			<text style="color: white;" @click="too('withdraw_log')">提现记录</text>
+		</nNavbar>
 
 		<view class="section">
 			
@@ -79,7 +81,10 @@
 					<u-button
 						size="large" 
 						text="立即提现"
+						:loading="isDone"
+						:loadingText="regStatus"
 						class="red_button"
+						@click="submit"
 					>
 					</u-button>
 				</view>
@@ -163,20 +168,20 @@
 				this.regStatus = '请等待'
 
 				this.to.www(this.api.withdraw,{
-					amount:this.amount,
+					money:this.amount,
 					log_type:1,
 					bank_id:this.dataSelectedItem.id,
 					pay_password:this.pay_password,
 
 				},'p').then(res => {
+
 					this.regStatus = '完成'
-					this.isDone = false
 					
 					setTimeout(() => {
-						uni.navigateBack()
+						this.too('withdraw_log')
 					}, 1500)
-
-				}).catch(err => {
+					
+				}).finally(() => {
 					this.isDone = false
 				})
 				

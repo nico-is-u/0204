@@ -211,7 +211,9 @@ page{
 	.section-red-2{
 		width: calc(100% - 48rpx);
 		height: 50vh;
+	}
 
+	.section-red-content{
 		overflow-x: hidden;
 		overflow-y: scroll;
 	}

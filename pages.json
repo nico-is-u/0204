@@ -178,6 +178,18 @@
 				"navigationStyle":"custom",
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+			"path": "pages/topup_log",
+			"style": {
+				"navigationBarTitleText" : "充值记录"
+			}
+		},
+		{
+			"path": "pages/withdraw_log",
+			"style": {
+				"navigationBarTitleText" : "提现记录"
+			}
 		}
 	],
 	"globalStyle": {

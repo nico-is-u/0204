@@ -70,7 +70,8 @@
 				setting_config: {},
 				user_info: {},
 				newsList: {},
-				bannerList: []
+				bannerList: [],
+				phbList: [],
 			}
 		},
 		methods: {
@@ -94,6 +95,11 @@
 					.then(res => {
 						this.bannerList = res.data || []
 					})
+			},
+			getPhbList(){
+				this.to.www(this.api.phb).then(res => {
+
+				})
 			},
 			toNewsDatail(obj){
 				let _ = this;
@@ -135,6 +141,7 @@
 				this.getNewsList();
 				this.getBannerList();
 				this.getUerInfo();
+				this.getPhbList();
 			}
 		},
 	}

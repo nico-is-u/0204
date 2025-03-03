@@ -1,36 +1,38 @@
 <template>
 	<view class="page-topup-balance">
-		<nNavbar title="在线充值" :back="true"></nNavbar>
+		<nNavbar title="在线充值" :back="true">
+			<text style="color: white;" @click="too('topup_log')">充值记录</text>
+		</nNavbar>
 
 		<view class="section">
 			<view class="section-white menu-list">
 				<view class="row flex flex-y-center flex-between">
 					<view class="item flex flex-column flex-center">
 						<text>功勋值</text>
-						<text class="text2">4399</text>
+						<text class="text2">{{user_info.gongxun || '0'}}</text>
 					</view>
 					<view class="item flex flex-column flex-center">
 						<text>持有国债份额</text>
-						<text class="text2">4399</text>
+						<text class="text2">0.00</text>
 					</view>
 					<view class="item flex flex-column flex-center">
 						<text>激活国债份额</text>
-						<text class="text2">4399</text>
+						<text class="text2">{{user_info.guozhaihongli || '0.00'}}</text>
 					</view>
 				</view>
 
 				<view class="row flex flex-y-center flex-between">
 					<view class="item flex flex-column flex-center">
 						<text>两重建设基金</text>
-						<text class="text2">4399</text>
+						<text class="text2">{{user_info.liangchongjianshe || '0.00'}}</text>
 					</view>
 					<view class="item flex flex-column flex-center">
 						<text>可用余额</text>
-						<text class="text2">4399</text>
+						<text class="text2">{{user_info.topup_balance || '0.00'}}</text>
 					</view>
 					<view class="item flex flex-column flex-center">
 						<text>可提余额</text>
-						<text class="text2">4399</text>
+						<text class="text2">{{user_info.shouyijin || '0.00'}}</text>
 					</view>
 				</view>
 
@@ -106,6 +108,8 @@
 	export default {
 		data() {
 			return {
+				user_info: {},
+
 				isDone:false,
 				regStatus:'请等待',
 
@@ -126,9 +130,17 @@
 			},
 		},
 		onLoad(){
+			this.getUserInfo()
 			this.getDataList()
 		},
 		methods: {
+			getUserInfo() {
+				this.to.www(this.api.user_info)
+					.then(res => {
+						this.user_info = res.data;
+					})
+			},
+
 			getDataList(){
 
 				this.to.www(this.api.topup_channel_list).then(response => {
@@ -179,7 +191,7 @@
 					this.isDone = false
 					
 					setTimeout(() => {
-						uni.navigateBack()
+						this.too('topup_log')
 					}, 1500)
 
 				}).catch(err => {

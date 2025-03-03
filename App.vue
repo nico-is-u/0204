@@ -664,4 +664,38 @@ view {
 
 }
 
+.notice{
+	.u-icon__icon{
+		font-size: 32rpx !important;
+	}
+}
+
+.list-4{
+	.card{
+		padding: 32rpx;
+	}
+
+	.amount{
+		color: #d80101;
+	}
+
+	.status{
+		transform: translateX(10rpx);
+		&.status-2{
+			color: #d80101;
+			background-color: #ffeae7;
+			padding: 5rpx 10rpx;
+			border-radius: 10rpx;
+		}
+	}
+
+	.row{
+		&:last-child{
+			margin-top: 10rpx;
+			padding-bottom: 20rpx;
+			border-bottom: 1px solid #f1f1f1;
+		}
+	}
+}
+
 </style>
