@@ -40,6 +40,31 @@
 				</view>
 				
 			</view>
+
+			<!-- 排行榜 -->
+			<view class="section-white section-padding phb-list" style="margin-top: 40rpx">
+				<view class="flex flex-between title">
+					<view>政治团队宣传榜</view>
+					<view>红色资本示范榜</view>
+				</view>
+
+				<view class="list flex flex-between">
+					<view class="left-side">
+						<view class="item" v-for="(item,index) in phdList1" :key="'phd-list1-' + index">
+							<image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image>
+							<text>{{index + 1}}. {{ item.leader_name }}</text>
+						</view>
+					</view>
+
+					<view class="right-side">
+						<view class="item" v-for="(item,index) in phdList2" :key="'phd-list1-' + index">
+							<image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image>
+							<text>{{index + 1}}. {{ item.leader_name }}</text>
+						</view>
+					</view>
+
+				</view>
+			</view>
 			
 			<!-- 新闻部分 -->
 			<view class="section-white section-padding" style="margin-top: 40rpx">
@@ -71,7 +96,8 @@
 				user_info: {},
 				newsList: {},
 				bannerList: [],
-				phbList: [],
+				phdList1: [],
+				phdList2: [],
 			}
 		},
 		methods: {
@@ -98,7 +124,8 @@
 			},
 			getPhbList(){
 				this.to.www(this.api.phb).then(res => {
-
+					this.phdList1 = res.data.investments || []
+					this.phdList2 = res.data.teamLeaders || []
 				})
 			},
 			toNewsDatail(obj){
@@ -185,6 +212,50 @@ page{
 		image{
 			width: 100%;
 			height: 100%;
+		}
+	}
+}
+
+.phb-list{
+	.title{
+		padding-right: 0%;
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 32rpx;
+		font-weight: bold;
+		view{
+			width: 50%;
+		}
+	}
+
+	.list{
+		padding-top: 16rpx;
+		padding-right: 0%;
+		color: #666;
+		.item{
+			display: flex;
+			align-items: center;
+			image{
+				flex-shrink: 0;
+			}
+
+			text{
+				word-break: break-all;
+				white-space: nowrap;
+
+			}
+		}
+
+		.left-side,.right-side{
+			
+			width: 50%;
+			flex-shrink: 0;
+			overflow: hidden;
+
+			padding: 20rpx 0;
+
+			display: flex;
+			flex-direction: column;
+			gap: 20rpx;
 		}
 	}
 }
