@@ -15,6 +15,8 @@
 			<u-button  iconColor="#fff" class="custom-style"
 				text="确认提交" :loading="isDone" @click="doLoginPwd" loadingText="请稍等"></u-button>
 		</view>
+
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

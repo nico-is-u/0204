@@ -63,6 +63,7 @@
             <image src="/static/t-11.png" style="width: 100%; margin-top: 64rpx;" mode="widthFix"></image>
         </view>
 
+        <view id="kefu" @click="kefu"></view>
     </view>
 </template>
 

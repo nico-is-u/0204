@@ -42,6 +42,18 @@ Vue.prototype.toa = function(str, i) {
 	})
 }
 
+Vue.prototype.kefu = function(){
+	const setting_config = uni.getStorageSync('setting_config')
+	const {kefu_url = ''} = setting_config
+	//#ifdef APP-PLUS
+	plus.runtime.openurl(kefu_url)
+	//#endif
+
+	//#ifdef WEB
+	window.open(kefu_url)
+	//#endif
+}
+
 /* 开始实例化 */
 Vue.config.productionTip = false
 App.mpType = 'app'

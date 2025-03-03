@@ -15,6 +15,8 @@
 			<u-button iconColor="#fff" class="custom-style"
 				text="创建交易密码" :loading="isDone" @click="doSetPwd"></u-button>
 		</view>
+
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

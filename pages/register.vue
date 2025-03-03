@@ -47,6 +47,7 @@
 			<text class="like-a-tag" @click="too('login')">去登录</text>
 		</view>
 
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

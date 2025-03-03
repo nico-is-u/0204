@@ -651,4 +651,17 @@ view {
 	text-indent: 64rpx;
 }
 
+#kefu{
+	width: 130rpx;
+	height: 146rpx;
+	background-image: url('/static/kefu.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+	position: fixed;
+	right: 32rpx;
+	bottom: 10vh;
+
+}
+
 </style>

@@ -80,6 +80,8 @@
 			:itemHeight="88"
 			:closeOnClickOverlay="true">
 		</u-picker>
+
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

@@ -13,6 +13,8 @@
 			<input v-model="phone" placeholder="请输入电话号码" />
 		</view>
 		<u-button color="#e30540" iconColor="#fff" class="btn" text="提交" @click="submit"></u-button>
+
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

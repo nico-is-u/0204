@@ -65,13 +65,8 @@
         <!-- <u-button color="#e30540" iconColor="#fff" class="btn"  @click="submit"></u-button> -->
 
 
-
+        <view id="kefu" @click="kefu"></view>
     </view>
-
-
-
-
-
 
 </template>
 

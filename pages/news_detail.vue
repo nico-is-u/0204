@@ -4,6 +4,8 @@
 		<view class="news_page">
 			<u-parse :content="obj.content" :tagStyle="style"></u-parse>
 		</view>
+
+		<view id="kefu" @click="kefu"></view>
 	</view>
 
 </template>

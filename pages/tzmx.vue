@@ -61,6 +61,7 @@
 
         </view>
 
+        <view id="kefu" @click="kefu"></view>
         <nTabbar></nTabbar>
     </view>
 </template>

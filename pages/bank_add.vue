@@ -20,6 +20,7 @@
 		
 		<u-button color="#e30540" iconColor="#fff" class="btn" :loading="isDone" loadingText="正在处理" text="立即绑定" @click="doBand"></u-button>
 		
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

@@ -56,6 +56,8 @@
 				</view>
 			</view>
 			
+			<view id="kefu" @click="kefu"></view>
+
 		</view>
 	</view>
 </template>
@@ -68,9 +70,7 @@
 				setting_config: {},
 				user_info: {},
 				newsList: {},
-				bannerList: [{
-					img_url:bannerTest
-				}]
+				bannerList: []
 			}
 		},
 		methods: {
@@ -78,6 +78,7 @@
 				this.to.www(this.api.system_info)
 					.then(res => {
 						this.setting_config = res.data.setting_conf;
+						uni.setStorageSync('setting_config',this.setting_config)
 					})
 			},
 			getNewsList() {
@@ -91,7 +92,7 @@
 			getBannerList() {
 				this.to.www(this.api.banner_list)
 					.then(res => {
-						this.bannerList = res.data.data || []
+						this.bannerList = res.data || []
 					})
 			},
 			toNewsDatail(obj){
@@ -108,6 +109,7 @@
 				this.to.www(this.api.user_info)
 					.then(res => {
 						this.user_info = res.data;
+						uni.setStorageSync('user_info',this.user_info)
 					})
 			},
 			zxkf(){
@@ -169,6 +171,10 @@ page{
 	height: 380rpx;
 	.swiper-item{
 		width: 100%;
+
+		border-radius: 24rpx;
+		overflow: hidden;
+
 		image{
 			width: 100%;
 			height: 100%;

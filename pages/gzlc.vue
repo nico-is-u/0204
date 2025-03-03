@@ -22,6 +22,7 @@
 			</view>
 		</view>
 		
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 

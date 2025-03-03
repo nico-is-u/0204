@@ -40,6 +40,7 @@
 			<text class="like-a-tag" @click="too('register')">去注册</text>
 		</view>
 
+		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
 
