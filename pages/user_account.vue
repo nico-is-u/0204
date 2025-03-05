@@ -48,7 +48,7 @@
 
                 <view class="row flex flex-between">
                     <text>功勋值</text>
-                    <text>{{user_info.gongxun || '0'}}</text>
+                    <text>{{user_info.gongxun ? Math.floor(user_info.gongxun) : '0'}}</text>
                 </view>
 
                 <view class="row flex flex-between">

@@ -654,7 +654,7 @@ view {
 #kefu{
 	width: 130rpx;
 	height: 146rpx;
-	background-image: url('/static/kefu.png');
+	background-image: url('/static/kefu2.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 

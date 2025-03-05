@@ -10,7 +10,7 @@
 
         <view class="zp_box">
 
-            <view class="zp_zz">
+            <view class="zp_zz" :style="{'transform': 'rotate('+rotateNum+'deg)'}">
                 <image style="width: 100%;" src="/static/zp_zz.png" mode="widthFix" @click="start"></image>
             </view>
 
@@ -23,6 +23,10 @@
                         <!-- <text>元</text>  -->
                     </view>
                 </view>
+            </view>
+
+            <view class="times" @click="start">
+                剩余抽奖次数：{{ cishu }}
             </view>
 
         </view>
@@ -173,6 +177,18 @@ page {
     }
 
 
+}
+
+.times{
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    text-align: center;
+    color: white;
+    
 }
 
 

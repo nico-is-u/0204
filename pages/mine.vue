@@ -45,7 +45,7 @@
 				</view>
 	
 				<!-- 下半白色背景框 -->
-				<view class="bottom_white flex flex_direction_column">
+				<!-- <view class="bottom_white flex flex_direction_column">
 					<view class="line flex flex-between">
 						<view class="item flex flex_direction_column flex-y-center">
 							<view class="top">
@@ -63,7 +63,7 @@
 								{{user_info.topup_balance || '0.00'}}
 							</view>
 						</view>
-						<view class="item flex flex_direction_column flex-y-center">
+						<view class="item flex flex_direction_column flex-y-center cygzfe">
 							<view class="top">
 								持有国债份额
 							</view>
@@ -94,21 +94,107 @@
 								功勋值
 							</view>
 							<view class="bottom">
-								{{user_info.gongxun || '0'}}
+								{{user_info.gongxun ? Math.floor(user_info.gongxun) : '0' }}
 							</view>
 						</view>
 
-						<view class="item flex flex_direction_column flex-y-center">
+						<view class="item flex flex_direction_column flex-y-center yjdqfh">
 							<view class="top">
 								预计到期分红
+							</view>
+							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
+								<text>0.00</text>
+							</view>
+						</view>
+
+						<view class="item flex flex_direction_column flex-y-center yjdqfh">
+							<view class="top">
+								预计到期分红
+							</view>
+							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
+								<text>0.00</text>
+								<text>持有国债＊10.49％</text>
+							</view>
+						</view>
+
+					</view>
+				</view> -->
+
+				<view class="bottom_white flex">
+					<view class="field">
+						<view class="item flex flex-column">
+							<view class="top">
+								可提余额
+							</view>
+							<view class="bottom">
+								{{user_info.shouyijin || '0.00'}}
+							</view>
+						</view>
+						<view class="item">
+							<view class="top">
+								两重建设基金
+							</view>
+							<view class="bottom">
+								{{user_info.liangchongjianshe || '0.00'}}
+							</view>
+						</view>
+					</view>
+					<view class="field">
+						<view class="item">
+							<view class="top">
+								可用余额
+							</view>
+							<view class="bottom">
+								{{user_info.topup_balance || '0.00'}}
+							</view>
+						</view>
+						<view class="item">
+							<view class="top">
+								功勋值
+							</view>
+							<view class="bottom">
+								{{user_info.gongxun ? Math.floor(user_info.gongxun) : '0' }}
+							</view>
+						</view>
+					</view>
+					<view class="field">
+						<view class="item">
+							<view class="top">
+								持有国债份额
 							</view>
 							<view class="bottom">
 								0.00
 							</view>
 						</view>
+						<view class="item yjdqfh">
+							<view class="top">
+								预计到期分红
+							</view>
+							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
+								<text>0.00</text>
+							</view>
+						</view>
 					</view>
-	
+					<view class="field">
+						<view class="item">
+							<view class="top">
+								激活国债份额
+							</view>
+							<view class="bottom font_red">
+								{{user_info.guozhaihongli || '0.00'}}
+							</view>
+						</view>
+						<view class="item yjdqfh">
+							<view class="top">
+								预计到期分红
+							</view>
+							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
+								<text>0.00</text>
+							</view>
+						</view>
+					</view>
 				</view>
+
 			</view>
 
 
@@ -402,6 +488,31 @@
 							}
 						}
 					}
+
+					.field{
+						width: 25%;
+
+						.item:nth-child(2){
+							margin-top: 36rpx;
+						}
+					}
+
+					.item{
+						.top{
+							font-size: 26rpx;
+							text-align: center;
+						}
+						.bottom{
+							padding-top: 16rpx;
+							font-size: 26rpx;
+
+							text-align: center;
+						}
+						.font_red{
+							color: #bd4046;
+						}
+					}
+
 				}
 			}
 
@@ -460,6 +571,25 @@
 
 
 
+	.yjdqfh{
+		color: $navbar-red;
+		line-height: 1;
 
+		// min-width: 240rpx;
+
+		transform: translateY(-20rpx);
+
+		.top{
+			font-size: 22rpx !important;
+		}
+		.bottom{
+			font-size: 22rpx !important;
+		}
+	}
+
+	// .cygzfe{
+	// 	line-height: 1;
+	// 	transform: translateY(-10rpx);
+	// }
 
 </style>
