@@ -8,6 +8,10 @@
 					<image :src="item.img_url" mode="widthFix"></image>
 				</swiper-item>
 			</swiper>
+
+			<!-- 视频播放 -->
+			<video class="bannervid" ref="vdi" :muted="isMuted" :autoplay="true" loop  objectFit="cover" :src="setting_config.video_url" @click="isMuted = false"></video>
+			
 			<!-- <view class="view-slider">
 				<image src="/static/4.jpg" mode="widthFix"></image>
 			</view> -->
@@ -198,6 +202,13 @@ page{
 			border-radius: 16rpx;
 		}
 	}
+}
+
+.bannervid {
+	width: 100%;
+	
+	border-radius: 10rpx;
+	margin-top: 32rpx;
 }
 
 .swiper{

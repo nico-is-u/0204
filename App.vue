@@ -333,6 +333,10 @@ view {
 			
 			.title{
 				font-size: 42rpx;
+				height: 130rpx;
+				text-overflow: ellipsis;
+				
+				overflow: hidden;
 			}
 			
 			.desc{
