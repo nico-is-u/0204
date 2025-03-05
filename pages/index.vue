@@ -9,13 +9,6 @@
 				</swiper-item>
 			</swiper>
 
-			<!-- 视频播放 -->
-			<video class="bannervid" ref="vdi" :muted="isMuted" :autoplay="true" loop  objectFit="cover" :src="setting_config.video_url" @click="isMuted = false"></video>
-			
-			<!-- <view class="view-slider">
-				<image src="/static/4.jpg" mode="widthFix"></image>
-			</view> -->
-			
 			<!-- 小菜单 -->
 			<view class="menu-box flex flex-between flex-y-center">
 				<view class="item flex flex-column flex-y-center" @click='too("daily_sign")'>
@@ -45,6 +38,13 @@
 				
 			</view>
 
+			<!-- 视频播放 -->
+			<video class="bannervid" ref="vdi" :muted="isMuted" :autoplay="true" loop  objectFit="cover" :src="setting_config.video_url" @click="isMuted = false"></video>
+			
+			<!-- <view class="view-slider">
+				<image src="/static/4.jpg" mode="widthFix"></image>
+			</view> -->
+			
 			<!-- 排行榜 -->
 			<view class="section-white section-padding phb-list" style="margin-top: 40rpx">
 				<view class="flex flex-between title">
@@ -206,7 +206,7 @@ page{
 
 .bannervid {
 	width: 100%;
-	
+
 	border-radius: 10rpx;
 	margin-top: 32rpx;
 }
