@@ -55,14 +55,14 @@
 				<view class="list flex flex-between">
 					<view class="left-side">
 						<view class="item" v-for="(item,index) in phdList1" :key="'phd-list1-' + index">
-							<image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image>
+							<!-- <image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image> -->
 							<text>{{index + 1}}. {{ item.leader_name }}</text>
 						</view>
 					</view>
 
 					<view class="right-side">
 						<view class="item" v-for="(item,index) in phdList2" :key="'phd-list1-' + index">
-							<image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image>
+							<!-- <image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image> -->
 							<text>{{index + 1}}. {{ item.leader_name }}</text>
 						</view>
 					</view>
@@ -96,6 +96,8 @@
 	export default {
 		data() {
 			return {
+				isMuted:true,
+
 				setting_config: {},
 				user_info: {},
 				newsList: {},
@@ -228,6 +230,9 @@ page{
 }
 
 .phb-list{
+	background-image: url('/static/phb-bg.jpg');
+	background-size: 100% 100%;
+	padding-bottom: 100rpx;
 	.title{
 		padding-right: 0%;
 		font-family: 'Courier New', Courier, monospace;
@@ -245,6 +250,11 @@ page{
 		.item{
 			display: flex;
 			align-items: center;
+
+			padding-left: 60rpx;
+
+			position: relative;
+
 			image{
 				flex-shrink: 0;
 			}
@@ -252,8 +262,52 @@ page{
 			text{
 				word-break: break-all;
 				white-space: nowrap;
-
 			}
+
+			&::after{
+				width: 50rpx;
+				height: 50rpx;
+
+				content: '';
+				// background-image: url('/static/t-13.png');
+				background-size: cover;
+
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			&:nth-child(1){
+				&::after{
+					background-image: url('/static/t-14.png');
+				}
+			}
+
+			&:nth-child(2){
+				&::after{
+					background-image: url('/static/t-15.png');
+				}
+			}
+
+			&:nth-child(3){
+				&::after{
+					background-image: url('/static/t-16.png');
+				}
+			}
+
+			&:nth-child(4){
+				&::after{
+					background-image: url('/static/t-17.png');
+				}
+			}
+
+			&:nth-child(5){
+				&::after{
+					background-image: url('/static/t-16.png');
+				}
+			}
+
+
 		}
 
 		.left-side,.right-side{
