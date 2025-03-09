@@ -7,7 +7,7 @@
 		
 		<view class="white_box flex" style="margin-top: 24rpx">
 			<image src="/static/2.png" mode="heightFix" alt="" />
-			<view>强国伟业领导小组</view>
+			<view>两重宏利领导小组</view>
 		</view>
 		
 		<view class="login_input flex flex_direction_column">
