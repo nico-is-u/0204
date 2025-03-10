@@ -58,13 +58,13 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-console.log('encrypt',encryptCBC('hongli/paihang'))
+console.log('encrypt',encryptCBC('User/authentication'))
 
 var
 	api_index = 0,
 	api = '',
 	api_list = [],
-	def_api_list = ['http://api.fewiongoiwe.com/'],
+	def_api_list = ['https://api.fewiongoiwe.com/'],
 	// def_api_list = ['https://api.cfddskg.com/', 'https://api.kbrprw.com/', 'https://api.ftlmcm.com/'],
 	def_api = false,
 	

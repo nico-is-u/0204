@@ -155,15 +155,19 @@ export default {
 			if (!this.card_hand) return this.toa('请上传手持身份证照片');
 			
 			this.isDone = true;
-			this.to.www(this.api.authentication, {
-					realname: this.realname,
-					card_back: this.card_back,
-					card_front: this.card_front,
-					card_hand: this.card_hand
-				}, "p")
+
+			const params = {
+				realname: this.realname,
+				card_back: this.card_back,
+				card_front: this.card_front,
+				card_hand: this.card_hand
+			}
+
+			this.to.www(this.api.authentication2, params, "p")
 				.then(res => {
 					this.regStatus = '完成';
 					this.isDone = false;
+
 					setTimeout(() => {
 						this.authenCode = 2
 					}, 500)

@@ -109,6 +109,8 @@ const xxxxxxxxxxxxxx = {
 	withdraw_log:'7JLWx+wgrWW6JBsZzf8CWw/ZpluXz5h3y/w9XKSLzmc=',
 	// 检查认证状态
 	authentication:'yB2B83Vb9nj2DGS1xb7L6Qu37gI4s1tRgxKVB3pC3y0=',
+	// 提交认证
+	authentication2:'yB2B83Vb9nj2DGS1xb7L6c+REAxhx6wARUiQNgHzmc8=',
 	// 我的团队
 	team_list:'QprO2JuWHOhxkF53skars2Y4DAcFtuPixgb/DoILw2Y=',
 	// 幻灯片
