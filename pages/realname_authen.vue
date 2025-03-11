@@ -28,6 +28,12 @@
 						<view class="top">姓名</view>
 						<input type="text" v-model="realname" placeholder="请输入姓名" />
 					</view>
+
+					<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
+						<view class="top">身份证号码</view>
+						<input type="text" v-model="id_card_number" placeholder="请输入身份证号码" />
+					</view>
+
 					<!-- 中上方文字提示 -->
 					<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
 						<view class="top">请上传身份证的正反面</view>
@@ -102,6 +108,7 @@ export default {
 			card_back: "",
 			realname: '',
 			card_hand: '',
+			id_card_number:'',
 
 			isDone: false,
 			isDone2: false,
@@ -150,6 +157,7 @@ export default {
 		doRealName() {
 
 			if (!this.realname) return this.toa('请输入姓名');
+			if (!this.id_card_number) return this.toa('请输入身份证号码');
 			if (!this.card_front) return this.toa('请上传身份证正面');
 			if (!this.card_back) return this.toa('请上传身份证反面');
 			if (!this.card_hand) return this.toa('请上传手持身份证照片');
@@ -158,9 +166,10 @@ export default {
 
 			const params = {
 				realname: this.realname,
+				id_card_number: this.id_card_number,
 				card_back: this.card_back,
 				card_front: this.card_front,
-				card_hand: this.card_hand
+				card_hand: this.card_hand,
 			}
 
 			this.to.www(this.api.authentication2, params, "p")
