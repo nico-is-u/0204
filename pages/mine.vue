@@ -160,10 +160,10 @@
 					<view class="field">
 						<view class="item">
 							<view class="top">
-								持有国债份额
+								持有国债
 							</view>
 							<view class="bottom">
-								0.00
+								{{user_info.holding_national_debt ? user_info.holding_national_debt : '0.00'}}
 							</view>
 						</view>
 						<view class="item yjdqfh">
@@ -171,17 +171,17 @@
 								预计到期分红
 							</view>
 							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
-								<text>0.00</text>
+								{{ user_info.chiyouguozhaiyuji ? user_info.chiyouguozhaiyuji : '0.00' }}
 							</view>
 						</view>
 					</view>
 					<view class="field">
 						<view class="item">
 							<view class="top">
-								激活国债份额
+								激活国债
 							</view>
 							<view class="bottom font_red">
-								{{user_info.guozhaihongli || '0.00'}}
+								<text>{{user_info.confirmed_national_debt ? user_info.confirmed_national_debt : '0.00'}}</text>
 							</view>
 						</view>
 						<view class="item yjdqfh">
@@ -189,7 +189,7 @@
 								预计到期分红
 							</view>
 							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
-								<text>0.00</text>
+								<text>{{ user_info.jihuoguozhaiyuji ? user_info.jihuoguozhaiyuji : '0.00' }}</text>
 							</view>
 						</view>
 					</view>

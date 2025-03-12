@@ -81,6 +81,25 @@
 			:closeOnClickOverlay="true">
 		</u-picker>
 
+		<!-- 请输入天数 -->
+		<u-popup :show="select2DaysShow" mode="bottom" @close="select2DaysShow = false">
+			<view class="panel-content" style="padding: 32rpx;">
+				<u-input
+					:fontSize="42"
+					v-model="select2Days"
+					placeholder="请输入天数"
+					type="number"
+					border="bottom"
+				/>
+				<view class="btn-group" style="margin-top: 36rpx;">
+					<u-button type="primary" @click="duihuan3" color="#ad1c0b">确定</u-button>
+					<!-- <u-button type="default" @click="select2DaysShow = false">取消</u-button> -->
+				</view>
+			</view>
+		</u-popup>
+
+
+
 		<view id="kefu" @click="kefu"></view>
 	</view>
 </template>
@@ -96,6 +115,9 @@
 				dataItem:{},						// 缓存要兑换的产品对象
 
 				dataList2Key:false,					// 是否picker（板块1）
+
+				select2DaysShow:false,				// 是否显示选择天数
+				select2Days: '',
 			}
 		},
 		computed:{
@@ -141,14 +163,27 @@
 				if(item.type == 1){
 					this.dataList2Key = true
 				}else{
-					this.duihuan2()
+					this.duihuan3()
 				}
 			},
 
 			duihuan2(){
+				this.select2DaysShow = true
+			},
+
+			duihuan3(){
+
+				if(!this.select2Days){
+					this.toa('请输入天数','w')
+					return
+				}else{
+					this.select2DaysShow = false
+				}
+
 				uni.showLoading({mask:true})
 				this.to.www(this.api.gxjy_dh,{
-					...this.dataItem
+					...this.dataItem,
+					gongxun: this.select2Days
 				},'p')
 				.then(response => {
 					this.toa('兑换成功','s')
@@ -162,15 +197,17 @@
 			/* picker相关 */
 			pickerClose(){
 				this.dataList2Key = false
-				this.dataItem = {}
+				// this.dataItem = {}
 			},
 			pickerConfirm(data){
 				const targetIndex = data['indexs'][0]
 				const targetItem = this.dataList2[targetIndex] || {}
 
 				this.dataItem['pro_id'] = targetItem['id'] || 0
+
 				this.duihuan2()
 				this.pickerClose()
+
 			},
 		}
 	}
