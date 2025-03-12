@@ -178,7 +178,7 @@
 					<view class="field">
 						<view class="item">
 							<view class="top">
-								激活国债
+								确权国债
 							</view>
 							<view class="bottom font_red">
 								<text>{{user_info.confirmed_national_debt ? user_info.confirmed_national_debt : '0.00'}}</text>

@@ -303,7 +303,7 @@ page{
 
 			&:nth-child(5){
 				&::after{
-					background-image: url('/static/t-16.png');
+					background-image: url('/static/t-18.png');
 				}
 			}
 

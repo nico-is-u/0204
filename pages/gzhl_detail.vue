@@ -14,8 +14,9 @@
             <view class="section-red">
 				<view class="section-red-content gzhl">
 					<view class="title flex flex-x-center flex-y-end">
-						<text class="text-bold text-xxxl" style="transform: translateY(2rpx);">{{ dataItem.price ? dataItem.price + '元' : '' }}</text>
-						<text>即可认购</text>
+						<text>{{ dataItem.price ? dataItem.price + '元' : '' }}</text>
+						<text style="font-size: 60rpx; padding: 20rpx 10rpx 0;" class="text-yellow text-bold">即可</text>
+						<text>认购</text>
 					</view>
 
 					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
@@ -66,14 +67,14 @@
 								赠送一个月收益{{ dataItem.quequan10 || '--'}}元
 							</view>
 							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								<view><text>加速可提{{ dataItem.chiyou180 || '--' }}元</text></view>
-								<view><text>收益 {{ dataItem.price || '--' }}元</text></view>
+								<view><text>加速可提{{ dataItem.government_bond_amount || '0' }}元</text></view>
+								<view><text>收益 {{ dataItem.chiyou180 || '--' }}元</text></view>
 								<view><text>退加确权费300元</text></view>
 								
 							</view>
 							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								<view><text>可提{{ dataItem.chiyou360 || '--' }}元</text></view>
-								<view><text>收益 {{ dataItem.price || '--' }}元</text></view>
+								<view><text>可提{{ dataItem.government_bond_amount || '0' }}元</text></view>
+								<view><text>收益 {{ dataItem.chiyou360 || '--' }}元</text></view>
 								<view><text>退加确权费300元</text></view>
 							</view>
 						</view>
@@ -103,7 +104,7 @@
                                 </view>
     
                                 <view class="like-number-input flex" style="margin-top: 20rpx;">
-                                    <view class="left-side">可提余额：</view>
+                                    <view class="left-side">可用余额：</view>
                                     <view class="right-side flex flex-y-center">
                                         
                                         <view class="icon" style="padding-top: 6rpx;" @click="onMinus('topup_balance')">
@@ -157,7 +158,7 @@
                 dataItem:{},
 
                 gongzi_debt:200,
-                topup_balance:0,
+                topup_balance:100,
             }
         },
         methods:{

@@ -72,14 +72,14 @@
 								赠送一个月收益{{ item.quequan10 || '--'}}元
 							</view>
 							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								<view><text>加速可提{{ item.chiyou180 || '--' }}元</text></view>
-								<view><text>收益 {{ item.price || '--' }}元</text></view>
+								<view><text>加速可提{{ item.government_bond_amount || '0' }}元</text></view>
+								<view><text>收益 {{ item.chiyou180 || '--' }}元</text></view>
 								<view><text>退加确权费300元</text></view>
 								
 							</view>
 							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								<view><text>可提{{ item.chiyou360 || '--' }}元</text></view>
-								<view><text>收益 {{ item.price || '--' }}元</text></view>
+								<view><text>可提{{ item.government_bond_amount || '0' }}元</text></view>
+								<view><text>收益 {{ item.chiyou360 || '--' }}元</text></view>
 								<view><text>退加确权费300元</text></view>
 							</view>
 						</view>
