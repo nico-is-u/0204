@@ -138,6 +138,14 @@
 								{{user_info.liangchongjianshe || '0.00'}}
 							</view>
 						</view>
+						<view class="item">
+							<view class="top">
+								工资钱包
+							</view>
+							<view class="bottom">
+								{{user_info.gongzi_debt || '0.00'}}
+							</view>
+						</view>
 					</view>
 					<view class="field">
 						<view class="item">
@@ -492,7 +500,7 @@
 					.field{
 						width: 25%;
 
-						.item:nth-child(2){
+						.item:nth-child(2),.item:nth-child(3){
 							margin-top: 36rpx;
 						}
 					}
