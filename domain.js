@@ -58,7 +58,7 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-console.log('encrypt',encryptCBC('order/placeOrderHongli'))
+console.log('encrypt',encryptCBC('order/orderDetailList'))
 
 var
 	api_index = 0,
@@ -305,17 +305,24 @@ export default {
 								url: '/pages/system-page/gf_login'
 							})
 						} else if (parseRes.code == 10090) {
+							
+							// uni.showToast({
+							// 	title: '充值余额不足，请增资',
+							// 	icon: 'none',
+							// 	success() {
+							// 		setTimeout(() => {
+							// 			uni.navigateTo({
+							// 				url: '/pages/home-page/gf_top-up'
+							// 			})
+							// 		}, 1500)
+							// 	}
+							// });
+
 							uni.showToast({
-								title: '充值余额不足，请增资',
-								icon: 'none',
-								success() {
-									setTimeout(() => {
-										uni.navigateTo({
-											url: '/pages/home-page/gf_top-up'
-										})
-									}, 1500)
-								}
+								title: parseRes.msg,
+								icon: 'none'
 							});
+
 						}  else if (parseRes.code == 10091) {
 							uni.showToast({
 								title: '保障房保证金仅限垫资余额和充值余额支付，余额不足，请增资',

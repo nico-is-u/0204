@@ -132,6 +132,8 @@ const xxxxxxxxxxxxxx = {
 	placeOrder2: 'is5+wsxioEWhzp7DMkGqgSrEYzdrCrm16+DU30y59Cs=',
 	// 排行榜
 	phb: 'YBHBg3SoZCAoh1eJZ/LKRA==',
+	// 国债明细
+	gzmx: '1FFgyHWBXYQONcHfE/+C9JLk7oEweFX76Tq0FuNyCFM=',
 	
 }
 export default xxxxxxxxxxxxxx

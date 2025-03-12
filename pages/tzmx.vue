@@ -1,7 +1,7 @@
 <template>
 	<view class="page-tzmx">
 		<!-- 顶栏 -->
-		<image src="/static/23.jpg" class="navbar-img" mode="widthFix"></image>
+		<image src="/static/25.jpg" class="navbar-img" mode="widthFix"></image>
         <view class="navbar-img-back" @click="clickLeft">
             <!-- 显示返回箭头 -->
             <uni-icons type="left" size="36"></uni-icons>
@@ -9,51 +9,66 @@
 
         <view class="section-3 section-bg-1" style="padding-bottom: 260rpx">
             <view class="section-title">
-                <image src="/static/t-10.png" style="width: 60rpx;" mode="widthFix"></image>
-                <text>持有国债份额</text>
+                <view class="flex flex-column" style="padding-bottom: 10rpx;">
+                    <image src="/static/t-10.png" style="width: 60rpx;" mode="widthFix"></image>
+                </view>
+                <view class="flex flex-column">
+                    <view>已确权国债份额: {{ dataDetail.totalOrders }}</view>
+                    <view>总额: {{ dataDetail.totalGovernmentBondAmount }}</view>
+                </view>
             </view>
 
             <view class="table" style="padding-top: 10rpx;">
-                <view class="tbody">
-                    <view class="row flex flex-between">
-                        <text>持有国债份额</text>
-                        <text>8888</text>
+                <view class="tbody" style="min-height: 180rpx; overflow-y: scroll;">
+                    <view class="row flex flex-between" v-for="(item,index) in dataList" :key="'order-list-' + index" @click="getDataIndex(index)" :class="index == dataIndex ? 'row-selected' : ''">
+                        <text>{{item.order_name}}</text>
+                        <text>{{item.created_at}}</text>
+                        <text>{{ item.amount + '元' }}</text>
                     </view>
 
-                    <view class="row flex flex-between">
-                        <text>预计可分红</text>
-                        <text>8888</text>
-                    </view>
-
-                    <view class="row" style="min-height: 80rpx"></view>
-
+                   
                 </view>
             </view>
 
-            <view class="table" style="margin-top: 36rpx;">
-                <view class="thead flex flex-between">
-                    <text>￥分红国债份额</text>
+            <view class="table" style="margin-top: 36rpx;" v-if="dataItemDetail">
+                <view class="thead flex flex-center">
+                    <text style="font-size: 38rpx;">{{ dataItemDetail.order_name }}</text>
                 </view>
 
                 <view class="tbody">
                     <view class="row flex flex-between">
-                        <text>分红</text>
-                        <text>8888</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.name1}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.reward_time1}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.bonus_amount1}}元</text>
                     </view>
 
                     <view class="row flex flex-between">
-                        <text>到期可提取金额</text>
-                        <text>8888</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.name2}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.reward_time2}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.bonus_amount2}}元</text>
                     </view>
 
                     <view class="row flex flex-between">
-                        <text>两重建设基金</text>
-                        <text>8888</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.name3}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.reward_time3}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.bonus_amount3}}元</text>
                     </view>
 
                     <view class="row flex flex-between">
-                        <text>到期可提取金额</text>
-                        <text>8888</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.name4}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.reward_time4}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.bonus_amount4}}元</text>
+                    </view>
+
+                    <view class="row flex flex-between">
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.name5}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.reward_time5}}</text>
+                        <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.bonus_amount5}}元</text>
+                    </view>
+
+                    <view class="row flex flex-y-center" style="padding-top: 20rpx;">
+                        <image src="/static/t-21.png" style="width: 40rpx; padding-right: 10rpx;" mode="widthFix"></image>
+                        <text>备注：宣传推广工资奖励/参与两重项目赠送</text>
                     </view>
                 </view>
 
@@ -68,6 +83,24 @@
 
 <script>
 export default {
+    data(){
+        return {
+            dataDetail:{},
+            dataIndex:-1,
+        }
+    },
+    computed:{
+        dataList() {
+            return this.dataDetail.orderDetails || []
+        },
+        dataItemDetail(){
+            let result = false
+            if(this.dataIndex != -1 && Array.isArray(this.dataList)){
+                result = this.dataList[this.dataIndex]
+            }
+            return result
+        },
+    },
     methods:{
         /* 点击左侧按钮 */
         clickLeft(){
@@ -78,6 +111,22 @@ export default {
                 uni.navigateBack({delta: 1})
             }
         },
+        getDataList(){
+            this.to.www(this.api.gzmx,{project_group_id:7},'p').then(res => {
+                this.dataDetail = res.data || {}
+            })
+        },
+        /* 选中选项 */
+        getDataIndex(index){
+            if(this.dataIndex == index){
+                this.dataIndex = -1
+            }else{
+                this.dataIndex = index
+            }
+        },
+    },
+    onLoad(){
+        this.getDataList()
     }
 }
 </script>
@@ -111,6 +160,19 @@ page{
     
     .section-title{
         padding-top: 66rpx;
+    }
+}
+
+.table{
+    .row{
+        border: 8rpx solid transparent;
+        border-bottom: 2px solid #ad1c0b;
+        &.row-selected{
+            border-top-color: white;
+            border-left-color: white;
+            border-right-color: white;
+            border-bottom: 4px solid white !important;
+        }
     }
 }
 
