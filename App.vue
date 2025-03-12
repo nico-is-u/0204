@@ -148,13 +148,14 @@ view {
 		&.textarea{
 			color: $font-gold;
 		}
-
+		
 		&.gzhl{
 			padding-bottom: 24rpx;
 			color: $font-gold;
 
 			.title{
 				font-size: 48rpx;
+				color: white;
 			}
 		}
 	}
@@ -231,6 +232,16 @@ view {
 		border-right: 1px solid #e8cf8f;
 		line-height: 1.7;
 	}
+
+	&.table-2-white{
+		color: white;
+		.thead{
+			.td{
+				font-weight: 500;
+			}
+		}
+	}
+
 }
 
 // 红背景 小菜单
@@ -355,7 +366,26 @@ view {
 	}
 }
 
+/* 加减表单 */
+.like-number-input{
+	color: white;
+	padding: 20rpx 32rpx;
+	border: 1px solid white;
 
+	align-items: center;
+	
+	.icon{
+		image{
+			width: 40rpx;
+		}
+	}
+
+	input{
+		width: 100rpx;
+		margin-left: 32rpx;
+	}
+
+}
 
 
 // 绑定收款方式
@@ -627,13 +657,16 @@ view {
 
 // 文字相关
 .text-bold{
-	font-weight: bold;
+	font-weight: bold !important;
 }
 .text-xl{
 	font-size: 38rpx;
 }
 .text-xxxl{
 	font-size: 66rpx;
+}
+.text-yellow{
+	color: #e8cf8f;
 }
 
 // 红色按钮

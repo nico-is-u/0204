@@ -1,7 +1,9 @@
 <template>
 	<view class="page-gzhl-detail">
+        
         <!-- 顶栏 -->
 		<image src="/static/17.jpg" class="navbar-img" mode="widthFix"></image>
+
         <view class="navbar-img-back" @click="clickLeft">
             <!-- 显示返回箭头 -->
             <uni-icons type="left" size="36"></uni-icons>
@@ -16,69 +18,116 @@
 						<text>即可认购</text>
 					</view>
 
-					<view class="table-2" style="margin-top: 24rpx;">
+					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
 						<view class="thead">
-							<view class="td" style="width: 33.33%">激活金额</view>
-							<view class="td" style="width: 33.33%">国债金额</view>
-							<view class="td" style="width: 33.33%">年化收益</view>
+							<view class="td" style="width: 33.33%">持有国债</view>
+							<view class="td" style="width: 33.33%">确权国债</view>
+							<view class="td text-yellow text-bold" style="width: 33.33%">年化收益</view>
 						</view>
 						<view class="tbody">
-							<view class="td" style="width: 33.33%">{{ dataItem.price || '' }}</view>
+							<view class="td" style="width: 33.33%">{{ user_info.holding_national_debt || '0' }}</view>
 							<view class="td" style="width: 33.33%">{{ dataItem.government_bond_amount || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ dataItem.annual_yield || '0.00' }}</view>
+							<view class="td" style="width: 33.33%">{{ dataItem.annual_yield ? dataItem.annual_yield + '%' : '' }}</view>
 						</view>
 						
-						<view class="thead" style="width: 66.66%;">
-							<view class="td" style="width: 50%">持有时间</view>
-							<view class="td" style="width: 50%">可提取</view>
-						</view>
-
-						<view class="tbody" style="width: 66.66%;">
-							<view class="td" style="width: 50%">{{ dataItem.days ? dataItem.days + '天' : ''}}</view>
-							<view class="td" style="width: 50%">{{ dataItem.shouyi || ''}}</view>
-						</view>
-					</view>
-
-					<view class="flex" style="margin-top: 16rpx">
-						<u-icon name="volume" size="34" color="#e8cf8f"></u-icon>
-						<text style="font-size: 28rpx;">认购资格两重见习推广员及或两重助理推广员</text>
-					</view>
-
-					<view class="title flex flex-x-center flex-y-end" style="margin-top: 60rpx">
-						<text>中央财政补助</text>
-					</view>
-
-					<view class="table-2" style="margin-top: 24rpx;">
 						<view class="thead">
-							<view class="td" style="width: 33.33%">持有{{ dataItem.holding_days_1 || '0' }}天</view>
-							<view class="td" style="width: 33.33%">持有{{ dataItem.holding_days_2 || '0' }}天</view>
-							<view class="td" style="width: 33.33%">持有{{ dataItem.holding_days_3 || '0' }}天</view>
+							<view class="td text-yellow text-bold" style="width: 33.33%">持有时间</view>
+							<view class="td text-yellow text-bold" style="width: 33.33%">可提取</view>
+							<view class="td" style="width: 33.33%">加速提取时间</view>
+						</view>
+
+						<view class="tbody">
+							<view class="td" style="width: 33.33%">{{ dataItem.days ? dataItem.days + '天' : ''}}</view>
+							<view class="td" style="width: 33.33%">{{ dataItem.shouyi || ''}}</view>
+							<view class="td" style="width: 33.33%">{{ dataItem.jiasudays || '--'}}</view>
+						</view>
+					</view>
+
+					<view class="flex" style="margin-top: 32rpx; padding-left: 32rpx;">
+						<text style="font-size: 30rpx; line-height: 2; color: white;">每一分的功勋值可加速每份国债提取时间1天，最高可加速180天</text>
+					</view>
+
+					<view class="flex" style="margin-top: 26rpx">
+						<text style="font-size: 30rpx; line-height: 2; color: white;">每人可以同时确权多份，数量不限。</text>
+					</view>
+
+					<view class="title flex flex-x-center flex-y-end" style="margin-top: 20rpx">
+						<text class="text-yellow">中央财政补助</text>
+					</view>
+
+					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
+						<view class="thead">
+							<view class="td" style="width: 33.33%">确权(10)天</view>
+							<view class="td" style="width: 33.33%">持有180天</view>
+							<view class="td" style="width: 33.33%">持有360天</view>
 						</view>
 						<view class="tbody">
-							<view class="td" style="width: 33.33%">{{ dataItem.earned_amount_1 || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ dataItem.earned_amount_2 || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ dataItem.earned_amount_3 || '0' }}</view>
+							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
+								赠送一个月收益{{ dataItem.quequan10 || '--'}}元
+							</view>
+							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
+								<view><text>加速可提{{ dataItem.chiyou180 || '--' }}元</text></view>
+								<view><text>收益 {{ dataItem.price || '--' }}元</text></view>
+								<view><text>退加确权费300元</text></view>
+								
+							</view>
+							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
+								<view><text>可提{{ dataItem.chiyou360 || '--' }}元</text></view>
+								<view><text>收益 {{ dataItem.price || '--' }}元</text></view>
+								<view><text>退加确权费300元</text></view>
+							</view>
 						</view>
-						
-						<view class="thead" style="width: 66.66%;">
-							<view class="td" style="width: 50%">持有{{ dataItem.holding_days_4 || '0' }}天</view>
-							<view class="td" style="width: 50%">持有{{ dataItem.holding_days_5 || '0' }}天</view>
-						</view>
-
-						<view class="tbody" style="width: 66.66%;">
-							<view class="td" style="width: 50%">{{ dataItem.earned_amount_4 || '0' }}</view>
-							<view class="td" style="width: 50%">{{ dataItem.earned_amount_5 || '0' }}</view>
-						</view>
+					
 					</view>
 
 					<view style="margin: 72rpx 0 64rpx;">
 
+                        <view class="flex flex-column">
+
+                            <view class="padding-box-1">
+                                <view class="like-number-input flex">
+                                    <view class="left-side">工资余额：</view>
+                                    <view class="right-side flex flex-y-center">
+                                        
+                                        <view class="icon" style="padding-top: 6rpx;" @click="onMinus('gongzi_debt')">
+                                            <image src="/static/t-19.png" alt="" mode="widthFix" />
+                                        </view>
+
+                                        <input type="number" v-model="gongzi_debt" disabled>
+
+                                        <text class="icon" style="margin-left: 24rpx; padding-top: 10rpx;" @click="onPlus('gongzi_debt')">
+                                            <image src="/static/t-20.png" alt="" mode="widthFix" />
+                                        </text>
+
+                                    </view>
+                                </view>
+    
+                                <view class="like-number-input flex" style="margin-top: 20rpx;">
+                                    <view class="left-side">可提余额：</view>
+                                    <view class="right-side flex flex-y-center">
+                                        
+                                        <view class="icon" style="padding-top: 6rpx;" @click="onMinus('topup_balance')">
+                                            <image src="/static/t-19.png" alt="" mode="widthFix" />
+                                        </view>
+
+                                        <input type="number" v-model="topup_balance" disabled>
+
+                                        <text class="icon" style="margin-left: 24rpx; padding-top: 10rpx;" @click="onPlus('topup_balance')">
+                                            <image src="/static/t-20.png" alt="" mode="widthFix" />
+                                        </text>
+
+                                    </view>
+                                </view>
+                            </view>
+
+                        </view>
+
                         <view class="flex flex-column" style="width: 100%;">
                             <!-- 支付密码 -->
-                            <view class="top_left flex flex-y-center">
+                            <!-- <view class="top_left flex flex-y-center">
                                 支付密码
                                 <image src="/static/app2/exclamation.png" alt="" />
-                            </view>
+                            </view> -->
 
                             <view class="top flex flex_direction_column align_items_center">
                                 <input type="password" v-model="pay_password" placeholder="请输入支付密码" class="pay_password">
@@ -103,8 +152,12 @@
 	export default {
         data(){
             return {
+                user_info: {},
                 pay_password:'',
-                dataItem:{}
+                dataItem:{},
+
+                gongzi_debt:200,
+                topup_balance:0,
             }
         },
         methods:{
@@ -118,6 +171,15 @@
                 }
             },
 
+            getUserInfo() {
+				this.user_info = uni.getStorageSync('user_info') || {}
+				this.to.www(this.api.user_info)
+					.then(res => {
+						this.user_info = res.data
+						uni.setStorageSync('user_info', this.user_info)
+					})
+			},
+
             getDataInfo(id){
                 // uni.showLoading()
                 // this.to.www(this.api.project_group_info,{
@@ -130,14 +192,43 @@
                 // })
             },
 
+            /* 加减法 */
+            onMinus(val){
+                if(val == 'gongzi_debt'){
+                    if(this.gongzi_debt){
+                        this.gongzi_debt = 0
+                    }
+                }
+                if(val == 'topup_balance'){
+                    if(this.topup_balance >= 100){
+                        this.topup_balance -= 100
+                    }
+                }
+            },
+
+            onPlus(val){
+                if(val == 'gongzi_debt'){
+                    if(!this.gongzi_debt){
+                        this.gongzi_debt = 200
+                    }
+                }
+                if(val == 'topup_balance'){
+                    if(this.topup_balance < 200){
+                        this.topup_balance += 100
+                    }
+                }
+            },
+
             submit(){
                 if(!this.pay_password){
                     this.toa('请输入支付密码')
                 }else{
                     uni.showLoading({mask:true})
-                    this.to.www(this.api.placeOrder,{
+                    this.to.www(this.api.placeOrder2,{
                         project_id:this.dataItem.id,
-                        pay_password:this.pay_password
+                        pay_password:this.pay_password,
+                        gongzi_debt:this.gongzi_debt,
+                        topup_balance:this.topup_balance
                     },'p').then(response => {
                         setTimeout(() => {
                             this.toa('购买成功')
@@ -154,6 +245,7 @@
 
         onLoad(){
             this.dataItem = uni.getStorageSync('PROJECT2_CACHE')
+            this.getUserInfo()
         },
         onUnload(){
             uni.removeStorageSync('PROJECT2_CACHE')

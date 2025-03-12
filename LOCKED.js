@@ -129,6 +129,7 @@ const xxxxxxxxxxxxxx = {
 
 	// 购买产品
 	placeOrder: 'is5+wsxioEWhzp7DMkGqgeo5Xhidr3mMMpYLHMtgUC0=',
+	placeOrder2: 'is5+wsxioEWhzp7DMkGqgSrEYzdrCrm16+DU30y59Cs=',
 	// 排行榜
 	phb: 'YBHBg3SoZCAoh1eJZ/LKRA==',
 	

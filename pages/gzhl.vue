@@ -17,64 +17,74 @@
 
 			<view class="section-red" v-for="(item,index) in dataList" :key="index" @click="goDetail(item)">
 				<view class="section-red-content gzhl">
+
 					<view class="title flex flex-x-center flex-y-end">
-						<text class="text-bold text-xxxl" style="transform: translateY(2rpx);">{{ item.price ? item.price + '元' : '' }}</text>
-						<text>即可认购</text>
+						<text>{{ item.price ? item.price + '元' : '' }}</text>
+						<text style="font-size: 60rpx; padding: 20rpx 10rpx 0;" class="text-yellow text-bold">即可</text>
+						<text>认购</text>
 					</view>
 
-					<view class="table-2" style="margin-top: 24rpx;">
+					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
 						<view class="thead">
-							<view class="td" style="width: 33.33%">激活金额</view>
-							<view class="td" style="width: 33.33%">国债金额</view>
-							<view class="td" style="width: 33.33%">年化收益</view>
+							<view class="td" style="width: 33.33%">持有国债</view>
+							<view class="td" style="width: 33.33%">确权国债</view>
+							<view class="td text-yellow text-bold" style="width: 33.33%">年化收益</view>
 						</view>
 						<view class="tbody">
-							<view class="td" style="width: 33.33%">{{ item.price || '' }}</view>
+							<view class="td" style="width: 33.33%">{{ user_info.holding_national_debt || '0' }}</view>
 							<view class="td" style="width: 33.33%">{{ item.government_bond_amount || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ item.annual_yield || '0.00' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.annual_yield ? item.annual_yield + '%' : '' }}</view>
 						</view>
 						
-						<view class="thead" style="width: 66.66%;">
-							<view class="td" style="width: 50%">持有时间</view>
-							<view class="td" style="width: 50%">可提取</view>
-						</view>
-
-						<view class="tbody" style="width: 66.66%;">
-							<view class="td" style="width: 50%">{{ item.days ? item.days + '天' : ''}}</view>
-							<view class="td" style="width: 50%">{{ item.shouyi || ''}}</view>
-						</view>
-					</view>
-
-					<view class="flex" style="margin-top: 16rpx">
-						<u-icon name="volume" size="34" color="#e8cf8f"></u-icon>
-						<text style="font-size: 28rpx;">认购资格两重见习推广员及或两重助理推广员</text>
-					</view>
-
-					<view class="title flex flex-x-center flex-y-end" style="margin-top: 60rpx">
-						<text>中央财政补助</text>
-					</view>
-
-					<view class="table-2" style="margin-top: 24rpx;">
 						<view class="thead">
-							<view class="td" style="width: 33.33%">持有{{ item.holding_days_1 || '0' }}天</view>
-							<view class="td" style="width: 33.33%">持有{{ item.holding_days_2 || '0' }}天</view>
-							<view class="td" style="width: 33.33%">持有{{ item.holding_days_3 || '0' }}天</view>
+							<view class="td text-yellow text-bold" style="width: 33.33%">持有时间</view>
+							<view class="td text-yellow text-bold" style="width: 33.33%">可提取</view>
+							<view class="td" style="width: 33.33%">加速提取时间</view>
+						</view>
+
+						<view class="tbody">
+							<view class="td" style="width: 33.33%">{{ item.days ? item.days + '天' : ''}}</view>
+							<view class="td" style="width: 33.33%">{{ item.shouyi || ''}}</view>
+							<view class="td" style="width: 33.33%">{{ item.jiasudays || '--'}}</view>
+						</view>
+					</view>
+
+					<view class="flex" style="margin-top: 32rpx; padding-left: 32rpx;">
+						<text style="font-size: 30rpx; line-height: 2; color: white;">每一分的功勋值可加速每份国债提取时间1天，最高可加速180天</text>
+					</view>
+
+					<view class="flex" style="margin-top: 26rpx">
+						<text style="font-size: 30rpx; line-height: 2; color: white;">每人可以同时确权多份，数量不限。</text>
+					</view>
+
+					<view class="title flex flex-x-center flex-y-end" style="margin-top: 20rpx">
+						<text class="text-yellow">中央财政补助</text>
+					</view>
+
+					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
+						<view class="thead">
+							<view class="td" style="width: 33.33%">确权(10)天</view>
+							<view class="td" style="width: 33.33%">持有180天</view>
+							<view class="td" style="width: 33.33%">持有360天</view>
 						</view>
 						<view class="tbody">
-							<view class="td" style="width: 33.33%">{{ item.earned_amount_1 || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ item.earned_amount_2 || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ item.earned_amount_3 || '0' }}</view>
+							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
+								赠送一个月收益{{ item.quequan10 || '--'}}元
+							</view>
+							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
+								<view><text>加速可提{{ item.chiyou180 || '--' }}元</text></view>
+								<view><text>收益 {{ item.price || '--' }}元</text></view>
+								<view><text>退加确权费300元</text></view>
+								
+							</view>
+							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
+								<view><text>可提{{ item.chiyou360 || '--' }}元</text></view>
+								<view><text>收益 {{ item.price || '--' }}元</text></view>
+								<view><text>退加确权费300元</text></view>
+							</view>
 						</view>
 						
-						<view class="thead" style="width: 66.66%;">
-							<view class="td" style="width: 50%">持有{{ item.holding_days_4 || '0' }}天</view>
-							<view class="td" style="width: 50%">持有{{ item.holding_days_5 || '0' }}天</view>
-						</view>
-
-						<view class="tbody" style="width: 66.66%;">
-							<view class="td" style="width: 50%">{{ item.earned_amount_4 || '0' }}</view>
-							<view class="td" style="width: 50%">{{ item.earned_amount_5 || '0' }}</view>
-						</view>
+					
 					</view>
 
 					<view style="margin: 72rpx 0 64rpx;">
@@ -94,23 +104,36 @@
 	export default {
 		data() {
 			return {
+				user_info: {},
 				dataList:[]
 			}
 		},
 		onShow() {
-			this.getDataList()	
+			this.getDataList()
+		},
+		onLoad(){
+			this.getUserInfo()
 		},
 		methods: {
 			getDataList() {
 				uni.showLoading()
 				this.to.www(this.api.project_group_list,{
-					project_group_id:8
+					project_group_id:7
 				},'p').then(response => {
 					uni.hideLoading()
 					this.dataList = response.data.data || []
 				}).catch(e => {
 					uni.hideLoading()
 				})
+			},
+
+			getUserInfo() {
+				this.user_info = uni.getStorageSync('user_info') || {}
+				this.to.www(this.api.user_info)
+					.then(res => {
+						this.user_info = res.data
+						uni.setStorageSync('user_info', this.user_info)
+					})
 			},
 
 			goDetail(item){
@@ -148,6 +171,7 @@ page{
 
 .section-red-content{
 	position: relative;
+	
 	image{
 		height: 100%;
 	}
