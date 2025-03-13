@@ -84,7 +84,7 @@
 					<u-icon v-if="authenCode == 4" name="close-circle-fill" :size="280" color="#ad1c0b"></u-icon>
 	
 					<view class="text-row">
-						<text v-if="authenCode == 2">已提交</text>
+						<text v-if="authenCode == 2">审核中</text>
 						<text v-if="authenCode == 3">已完成</text>
 						<text v-if="authenCode == 4">未通过</text>
 					</view>

@@ -138,7 +138,7 @@ page{
 // 【注册页】
 .register_app{
 	
-	padding: 300rpx 32rpx 0;
+	padding: 160rpx 32rpx 0;
 	
     // 顶部标题
     .login_title{

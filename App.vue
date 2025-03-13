@@ -46,6 +46,10 @@ view {
 	justify-content: flex-end;
 }
 
+.flex-y-start {
+	align-items: flex-start;
+}
+
 .flex-y-center {
 	align-items: center !important;
 }
@@ -667,6 +671,9 @@ view {
 }
 .text-yellow{
 	color: #e8cf8f;
+}
+.text-gold{
+	color: gold;
 }
 
 // 红色按钮

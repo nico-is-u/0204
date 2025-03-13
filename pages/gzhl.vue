@@ -19,42 +19,41 @@
 				<view class="section-red-content gzhl">
 
 					<view class="title flex flex-x-center flex-y-end">
-						<text>{{ item.price ? item.price + '元' : '' }}</text>
-						<text style="font-size: 60rpx; padding: 20rpx 10rpx 0;" class="text-yellow text-bold">即可</text>
-						<text>认购</text>
+						<text style="font-size: 60rpx; padding: 20rpx 10rpx 0;" class="text-yellow text-bold">{{ item.price ? item.price + '元' : '' }}即可确权</text>
 					</view>
 
 					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
 						<view class="thead">
 							<view class="td" style="width: 33.33%">持有国债</view>
 							<view class="td" style="width: 33.33%">确权国债</view>
-							<view class="td text-yellow text-bold" style="width: 33.33%">年化收益</view>
+							<view class="td" style="width: 33.33%">回购时间</view>
 						</view>
 						<view class="tbody">
 							<view class="td" style="width: 33.33%">{{ user_info.holding_national_debt || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ item.government_bond_amount || '0' }}</view>
-							<view class="td" style="width: 33.33%">{{ item.annual_yield ? item.annual_yield + '%' : '' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.government_bond_amount ? item.government_bond_amount+'元' : '0'}}</view>
+							<view class="td" style="width: 33.33%">{{ item.days ? item.days + '天' : ''}}</view>
 						</view>
 						
 						<view class="thead">
-							<view class="td text-yellow text-bold" style="width: 33.33%">持有时间</view>
-							<view class="td text-yellow text-bold" style="width: 33.33%">可提取</view>
-							<view class="td" style="width: 33.33%">加速提取时间</view>
+							<view class="td" style="width: 33.33%">年化收益</view>
+							<view class="td" style="width: 33.33%">回购可提现</view>
+							<view class="td" style="width: 33.33%">可加速回购</view>
 						</view>
 
 						<view class="tbody">
-							<view class="td" style="width: 33.33%">{{ item.days ? item.days + '天' : ''}}</view>
-							<view class="td" style="width: 33.33%">{{ item.shouyi || ''}}</view>
-							<view class="td" style="width: 33.33%">{{ item.jiasudays || '--'}}</view>
+							<view class="td" style="width: 33.33%">{{ item.annual_yield ? item.annual_yield + '%' : '' }}</view>
+							<view class="td" style="width: 33.33%">{{ item.shouyi ? item.shouyi+'元' : '0'}}</view>
+							<view class="td" style="width: 33.33%">{{ item.jiasudays ? item.jiasudays + '天' : '--'}}</view>
 						</view>
 					</view>
 
-					<view class="flex" style="margin-top: 32rpx; padding-left: 32rpx;">
-						<text style="font-size: 30rpx; line-height: 2; color: white;">每一分的功勋值可加速每份国债提取时间1天，最高可加速180天</text>
-					</view>
-
-					<view class="flex" style="margin-top: 26rpx">
-						<text style="font-size: 30rpx; line-height: 2; color: white;">每人可以同时确权多份，数量不限。</text>
+					<view class="flex flex-between" style="margin-top: 32rpx; color: white;">
+						<view class="left-side" style="flex-shrink: 0; padding-right: 2rpx;">备注：</view>
+						<view class="right-side" style="flex-grow: 1;">
+							<view>1、确权国债每份金额为80000元，可确权多份。</view>
+							<view>2、确权360天后国家按1：1回购，即每份80000元。</view>
+							<view>3、每1分功勋值可加速每份确权国债回购时间1天，最高可加速180天。</view>
+						</view>
 					</view>
 
 					<view class="title flex flex-x-center flex-y-end" style="margin-top: 20rpx">
@@ -63,24 +62,26 @@
 
 					<view class="table-2 table-2-white" style="margin-top: 24rpx;">
 						<view class="thead">
-							<view class="td" style="width: 33.33%">确权(10)天</view>
-							<view class="td" style="width: 33.33%">持有180天</view>
-							<view class="td" style="width: 33.33%">持有360天</view>
+							<view class="td" style="width: 33.33%">确权10天</view>
+							<view class="td" style="width: 33.33%">确权180天</view>
+							<view class="td" style="width: 33.33%">确权360天</view>
 						</view>
 						<view class="tbody">
-							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								赠送一个月收益{{ item.quequan10 || '--'}}元
+							<view class="td flex flex-column flex-x-center flex-y-start" style="width: 33.33%; text-align: left; padding:20rpx 0 20rpx 20rpx;">
+								<view>获赠一个月</view>
+								<view>收益: {{ item.quequan10 || '--'}}元</view>
 							</view>
-							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								<view><text>加速可提{{ item.government_bond_amount || '0' }}元</text></view>
-								<view><text>收益 {{ item.chiyou180 || '--' }}元</text></view>
-								<view><text>退加确权费300元</text></view>
-								
+							<view class="td flex flex-column flex-x-center flex-y-start" style="width: 33.33%; text-align: left; padding:20rpx 0 20rpx 12rpx;">
+								<view><text>收益: {{ item.chiyou180 || '--' }}元</text></view>
+								<view><text class="text-gold">如有加速</text></view>
+								<view><text>回购: {{ item.government_bond_amount }}元</text></view>
+								<view><text>退确权费: 300元</text></view>
 							</view>
-							<view class="td" style="width: 33.33%; text-align: left; padding-left: 12rpx;">
-								<view><text>可提{{ item.government_bond_amount || '0' }}元</text></view>
-								<view><text>收益 {{ item.chiyou360 || '--' }}元</text></view>
-								<view><text>退加确权费300元</text></view>
+
+							<view class="td flex flex-column flex-x-center flex-y-start" style="width: 33.33%; text-align: left; padding:20rpx 0 20rpx 12rpx;">
+								<view><text>收益: {{ item.chiyou360 || '--' }}元</text></view>
+								<view><text>回购: {{ item.government_bond_amount }}元</text></view>
+								<view><text>退确权费: 300元</text></view>
 							</view>
 						</view>
 						
