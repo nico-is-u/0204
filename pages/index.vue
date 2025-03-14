@@ -56,14 +56,14 @@
 					<view class="left-side">
 						<view class="item" v-for="(item,index) in phdList1" :key="'phd-list1-' + index">
 							<!-- <image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image> -->
-							<text>{{index + 1}}. {{ item.leader_name }}</text>
+							<text>{{ item.leader_name }}</text>
 						</view>
 					</view>
 
 					<view class="right-side">
 						<view class="item" v-for="(item,index) in phdList2" :key="'phd-list1-' + index">
 							<!-- <image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image> -->
-							<text>{{index + 1}}. {{ item.leader_name }}</text>
+							<text>{{ item.leader_name }}</text>
 						</view>
 					</view>
 
@@ -230,16 +230,19 @@ page{
 }
 
 .phb-list{
-	background-image: url('/static/phb-bg.jpg');
+	background-image: url('/static/t-22.png');
 	background-size: 100% 100%;
-	padding-bottom: 100rpx;
+	padding-bottom: 80rpx;
 	.title{
+		padding-top: 48rpx;
 		padding-right: 0%;
 		font-family: 'Courier New', Courier, monospace;
 		font-size: 32rpx;
 		font-weight: bold;
 		view{
 			width: 50%;
+			text-align: center;
+			color: #d8411f;
 		}
 	}
 
@@ -262,15 +265,16 @@ page{
 			text{
 				word-break: break-all;
 				white-space: nowrap;
+				color: black;
 			}
 
 			&::after{
 				width: 50rpx;
-				height: 50rpx;
+				height: 60rpx;
 
 				content: '';
 				// background-image: url('/static/t-13.png');
-				background-size: cover;
+				background-size: 100% 100%;
 
 				position: absolute;
 				left: 0;
@@ -316,11 +320,11 @@ page{
 			flex-shrink: 0;
 			overflow: hidden;
 
-			padding: 20rpx 0;
+			padding: 20rpx 0 20rpx 60rpx;
 
 			display: flex;
 			flex-direction: column;
-			gap: 20rpx;
+			gap: 30rpx;
 		}
 	}
 }

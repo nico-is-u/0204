@@ -95,7 +95,7 @@
 
 						<view class="item yjdqfh">
 							<view class="top">
-								预计到期分红
+								预期回购金额
 							</view>
 							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
 								{{ user_info.chiyouguozhaiyuji ? user_info.chiyouguozhaiyuji : '0.00' }}
@@ -124,7 +124,7 @@
 
 						<view class="item yjdqfh">
 							<view class="top">
-								预计可提国债
+								可回购金额
 							</view>
 							<view class="bottom flex flex-column flex-center" style="line-height: 1.5; padding-top: 4px;">
 								<text>{{ user_info.jihuoguozhaiyuji ? user_info.jihuoguozhaiyuji : '0.00' }}</text>
