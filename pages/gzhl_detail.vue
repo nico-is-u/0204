@@ -150,7 +150,7 @@
 
                         </view>
 
-                        <button style="margin-top: 32rpx;" class="btn-yellow" @click="submit">认购</button>
+                        <button style="margin-top: 32rpx;" class="btn-yellow" @click="submit">确权</button>
 
                     </view>
 

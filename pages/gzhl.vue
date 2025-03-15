@@ -89,7 +89,7 @@
 					</view>
 
 					<view style="margin: 72rpx 0 64rpx;">
-						<button class="btn-yellow">认购</button>
+						<button class="btn-yellow">确权</button>
 					</view>
 
 				</view>

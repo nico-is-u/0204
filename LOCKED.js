@@ -102,6 +102,7 @@ const xxxxxxxxxxxxxx = {
 	project_group_list:'ZxbEJDpaYollAH6zBvHiFDSp02HqwshsXopor66D2k4=',
 	// 充值方式
 	topup_channel_list:'SfoprH4rHvRcxfEYspi4r7zQyFfpMXCh1oqiCL/b2zs=',
+	
 	// 充值
 	topup:'SMhJgRXE4taII3nK2ClqGQ==',
 	// 提现

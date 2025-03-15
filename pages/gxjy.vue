@@ -10,13 +10,13 @@
 					<text class="text-bold">功勋值说明：</text>
 				</view>
 				<view>
-					<text>功勋值通过投资和发展团队两种途径获取。可以进行缩短分红周期或者换取相应奖励</text>
+					<text>功勋值通过投资和发展团队等途径获取。可以进行缩短国债回购周期或者换取相应奖励</text>
 				</view>
 				<view>
 					<text>每邀约注册激活</text>
 					<text class="text-bold text-xl">1人</text>
 					<text>获得功勋值</text>
-					<text class="text-bold text-xl">10分</text>
+					<text class="text-bold text-xl">50分</text>
 				</view>
 				<view>
 					<text>在国之两重板块投资</text>
@@ -98,7 +98,16 @@
 			</view>
 		</u-popup>
 
-
+		<u-modal 
+			:show="modalShow" 
+			title='确定要进行兑换吗？'
+			:content="modalDesc"
+			:showCancelButton="true"
+			:closeOnClickOverlay="true"
+			@cancel="modalClose"
+			@close="modalClose"
+			@confirm="duihuan3"
+		></u-modal>
 
 		<view id="kefu" @click="kefu"></view>
 	</view>
@@ -118,6 +127,9 @@
 
 				select2DaysShow:false,				// 是否显示选择天数
 				select2Days: '',
+
+				modalShow: false,
+				modalDesc: '',
 			}
 		},
 		computed:{
@@ -163,8 +175,16 @@
 				if(item.type == 1){
 					this.dataList2Key = true
 				}else{
-					this.duihuan3()
+					this.modalShow = true
+					this.modalDesc = this.dataItem.dec + '('+ this.dataItem.jifen +'积分)'
+					// this.duihuan3()
 				}
+			},
+
+			modalClose(){
+				this.modalShow = false
+				this.modalDesc = ''
+				this.dataItem = {}
 			},
 
 			duihuan2(){
@@ -173,7 +193,7 @@
 
 			duihuan3(){
 
-				if(!this.select2Days){
+				if(!this.select2Days && this.dataItem.type == 1){
 					this.toa('请输入天数','w')
 					return
 				}else{
@@ -190,6 +210,7 @@
 				})
 				.finally(() => {
 					uni.hideLoading()
+					this.modalClose()
 				})
 
 			},
