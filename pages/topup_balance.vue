@@ -85,6 +85,7 @@ export default {
 
 			amount: '',		// 充值金额
 			pay_voucher_img_url: '',	// 支付凭证图片
+
 		}
 	},
 	computed: {
@@ -161,7 +162,7 @@ export default {
 
 			this.to.www(this.api.topup, {
 				amount: this.amount,
-				pay_channel: 1,
+				pay_channel: this.dataSelectedItem.channel,
 				payment_config_id: this.dataSelectedItem.id,
 				pay_voucher_img_url: this.pay_voucher_img_url,
 			}, 'p').then(res => {
