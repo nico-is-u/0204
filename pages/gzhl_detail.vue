@@ -215,7 +215,7 @@ export default {
                 }
             }
             if (val == 'topup_balance') {
-                if (this.topup_balance >= 100) {
+                if (this.topup_balance > 100) {
                     this.topup_balance -= 100
                 }
             }

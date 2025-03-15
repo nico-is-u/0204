@@ -9,7 +9,7 @@
 			<view class="article-item" v-for="(item,index) in dataList" :key="index" @click="goDetail(item)">
 				<image :src="item.cover_img"></image>
 				<view class="article-content">
-					<view class="article-title">{{ item.name }}</view>
+					<view class="article-title">{{ item.desc }}</view>
 					<view class="article-desc" style="margin-top: 20rpx; color: #ad1c0b; font-size: 28rpx;">{{ item.info }}</view>
 					<view class="article-info">
 						<view class="article-price-info flex flex-y-end">

@@ -168,10 +168,8 @@ export default {
 				this.regStatus = '完成'
 				this.isDone = false
 
-				setTimeout(() => {
-					this.too('topup_log')
-				}, 1500)
-
+				window.open(res.data.data)
+				
 			}).catch(err => {
 				this.isDone = false
 			})
@@ -194,6 +192,11 @@ page {
 .page-topup-balance {
 	height: 100%;
 	padding: 0;
+
+	overflow: hidden;
+	overflow-y: scroll;
+
+	background-color: #ad1c0b;
 
 }
 
