@@ -190,6 +190,12 @@
 			"style": {
 				"navigationBarTitleText" : "提现记录"
 			}
+		},
+		{
+			"path": "pages/balance_log",
+			"style": {
+				"navigationBarTitleText" : "资产明细"
+			}
 		}
 	],
 	"globalStyle": {

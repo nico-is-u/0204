@@ -219,12 +219,14 @@ section {
 	padding: 52rpx 0;
 
 	.top {
-		font-size: 48rpx;
+		font-size: 38rpx;
 	}
 
 	.bottom {
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 		font-weight: bold;
+
+		margin-top: 30rpx;
 	}
 
 	.qian {
@@ -235,12 +237,12 @@ section {
 	}
 
 	.account1 {
-		font-size: 180rpx;
+		font-size: 100rpx;
 		letter-spacing: 2px;
 	}
 
 	.account2 {
-		font-size: 100rpx;
+		font-size: 70rpx;
 		letter-spacing: 2px;
 	}
 

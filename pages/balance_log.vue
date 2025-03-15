@@ -13,18 +13,13 @@
 
             <view class="list-4">
                 <view class="flex flex-column" v-for="(item,index) in dataList" :key="'list-item-' + index">
-                    <view class="card" style="display: flex; flex-direction: column; gap: 20rpx;">
+                    <view class="card">
                         <view class="row flex flex-between">
-                            <text>订单号</text>
-                            <text>{{ item.capital_sn }}</text>
-                        </view>
-                        <view class="row flex flex-between">
-                            <text>提现</text>
-                            <text class="amount">{{ item.amount }}</text>
+                            <text>{{item.type_text}}</text>
+                            <text class="amount">{{ item.change_balance }}</text>
                         </view>
                         <view class="row flex flex-between">
                             <text>{{item.created_at}}</text>
-                            <view>{{getStatusStr(item.status) }}</view>
                             <!-- <view class="status status-2">已提现</view> -->
                         </view>
                     </view>
@@ -47,11 +42,15 @@ export default {
 			return (status) => {
 				switch (status){
 					case 1:
-						return '待确认';
+						return '待支付';
 					case 2:
-						return '成功';
+						return '支付完成';
 					case 3:
 						return '失败';
+					case 4:
+						return '待发货';
+					case 5:
+						return '已发货';
 					default:
 						break;
 				}
@@ -60,8 +59,8 @@ export default {
     },
     methods:{
         getDataList(pageNo, pageSize){
-            this.to.www(this.api.withdraw_log,
-                {page:pageNo,type:2},'p'
+            this.to.www(this.api.balance_log,
+                {page:pageNo},'p'
             ).then(response => {
                 const datas = response.data.data || []
                 this.$refs.paging.complete(datas)

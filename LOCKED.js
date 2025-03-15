@@ -134,6 +134,8 @@ const xxxxxxxxxxxxxx = {
 	phb: 'YBHBg3SoZCAoh1eJZ/LKRA==',
 	// 国债明细
 	gzmx: '1FFgyHWBXYQONcHfE/+C9JLk7oEweFX76Tq0FuNyCFM=',
+	// 记录明细
+	balance_log:'plZNV62dgdwhrpxKvKuOjw==',
 	
 }
 export default xxxxxxxxxxxxxx

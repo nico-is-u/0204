@@ -10,6 +10,7 @@
 				<image :src="item.cover_img"></image>
 				<view class="article-content">
 					<view class="article-title">{{ item.name }}</view>
+					<view class="article-desc" style="margin-top: 20rpx; color: #ad1c0b; font-size: 28rpx;">{{ item.info }}</view>
 					<view class="article-info">
 						<view class="article-price-info flex flex-y-end">
 							<view class="left-side flex flex-y-center">

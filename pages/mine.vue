@@ -113,7 +113,7 @@
 							</view>
 						</view>
 
-						<view class="item">
+						<view class="item" @click="too('tzmx')">
 							<view class="top">
 								确权国债
 							</view>
@@ -205,7 +205,7 @@
 					</view>
 				</view>
 				<view class="column flex flex-column flex-y-center">
-					<view class="item flex flex-column flex-y-center" @click="too('tzmx')">
+					<view class="item flex flex-column flex-y-center" @click="too('balance_log')">
 						<view class="icon">
 							<image src="/static/mine-icon-4.jpg" mode="widthFix"></image>
 						</view>

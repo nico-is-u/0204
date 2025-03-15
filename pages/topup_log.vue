@@ -1,22 +1,37 @@
 <template>
-    <view id="topup_log">
-        <view class="section" v-if="dataList.length != 0">
+    <view class="log_page">
+
+        <z-paging 
+            class="paging"
+            ref="paging"
+            :fixed="false"
+            style="height: 100%"
+            v-model="dataList"
+            @query="getDataList"
+            system-loading-text="数据请求中"
+            :auto-show-system-loading="true">
+
             <view class="list-4">
                 <view class="flex flex-column" v-for="(item,index) in dataList" :key="'list-item-' + index">
-                    <view class="card">
+                    <view class="card" style="display: flex; flex-direction: column; gap: 20rpx;">
+                        <view class="row flex flex-between">
+                            <text>订单号</text>
+                            <text>{{ item.capital_sn }}</text>
+                        </view>
                         <view class="row flex flex-between">
                             <text>充值</text>
                             <text class="amount">{{ item.amount }}</text>
                         </view>
                         <view class="row flex flex-between">
                             <text>{{item.created_at}}</text>
-                            <view class="status status-2">已提现</view>
+                            <view>{{getStatusStr(item.status) }}</view>
+                            <!-- <view class="status status-2">已提现</view> -->
                         </view>
                     </view>
                 </view>
             </view>
-        </view>
-        <u-empty v-else mode="data" :textSize="40" :iconSize="200"></u-empty>
+
+        </z-paging>
     </view>
 </template>
 
@@ -27,16 +42,31 @@ export default {
             dataList:[]
         }
     },
-    onLoad(){
-        this.getDataList()
+    computed:{
+        getStatusStr(status) {
+			return (status) => {
+				switch (status){
+					case 1:
+						return '待确认';
+					case 2:
+						return '成功';
+					case 3:
+						return '失败';
+					default:
+						break;
+				}
+			}
+		}
     },
     methods:{
-        getDataList(){
-            uni.showLoading({mask:true})
-            this.to.www(this.api.withdraw_log).then(response => {
-                this.dataList = response.data || []
-            }).finally(() => {
-                uni.hideLoading()
+        getDataList(pageNo, pageSize){
+            this.to.www(this.api.withdraw_log,
+                {page:pageNo,type:1},'p'
+            ).then(response => {
+                const datas = response.data.data || []
+                this.$refs.paging.complete(datas)
+            }).catch(e => {
+                this.$refs.paging.complete(false)
             })
         }
     }
@@ -49,12 +79,16 @@ page{
     background-color: #f2f2f2;
 
     overflow: hidden;
-    overflow-y: scroll;
 
     padding: 50rpx 24rpx;
 }
 
-.section{
+.log_page{
+    height: 100%;
+}
+
+
+.paging{
     width: 100%;
     height: 100%;
     background-color: #fff;

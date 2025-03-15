@@ -33,11 +33,13 @@
                 <view class="content">
                     <!-- 银行名称和图标 -->
                     <view class="bank flex flex-y-center">
-                        <view class="icon">
+                        <!-- <view class="icon">
                             <image src="/static/nongyeyinhang_1.png" mode="widthFix" alt=""></image>
-                        </view>
-                        <view class="text">
-                            {{item.bank_name}}
+                        </view> -->
+                        <view class="text flex flex-column" style="gap: 10rpx; padding-top: 10rpx;">
+                            <view class="name1">{{item.bank_name}}</view>
+                            <view class="name2">{{item.account}}</view>
+                            <view class="name2">{{item.name}}</view>
                         </view>
                     </view>
                     <!-- 卡号 -->
@@ -129,8 +131,17 @@
                         .text{
                             color: white;
                             font-size: 46rpx;
-                            padding-left: 40rpx;
+                            padding-left: 20rpx;
                             margin-top: -2%;
+
+                            .name1{
+                                font-size: 46rpx;
+                            }
+
+                            .name2,.name3{
+                                font-size: 38rpx;
+                            }
+
                         }
                     }
                     // 卡号
