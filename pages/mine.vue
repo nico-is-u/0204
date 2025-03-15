@@ -256,6 +256,8 @@
 					title: "提示",
 					content: "安全退出此账号 ? ",
 					confirmColor: '#c03328',
+					cancelText:'取消',
+					confirmText:'确定',
 					success: (res) => {
 						if (res.confirm) {
 							uni.clearStorage();

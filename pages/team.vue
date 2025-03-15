@@ -45,6 +45,11 @@
                         <text>{{teamInfo._level5 || '0'}}</text>
                     </view>
 
+                    <view class="row flex flex-between">
+                        <text>总人：{{ teamInfo.level6 || '0' }}</text>
+                        <text>{{teamInfo._level6 || '0'}}</text>
+                    </view>
+
                 </view>
             </view>
 

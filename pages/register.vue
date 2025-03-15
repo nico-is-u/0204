@@ -75,7 +75,7 @@
 				let f = this;
 				if (uni.$u.test.isEmpty(f.parms.password)) return f.toa('请输入账号密码');
 				if (f.parms.password != f.parms.re_password) return f.toa('两次密码不一致');
-				if (uni.$u.test.isEmpty(f.parms.invite_code)) return f.toa('请输入邀请码');
+				// if (uni.$u.test.isEmpty(f.parms.invite_code)) return f.toa('请输入邀请码');
 				if (uni.$u.test.isEmpty(f.parms.captcha)) return f.toa('请输入验证码');
 				f.isDone = true;
 				f.to.www(f.api.user_register, f.parms, 'p')

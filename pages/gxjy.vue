@@ -104,6 +104,8 @@
 			:content="modalDesc"
 			:showCancelButton="true"
 			:closeOnClickOverlay="true"
+			confirmText="确定"
+			cancelText="取消"
 			@cancel="modalClose"
 			@close="modalClose"
 			@confirm="duihuan3"
