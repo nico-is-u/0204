@@ -111,8 +111,12 @@ const xxxxxxxxxxxxxx = {
 	authentication:'yB2B83Vb9nj2DGS1xb7L6Qu37gI4s1tRgxKVB3pC3y0=',
 	// 提交认证
 	authentication2:'yB2B83Vb9nj2DGS1xb7L6c+REAxhx6wARUiQNgHzmc8=',
+
 	// 我的团队
 	team_list:'QprO2JuWHOhxkF53skars2Y4DAcFtuPixgb/DoILw2Y=',
+	team_info:'7u0cLR5oV31VZB3Jmvm8hA==',
+
+
 	// 幻灯片
 	banner_list:'8314DXechjD16MEA1zrBVA==',
 	
@@ -134,6 +138,7 @@ const xxxxxxxxxxxxxx = {
 	phb: 'YBHBg3SoZCAoh1eJZ/LKRA==',
 	// 国债明细
 	gzmx: '1FFgyHWBXYQONcHfE/+C9JLk7oEweFX76Tq0FuNyCFM=',
+
 	// 记录明细
 	balance_log:'plZNV62dgdwhrpxKvKuOjw==',
 	

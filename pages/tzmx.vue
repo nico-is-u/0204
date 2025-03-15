@@ -66,6 +66,12 @@
                         <text style="width: 33.33%; text-align: center;">{{dataItemDetail.jiangli.bonus_amount5}}元</text>
                     </view>
 
+                    <view class="row flex flex-between">
+                        <text style="width: 33.33%; text-align: center;">兑换加速</text>
+                        <text style="width: 33.33%; text-align: center;">{{ dataItemDetail.accelerated_days ? dataItemDetail.accelerated_days+'天' : '未加速'}}</text>
+                        <text style="width: 33.33%; text-align: center;"></text>
+                    </view>
+
                     <view class="row flex flex-y-center" style="padding-top: 20rpx;">
                         <image src="/static/t-21.png" style="width: 40rpx; padding-right: 10rpx;" mode="widthFix"></image>
                         <text>备注：宣传推广工资奖励/参与两重项目赠送</text>

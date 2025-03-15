@@ -302,6 +302,29 @@ view {
 	}
 }
 
+// tab容器
+.like-tab{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width:100%;
+
+	.item{
+		color: $navbar-red;
+		font-weight: normal;
+		border-radius: 8rpx;
+		border: 1px solid $navbar-red;
+		padding: 4rpx 20rpx;
+
+		&.active{
+			color: #e8cf8f;
+			background-color: $navbar-red;
+		}
+
+	}
+}
+
 // 文章列表
 .article-list {
 
