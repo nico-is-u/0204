@@ -44,6 +44,38 @@
 					<input type="number" v-model="amount" placeholder="请输入提现金额">
 				</view>
 
+				<!-- 中间选择提现钱包 -->
+				<!-- <view class="top_left flex flex-y-center">
+					提现钱包
+					<image src="/static/app2/exclamation.png" alt="" />
+				</view>
+
+				<view class="center flex flex_direction_column">
+					<view class="line flex justify_content_space_between">
+						<view class="left flex align_items_center">
+							<image src="/static/t-23.png" alt="" />
+							<text>收益钱包</text>
+						</view>
+						<view class="right flex align_items_center">
+							<image src="/static/app2/selected.png" v-if="log_type == 1" alt="" />
+							<image src="/static/app2/unchecked.png" v-else @click="log_type = 1" alt="" />
+						</view>
+					</view>
+
+					<view class="line flex justify_content_space_between">
+						<view class="left flex align_items_center">
+							<image src="/static/t-23.png" alt="" />
+							<text>团队钱包</text>
+						</view>
+						<view class="right flex align_items_center">
+							<image src="/static/app2/selected.png" v-if="log_type == 4" alt="" />
+							<image src="/static/app2/unchecked.png" v-else @click="log_type = 4" alt="" />
+						</view>
+					</view>
+
+				</view> -->
+
+
 				<!-- 中间选择提现方式 -->
 				<view class="top_left flex flex-y-center">
 					提现方式
@@ -54,7 +86,7 @@
 
 					<view class="line flex justify_content_space_between" v-for="(item,index) in dataList" :key="index" @click="dataSelectedIndex = index">
 						<view class="left flex align_items_center">
-							<image src="/static/t-7.png" alt="" />
+							<image src="/static/t-24.png" style="width: 80rpx;" mode="widthFix" alt="" />
 							<text>{{ item.account }}</text>
 						</view>
 						<view class="right flex align_items_center">
@@ -109,6 +141,7 @@
 				amount:'',
 				pay_password:'',
 
+				log_type:1,
 
 				dataList:[],
 				dataSelectedIndex:0,
@@ -169,7 +202,7 @@
 
 				this.to.www(this.api.withdraw,{
 					money:this.amount,
-					log_type:1,
+					log_type:this.log_type,
 					bank_id:this.dataSelectedItem.id,
 					pay_password:this.pay_password,
 

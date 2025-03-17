@@ -52,7 +52,7 @@
 					<view>红色资本示范榜</view>
 				</view>
 
-				<view class="list flex flex-between">
+				<view class="list flex flex-between" style="display: none;">
 					<view class="left-side">
 						<view class="item" v-for="(item,index) in phdList1" :key="'phd-list1-' + index">
 							<!-- <image src="/static/t-13.png" style="width: 50rpx; margin-right: 10rpx;" mode="widthFix"></image> -->
@@ -68,6 +68,11 @@
 					</view>
 
 				</view>
+
+				<view class="list flex flex-between remind-list">
+					<text class="remind">暂未开放</text>
+				</view>
+
 			</view>
 			
 			<!-- 新闻部分 -->
@@ -233,6 +238,7 @@ page{
 	background-image: url('/static/t-22.png');
 	background-size: 100% 100%;
 	padding-bottom: 80rpx;
+
 	.title{
 		padding-top: 48rpx;
 		padding-right: 0%;
@@ -325,6 +331,21 @@ page{
 			display: flex;
 			flex-direction: column;
 			gap: 30rpx;
+		}
+	}
+
+	.remind-list{
+		min-height: 300rpx;
+		position: relative;
+		.remind{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
 		}
 	}
 }
