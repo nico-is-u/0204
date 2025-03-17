@@ -7,7 +7,7 @@
                 <view class="row flex flex-y-center flex-between">
                     <text>头像</text>
                     <view class="right-side">
-                        <image style="width: 80rpx;" mode="widthFix" :src="user_info.avatar || '/static/avatar.png'"></image>
+                        <image style="width: 80rpx;" mode="widthFix" :src="user_info.avatar || '/static/avatar.jpg'"></image>
                     </view>
                 </view>
 

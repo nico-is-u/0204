@@ -45,8 +45,13 @@ Vue.prototype.toa = function(str, i) {
 Vue.prototype.kefu = function(){
 	const setting_config = uni.getStorageSync('setting_config')
 	const {kefu_url = ''} = setting_config
+
 	//#ifdef APP-PLUS
-	plus.runtime.openurl(kefu_url)
+	const webview = plus.webview.create(kefu_url, "newPage", {
+		top: "0px",
+		bottom: "0px",
+	})
+	webview.show()
 	//#endif
 
 	//#ifdef WEB

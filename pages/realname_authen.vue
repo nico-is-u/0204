@@ -35,35 +35,35 @@
 					</view>
 
 					<!-- 中上方文字提示 -->
-					<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
+					<!-- <view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
 						<view class="top">请上传身份证的正反面</view>
 						<view class="bottom identity_bottom">正面为国徽面 反面为头像面</view>
-					</view>
+					</view> -->
 		
 					<!-- 中间身份证头像面信息 -->
-					<view class="gray_box flex"  @click="upload('card_front')">
+					<!-- <view class="gray_box flex"  @click="upload('card_front')">
 						<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
 							<view class="top">头像面</view>
 							<view class="identity_bottom">上传您身份证头像面</view>
 						</view>
 						<image :src="card_front == '' ?  '/static/app2/a.png' : card_front"  mode="widthFix"/>
-					</view>
+					</view> -->
 		
-					<view class="gray_box flex" @click="upload('card_back')">
+					<!-- <view class="gray_box flex" @click="upload('card_back')">
 						<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
 							<view class="top">国徽面</view>
 							<view class="identity_bottom">上传您身份证国徽面</view>
 						</view>
 						<image :src="card_back == '' ?  '/static/app2/b.png' : card_back" mode="widthFix"/>
-					</view>
+					</view> -->
 		
-					<view class="gray_box flex" @click="upload('card_hand')">
+					<!-- <view class="gray_box flex" @click="upload('card_hand')">
 						<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
 							<view class="top">手持身份证拍照</view>
 							<view class="identity_bottom">上传您身手持身份证照片</view>
 						</view>
 						<image :src="card_hand == '' ?  '/static/app2/c.png' : card_hand" mode="widthFix"/>
-					</view>
+					</view> -->
 		
 					<u-button 
 						text="提交申请"
@@ -104,10 +104,10 @@
 export default {
 	data() {
 		return {
-			card_front: "",
-			card_back: "",
+			// card_front: "",
+			// card_back: "",
 			realname: '',
-			card_hand: '',
+			// card_hand: '',
 			id_card_number:'',
 
 			isDone: false,
@@ -158,18 +158,21 @@ export default {
 
 			if (!this.realname) return this.toa('请输入姓名');
 			if (!this.id_card_number) return this.toa('请输入身份证号码');
-			if (!this.card_front) return this.toa('请上传身份证正面');
-			if (!this.card_back) return this.toa('请上传身份证反面');
-			if (!this.card_hand) return this.toa('请上传手持身份证照片');
+
+			// if (!this.card_front) return this.toa('请上传身份证正面');
+			// if (!this.card_back) return this.toa('请上传身份证反面');
+			// if (!this.card_hand) return this.toa('请上传手持身份证照片');
 			
 			this.isDone = true;
 
 			const params = {
 				realname: this.realname,
 				id_card_number: this.id_card_number,
-				card_back: this.card_back,
-				card_front: this.card_front,
-				card_hand: this.card_hand,
+
+				// card_back: this.card_back,
+				// card_front: this.card_front,
+				// card_hand: this.card_hand,
+				
 			}
 
 			this.to.www(this.api.authentication2, params, "p")
@@ -180,7 +183,9 @@ export default {
 					setTimeout(() => {
 						this.authenCode = 2
 					}, 500)
-				}).catch(err =>{
+
+				}).catch(err => {
+					
 					this.isDone = false;
 					// setTimeout(() => {
 					// 	uni.navigateBack()

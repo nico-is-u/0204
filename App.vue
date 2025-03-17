@@ -2,12 +2,21 @@
 export default {
 	onLaunch: function () {
 		// console.log('App Launch')
+		this.getSystem_config();
 	},
 	onShow: function () {
 		// console.log('App Show')
 	},
 	onHide: function () {
 		// console.log('App Hide')
+	},
+	methods:{
+		getSystem_config() {
+			this.to.www(this.api.system_info)
+				.then(res => {
+					uni.setStorageSync('setting_config',res.data.setting_conf)
+				})
+		},
 	}
 }
 </script>
