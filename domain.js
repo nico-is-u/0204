@@ -93,6 +93,7 @@ export default {
 		    /* 按顺序使用 */
 		    url: oss_list[oss_index],
 		    method: "GET",
+			timeout: 5000,
 		    header: {
 		      "content-type": "multipart/form-data"
 		    },
@@ -134,6 +135,7 @@ export default {
 				let _ = this;
 				uni.request({
 					url: api_list[api_index] + 'common/test',
+					timeout: 5000,
 					method: "POST",
 					success: (res) => {
 						try {
