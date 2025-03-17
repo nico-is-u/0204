@@ -65,29 +65,44 @@ var
 	api_index = 0,
 	api = '',
 	api_list = [],
-	def_api_list = ['https://api.fewiongoiwe.com/'],
+	// def_api_list = ['https://api.fewiongoiwe.com/'],
 	// def_api_list = ['https://api.cfddskg.com/', 'https://api.kbrprw.com/', 'https://api.ftlmcm.com/'],
+
+	def_api_list = ['https://api.2d8ub.com','https://api.v00ug.com'],
 	def_api = false,
 	
 	oss_list = [
-		
+		'https://chryds.oss-cn-shanghai.aliyuncs.com/85132JKKxsaym.txt',
+		'https://dsukz.oss-rg-china-mainland.aliyuncs.com/85132JKKxsaym.txt',
+		'https://cbhfuy.oss-cn-hangzhou.aliyuncs.com/87592BHasyym.txt',
+		'https://skuirbh.oss-rg-china-mainland.aliyuncs.com/87592BHasyym.txt',
+		'https://bchdy.oss-cn-shanghai.aliyuncs.com/96585GHskuym.txt',
+		'https://skjhkjh.oss-rg-china-mainland.aliyuncs.com/96585GHskuym.txt',
+		'https://cndhy.oss-cn-shenzhen.aliyuncs.com/32652ERshym.txt',
+		'https://xajkiy.oss-rg-china-mainland.aliyuncs.com/32652ERshym.txt',
+		'https://vhfy.oss-cn-qingdao.aliyuncs.com/85695MKsahym.txt',
+		'https://sjdhuv.oss-rg-china-mainland.aliyuncs.com/85695MKsahym.txt',
 	],
 	oss_index = 0
+
 export default {
 	www: (a, b = {}, c = 'GET', d) => new Promise((resolve, reject) => {
 		async function getApiFn() {
+
 		  uni.request({
 		    /* 按顺序使用 */
 		    url: oss_list[oss_index],
 		    method: "GET",
+			timeout: 5000,
 		    header: {
 		      "content-type": "multipart/form-data"
 		    },
 		    success(www) {
 		      var data;
 		      try {
-		        data = decrypt(www.data, 'CNffppZG')
+		        data = decrypt(www.data, 'Wf58TuD6cUXLzkMN')
 		        data = data.split(',')
+				console.log(data)
 		      } catch (e) {
 		        data = []
 		      }
@@ -120,6 +135,7 @@ export default {
 				let _ = this;
 				uni.request({
 					url: api_list[api_index] + 'common/test',
+					timeout: 5000,
 					method: "POST",
 					success: (res) => {
 						try {
@@ -163,7 +179,7 @@ export default {
 												api_index = 0
 												uni.clearStorage();
 												uni.reLaunch({
-													url: '/pages/system-page/gf_login'
+													url: '/pages/login'
 												})
 											}
 										}
@@ -208,7 +224,7 @@ export default {
 											api_index = 0
 											uni.clearStorage();
 											uni.reLaunch({
-												url: '/pages/system-page/gf_login'
+												url: '/pages/login'
 											})
 										}
 									}
@@ -303,7 +319,7 @@ export default {
 						} else if (parseRes.code == 403) {
 							uni.clearStorage();
 							uni.reLaunch({
-								url: '/pages/system-page/gf_login'
+								url: '/pages/login'
 							})
 						} else if (parseRes.code == 10090) {
 							
