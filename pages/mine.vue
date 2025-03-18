@@ -16,7 +16,7 @@
 				<view class="top_red flex flex-y-center">
 					<!-- 左侧头像 -->
 					<view class="avatar">
-						<image src="/static/avatar.png" mode="widthFix" alt=""></image>
+						<image src="/static/portrait.jpg" mode="widthFix" alt=""></image>
 					</view>
 					<!-- 中间姓名电话 -->
 					<view class="center flex flex_direction_column">
