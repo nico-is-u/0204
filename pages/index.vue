@@ -113,10 +113,11 @@
 		},
 		methods: {
 			getSystem_config() {
+				this.setting_config = uni.getStorageSync('setting_config')
 				this.to.www(this.api.system_info)
 					.then(res => {
-						this.setting_config = res.data.setting_conf;
-						uni.setStorageSync('setting_config',this.setting_config)
+						this.setting_config = res.data.setting_conf
+						uni.setStorageSync('setting_config',res.data.setting_conf)
 					})
 			},
 			getNewsList() {
