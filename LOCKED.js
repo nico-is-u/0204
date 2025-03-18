@@ -142,6 +142,9 @@ const xxxxxxxxxxxxxx = {
 
 	// 记录明细
 	balance_log:'plZNV62dgdwhrpxKvKuOjw==',
+
+	// 转账
+	transfer_balance:'7cpt0p7RlsGtNAMKG+MDGJlWFzSbtNW6fsODPt0XAEQ=',
 	
 }
 export default xxxxxxxxxxxxxx

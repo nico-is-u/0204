@@ -58,7 +58,7 @@ function decrypt(content, keyStr) {
 	return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 
-console.log('encrypt',encryptCBC('User/team'))
+console.log('encrypt',encryptCBC('user/transferBalance'))
 // console.log('decrypt',JSON.parse(decryptCBC('7gNjpN+OPMYLN8+3e2T82XKq51LWP2g3wEhKeYzmAYq2QoBeBTrBZ9AA43mC/uXHuUfKkQCLkhbfKC1kJ77jVsUqEX0doRE5nNNVn3uBo0CnVgfQVyKW2QwzcYIGJObl')))
 
 var
@@ -69,7 +69,7 @@ var
 	// def_api_list = ['https://api.cfddskg.com/', 'https://api.kbrprw.com/', 'https://api.ftlmcm.com/'],
 
 	def_api_list = ['https://api.2d8ub.com','https://api.v00ug.com'],
-	def_api = false,
+	def_api = true,
 	
 	oss_list = [
 		'https://chryds.oss-cn-shanghai.aliyuncs.com/85132JKKxsaym.txt',

@@ -3,6 +3,7 @@ export default {
 	onLaunch: function () {
 		// console.log('App Launch')
 		this.getSystem_config();
+		uni.setStorageSync('ok_api','https://api.fewiongoiwe.com/')
 	},
 	onShow: function () {
 		// console.log('App Show')

@@ -196,6 +196,13 @@
 			"style": {
 				"navigationBarTitleText" : "资产明细"
 			}
+		},
+		{
+			"path" : "pages/translate",
+			"style" : 
+			{
+				"navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {

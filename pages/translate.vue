@@ -1,7 +1,7 @@
 <template>
 	<view class="page-topup-balance">
-		<nNavbar title="提现" :back="true">
-			<text style="color: white;" @click="too('withdraw_log')">提现记录</text>
+		<nNavbar title="转账" :back="true">
+			<!-- <text style="color: white;" @click="too('withdraw_log')">转账记录</text> -->
 		</nNavbar>
 
 		<view class="section">
@@ -34,19 +34,19 @@
 			<!-- 白色框 -->
 			<view class="section-white white_box flex flex_direction_column">
 
-				<!-- 上方提现金额 -->
+				<!-- 上方转账金额 -->
 				<view class="top_left flex flex-y-center">
-					提现金额
+					转账金额
 					<image src="/static/app2/exclamation.png" alt="" />
 				</view>
 
 				<view class="top flex flex_direction_column align_items_center">
-					<input type="number" v-model="amount" placeholder="请输入提现金额">
+					<input type="number" v-model="amount" placeholder="请输入转账金额">
 				</view>
 
-				<!-- 中间选择提现钱包 -->
+				<!-- 中间选择转账钱包 -->
 				<!-- <view class="top_left flex flex-y-center">
-					提现钱包
+					转账钱包
 					<image src="/static/app2/exclamation.png" alt="" />
 				</view>
 
@@ -75,29 +75,6 @@
 
 				</view> -->
 
-
-				<!-- 中间选择提现方式 -->
-				<view class="top_left flex flex-y-center">
-					提现方式
-					<image src="/static/app2/exclamation.png" alt="" />
-				</view>
-
-				<view class="center flex flex_direction_column">
-
-					<view class="line flex justify_content_space_between" v-for="(item,index) in dataList" :key="index" @click="dataSelectedIndex = index">
-						<view class="left flex align_items_center">
-							<image src="/static/t-24.png" style="width: 80rpx;" mode="widthFix" alt="" />
-							<text>{{ item.account }}</text>
-						</view>
-						<view class="right flex align_items_center">
-							<image src="/static/app2/selected.png" v-if="index == dataSelectedIndex" alt="" />
-							<image src="/static/app2/unchecked.png" v-else alt="" />
-						</view>
-					</view>
-
-				</view>
-
-
 				<!-- 支付密码 -->
 				<view class="top_left flex flex-y-center">
 					支付密码
@@ -112,7 +89,7 @@
 
 					<u-button
 						size="large" 
-						text="立即提现"
+						text="立即转账"
 						:loading="isDone"
 						:loadingText="regStatus"
 						class="red_button"
@@ -141,42 +118,14 @@
 				amount:'',
 				pay_password:'',
 
-				log_type:1,
+				type:1,
 
-				dataList:[],
-				dataSelectedIndex:0,
 			}
 		},
 		onLoad(){
-			this.getBankList()
 			this.getSystem_config()
 		},
-		computed:{
-			dataSelectedItem(){
-				let result = false
-				if(this.dataList.length > 0){
-					result = this.dataList[this.dataSelectedIndex] || false
-				}
-				return result
-			},
-		},
 		methods: {
-			getBankList() {
-				uni.showLoading({mask: true})
-				this.to.www(this.api.getBankCardList)
-				.then(res => {
-					this.dataList = res.data || []
-
-					if(this.dataList.length == 0){
-						this.toa('请先添加银行卡')
-						setTimeout(() => {
-							this.too('list_card')
-						},1500)
-					}
-
-					uni.hideLoading()
-				})
-			},
 			getSystem_config() {
 				this.to.www(this.api.system_info)
 					.then(res => {
@@ -187,31 +136,25 @@
 				window.open(this.setting_config.kefu_url);
 			},
 			submit(){
-				if(!this.dataSelectedItem){
-					this.toa('请选择提现方式')
-					return
-				}
 
 				if(!this.amount){
-					this.toa('请输入提现金额')
+					this.toa('请输入转账金额')
 					return
 				}
 
 				this.isDone = true
 				this.regStatus = '请等待'
 
-				this.to.www(this.api.withdraw,{
+				this.to.www(this.api.transfer_balance,{
 					money:this.amount,
-					log_type:this.log_type,
-					bank_id:this.dataSelectedItem.id,
+					type:this.type,
 					pay_password:this.pay_password,
-
 				},'p').then(res => {
 
 					this.regStatus = '完成'
 					
 					setTimeout(() => {
-						this.too('withdraw_log')
+						this.too('balance_log')
 					}, 1500)
 					
 				}).finally(() => {
@@ -300,7 +243,7 @@
 			}
 		}
 
-		// 上方提现金额
+		// 上方转账金额
 		.top {
 			padding: 20px 24rpx 0;
 			
@@ -317,7 +260,7 @@
 			}
 		}
 
-		// 中间选择提现方式
+		// 中间选择转账方式
 		.center {
 
 			padding: 10px 24rpx 60rpx;
@@ -327,7 +270,7 @@
 				padding: 20px 10px;
 				margin-left: 10px;
 
-				// 左侧提现方式图标和文字
+				// 左侧转账方式图标和文字
 				.left {
 					font-size: 36rpx;
 

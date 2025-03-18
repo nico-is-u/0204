@@ -143,7 +143,7 @@
 			<!-- 下方菜单图标 -->
 			<view class="mine_manu flex flex-between">
 				<view class="column flex flex-column flex-y-center">
-					<view class="item flex flex-column flex-y-center">
+					<view class="item flex flex-column flex-y-center" @click="too('translate')">
 						<view class="icon">
 							<image src="/static/mine-icon-1.jpg" mode="widthFix"></image>
 						</view>
