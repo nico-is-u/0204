@@ -668,9 +668,22 @@ view {
 
 .status-box{
 	padding: 20vh 0;
+	position: relative;
 	.text-row{
 		color: #ad1c0b;
 		padding-top: 32rpx;
+		font-size: 46rpx;
+	}
+
+	.text-bottom{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+		width: 100%;
+		text-align: center;
+
+		color:#999999;
 		font-size: 46rpx;
 	}
 }

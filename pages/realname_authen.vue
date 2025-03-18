@@ -19,81 +19,77 @@
 		</view>
 		
 		<!-- 页面正文 -->
-		<view class="section">
+		<view class="section" v-if="isDone2">
 
-			<template v-if="isDone2">
-
-				<view class="page_type_1 padding-box-1" v-if="authenCode == 1">
-					<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
-						<view class="top">姓名</view>
-						<input type="text" v-model="realname" placeholder="请输入姓名" />
-					</view>
-
-					<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
-						<view class="top">身份证号码</view>
-						<input type="text" v-model="id_card_number" placeholder="请输入身份证号码" />
-					</view>
-
-					<!-- 中上方文字提示 -->
-					<!-- <view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
-						<view class="top">请上传身份证的正反面</view>
-						<view class="bottom identity_bottom">正面为国徽面 反面为头像面</view>
-					</view> -->
-		
-					<!-- 中间身份证头像面信息 -->
-					<!-- <view class="gray_box flex"  @click="upload('card_front')">
-						<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
-							<view class="top">头像面</view>
-							<view class="identity_bottom">上传您身份证头像面</view>
-						</view>
-						<image :src="card_front == '' ?  '/static/app2/a.png' : card_front"  mode="widthFix"/>
-					</view> -->
-		
-					<!-- <view class="gray_box flex" @click="upload('card_back')">
-						<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
-							<view class="top">国徽面</view>
-							<view class="identity_bottom">上传您身份证国徽面</view>
-						</view>
-						<image :src="card_back == '' ?  '/static/app2/b.png' : card_back" mode="widthFix"/>
-					</view> -->
-		
-					<!-- <view class="gray_box flex" @click="upload('card_hand')">
-						<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
-							<view class="top">手持身份证拍照</view>
-							<view class="identity_bottom">上传您身手持身份证照片</view>
-						</view>
-						<image :src="card_hand == '' ?  '/static/app2/c.png' : card_hand" mode="widthFix"/>
-					</view> -->
-		
-					<u-button 
-						text="提交申请"
-						:loading="isDone"
-						:loadingText="regStatus"
-						class="red_button_common"
-						style="margin-top: 66rpx"
-						@click="doRealName"
-					>
-					</u-button>
-		
-		
+			<view class="page_type_1 padding-box-1" v-if="authenCode == 1">
+				<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
+					<view class="top">姓名</view>
+					<input type="text" v-model="realname" placeholder="请输入姓名" />
 				</view>
-	
-				<view class="status-box flex flex-column flex-center" v-else>
-					<u-icon v-if="authenCode == 2" name="clock-fill" :size="280" color="#ad1c0b"></u-icon>
-					<u-icon v-if="authenCode == 3" name="checkmark-circle-fill" :size="280" color="#ad1c0b"></u-icon>
-					<u-icon v-if="authenCode == 4" name="close-circle-fill" :size="280" color="#ad1c0b"></u-icon>
-	
-					<view class="text-row">
-						<text v-if="authenCode == 2">审核中</text>
-						<text v-if="authenCode == 3">已完成</text>
-						<text v-if="authenCode == 4">未通过</text>
-					</view>
-	
+
+				<view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
+					<view class="top">身份证号码</view>
+					<input type="text" v-model="id_card_number" placeholder="请输入身份证号码" />
 				</view>
-				
-			</template>
 
+				<!-- 中上方文字提示 -->
+				<!-- <view class="center_tips flex align_items_center flex_direction_column align_items_flex_start">
+					<view class="top">请上传身份证的正反面</view>
+					<view class="bottom identity_bottom">正面为国徽面 反面为头像面</view>
+				</view> -->
+	
+				<!-- 中间身份证头像面信息 -->
+				<!-- <view class="gray_box flex"  @click="upload('card_front')">
+					<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
+						<view class="top">头像面</view>
+						<view class="identity_bottom">上传您身份证头像面</view>
+					</view>
+					<image :src="card_front == '' ?  '/static/app2/a.png' : card_front"  mode="widthFix"/>
+				</view> -->
+	
+				<!-- <view class="gray_box flex" @click="upload('card_back')">
+					<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
+						<view class="top">国徽面</view>
+						<view class="identity_bottom">上传您身份证国徽面</view>
+					</view>
+					<image :src="card_back == '' ?  '/static/app2/b.png' : card_back" mode="widthFix"/>
+				</view> -->
+	
+				<!-- <view class="gray_box flex" @click="upload('card_hand')">
+					<view class="upload_idcard_tips flex flex_direction_column align_items_flex_start">
+						<view class="top">手持身份证拍照</view>
+						<view class="identity_bottom">上传您身手持身份证照片</view>
+					</view>
+					<image :src="card_hand == '' ?  '/static/app2/c.png' : card_hand" mode="widthFix"/>
+				</view> -->
+	
+				<u-button 
+					text="提交申请"
+					:loading="isDone"
+					:loadingText="regStatus"
+					class="red_button_common"
+					style="margin-top: 66rpx"
+					@click="doRealName"
+				>
+				</u-button>
+	
+	
+			</view>
 
+			<view class="status-box flex flex-column flex-center" v-else>
+				<u-icon v-if="authenCode == 2" name="clock-fill" :size="280" color="#ad1c0b"></u-icon>
+				<u-icon v-if="authenCode == 3" name="checkmark-circle-fill" :size="280" color="#ad1c0b"></u-icon>
+				<u-icon v-if="authenCode == 4" name="close-circle-fill" :size="280" color="#ad1c0b"></u-icon>
+
+				<view class="text-row">
+					<text v-if="authenCode == 2">审核中</text>
+					<text v-if="authenCode == 3">已完成</text>
+					<text v-if="authenCode == 4">未通过</text>
+				</view>
+
+				<view class="text-bottom" v-if="authenCode == 4" @click="authenCode = 1">点此重新录入</view>
+
+			</view>
 		</view>
 
 		<view id="kefu" @click="kefu"></view>
@@ -120,6 +116,8 @@ export default {
 	},
 	onLoad() {
 
+		uni.showLoading({mask:true})
+
 		/* 检查认证状态 */
 		this.to.www(this.api.authentication)
 			.then(res => {
@@ -127,6 +125,7 @@ export default {
 			})
 			.finally(() => {
 				this.isDone2 = true
+				uni.hideLoading()
 			})
 
 		this.to.www(this.api.user_info)
